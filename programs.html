@@ -1,0 +1,2766 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Programs - JE Tech Hub</title>
+<meta name="description" content="Explore our comprehensive technology training programs at JE Tech Hub - Software Development, Data Analysis, UI/UX Design, Forex Trading, and more.">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="images/JE Techhub logo - Copy.png" type="image/x-icon">
+<!-- CSS Files -->
+<style>
+	/* Reset and Base Styles */
+
+:root {
+    /* Color Palette */
+    --primary-50: #eff6ff;
+    --primary-100: #dbeafe;
+    --primary-200: #bfdbfe;
+    --primary-300: #93c5fd;
+    --primary-400: #60a5fa;
+    --primary-500: #3b82f6;
+    --primary-600:darkblue;
+    --primary-700: #1d4ed8;
+    --primary-800: #1e40af;
+    --primary-900: #1e3a8a;
+    
+    --gray-50: #f9fafb;
+    --gray-100: #f3f4f6;
+    --gray-200: #e5e7eb;
+    --gray-300: #d1d5db;
+    --gray-400: #9ca3af;
+    --gray-500: #6b7280;
+    --gray-600: #4b5563;
+    --gray-700: #374151;
+    --gray-800: #1f2937;
+    --gray-900: #111827;
+    
+    --orange-500: #f97316;
+    --orange-600: #ea580c;
+    --green-500: #10b981;
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+    
+    /* Border Radius */
+    --radius-sm: 0.125rem;
+    --radius: 0.25rem;
+    --radius-md: 0.375rem;
+    --radius-lg: 0.5rem;
+    --radius-xl: 0.75rem;
+    --radius-2xl: 1rem;
+    --radius-3xl: 1.5rem;
+    --radius-full: 9999px;
+    
+    /* Spacing */
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-5: 1.25rem;
+    --space-6: 1.5rem;
+    --space-8: 2rem;
+    --space-10: 2.5rem;
+    --space-12: 3rem;
+    --space-16: 4rem;
+    --space-20: 5rem;
+    --space-24: 6rem;
+    --space-32: 8rem;
+    
+    /* Typography */
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 1.875rem;
+    --font-size-4xl: 2.25rem;
+    --font-size-5xl: 3rem;
+    --font-size-6xl: 3.75rem;
+    
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    
+    /* Transitions */
+    --transition-fast: 0.15s ease-out;
+    --transition-base: 0.3s ease-out;
+    --transition-slow: 0.6s ease-out;
+}
+
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Colors */
+    --primary: darkblue;
+    /* --primary: #2563eb; */
+    --secondary: #f59e0b;
+    --background: #ffffff;
+    --muted: #f8fafc;
+    --text-primary:black;
+    --text-secondary: black;
+    --border: #e2e8f0;
+    --card-bg: #ffffff;
+    --muted: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    /* --muted: 0 10px 15px -3px rgba(0, 0, 0, 0.1); */
+    --footer-bg: #1e3a8a;
+    --footer-text: #e2e8f0;
+    
+    /* Typography */
+    --font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 1.875rem;
+    --font-size-4xl: 2.25rem;
+    
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 0.75rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-2xl: 3rem;
+    --spacing-3xl: 4rem;
+    
+    /* Transitions */
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--gray-900);
+    background-color: white;
+    min-height: 100vh;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-4);
+}
+
+/* Typography */
+.text-primary {
+    color: var(--primary-600);
+}
+
+.font-semibold {
+    font-weight: var(--font-weight-semibold);
+}
+
+/* Icons */
+.icon {
+    width: 2rem;
+    height: 2rem;
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-3) var(--space-6);
+    border-radius: var(--radius-lg);
+    font-weight: var(--font-weight-medium);
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    font-size: var(--font-size-base);
+    gap: var(--space-2);
+}
+
+.btn-primary {
+    background-color: var(--primary-600);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-700);
+    box-shadow: var(--shadow-lg);
+}
+
+.btn-orange {
+    background-color: var(--orange-500);
+    color: white;
+}
+
+.btn-orange:hover {
+    background-color: var(--orange-600);
+    box-shadow: var(--shadow-lg);
+}
+
+.btn-outline {
+    border: 1px solid var(--primary-600);
+    color: var(--primary-600);
+    background-color: transparent;
+}
+
+.btn-outline:hover {
+    background-color: var(--primary-50);
+}
+
+.btn-outline-white {
+    border: 1px solid white;
+    color: white;
+    background-color: transparent;
+}
+
+.btn-outline-white:hover {
+    background-color: white;
+    color: var(--primary-600);
+}
+
+.btn-white {
+    background-color: white;
+    color: var(--primary-600);
+}
+
+.btn-white:hover {
+    background-color: var(--gray-100);
+}
+
+.btn-lg {
+    padding: var(--space-4) var(--space-8);
+    font-size: var(--font-size-lg);
+}
+
+.btn-xl {
+    padding: var(--space-4) var(--space-12);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-xl);
+}
+
+.btn-xl:hover {
+    box-shadow: var(--shadow-2xl);
+}
+
+.btn-arrow {
+    width: 1.5rem;
+    height: 1.5rem;
+    transition: transform var(--transition-base);
+}
+
+.btn:hover .btn-arrow {
+    transform: translateX(4px);
+}
+
+/* Breadcrumb */
+.breadcrumb {
+    background-color: var(--gray-50);
+    padding: var(--space-4) 0;
+    margin-top: var(--space-8);
+    position: sticky;
+    top: 0;
+    z-index: 10	;
+}
+
+.breadcrumb-nav {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--font-size-sm);
+}
+
+.breadcrumb-link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+    color: var(--gray-600);
+    text-decoration: none;
+    transition: color var(--transition-base);
+}
+
+.breadcrumb-link:hover {
+    color: var(--primary-600);
+}
+
+.breadcrumb-icon,
+.breadcrumb-separator {
+    width: 1rem;
+    height: 1rem;
+}
+
+.breadcrumb-separator {
+    color: var(--gray-400);
+}
+
+.breadcrumb-current {
+    color: var(--primary-600);
+    font-weight: var(--font-weight-medium);
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--primary-50), white);
+    padding-top: var(--space-20);
+}
+
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('https://images.unsplash.com/photo-1605810230434-7631ac76ec81?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    max-width: 64rem;
+    margin: 0 auto;
+}
+
+.hero-title {
+    font-size: var(--font-size-4xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--gray-900);
+    margin-bottom: var(--space-6);
+    line-height: 1.2;
+}
+
+.hero-subtitle {
+    font-size: var(--font-size-xl);
+    color: var(--gray-600);
+    margin-bottom: var(--space-8);
+    max-width: 48rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    align-items: center;
+    justify-content: center;
+}
+
+/* Programs Hero */
+.programs-hero {
+    background: linear-gradient(135deg, var(--primary-600), var(--primary-800));
+    color: white;
+    padding: var(--space-20) 0;
+}
+
+.programs-hero-content {
+    text-align: center;
+}
+
+.programs-hero-title {
+    font-size: var(--font-size-5xl);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--space-6);
+}
+
+.programs-hero-subtitle {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--space-4);
+    color: var(--primary-100);
+}
+
+.programs-hero-description {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-8);
+    max-width: 48rem;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.75;
+}
+
+.programs-hero-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    align-items: center;
+    justify-content: center;
+}
+
+/* Programs Main */
+.programs-main {
+    padding: var(--space-16) 0;
+}
+
+.programs-layout {
+    display: flex;
+    gap: var(--space-8);
+}
+
+.programs-content {
+    flex: 1;
+}
+
+.programs-sidebar {
+    display: none;
+    width: 20rem;
+}
+
+.sidebar-sticky {
+    position: sticky;
+    top: 6rem;
+}
+
+.sidebar-nav {
+    background: white;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+    padding: var(--space-6);
+    margin-bottom: var(--space-6);
+}
+
+.sidebar-title {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--gray-900);
+    margin-bottom: var(--space-6);
+}
+
+.sidebar-links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.sidebar-link {
+    display: block;
+    padding: var(--space-4);
+    border-radius: var(--radius-lg);
+    text-decoration: none;
+    transition: all var(--transition-base);
+    color: var(--gray-700);
+}
+
+.sidebar-link:hover,
+.sidebar-link.active {
+    background-color: var(--primary-100);
+    color: var(--primary-700);
+    border-left: 4px solid var(--primary-600);
+}
+
+.sidebar-link-title {
+    font-weight: var(--font-weight-medium);
+}
+
+.sidebar-link-meta {
+    font-size: var(--font-size-sm);
+    color: var(--gray-500);
+    margin-top: var(--space-1);
+}
+
+.sidebar-cta {
+    background: linear-gradient(135deg, var(--primary-600), var(--primary-800));
+    color: white;
+    border-radius: var(--radius-xl);
+    padding: var(--space-6);
+}
+
+.sidebar-cta-title {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--space-3);
+}
+
+.sidebar-cta-description {
+    color: var(--primary-100);
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--space-4);
+}
+
+.sidebar-cta-btn {
+    width: 100%;
+}
+
+/* Program Cards */
+.program-card {
+    background: white;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+    margin-bottom: var(--space-12);
+    transition: box-shadow var(--transition-base);
+}
+
+.program-card:hover {
+    box-shadow: var(--shadow-xl);
+}
+
+.program-images {
+    position: relative;
+    height: 16rem;
+    overflow: hidden;
+}
+
+.slideshow-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.slide {
+    display: none;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity var(--transition-base);
+}
+
+.slide.active {
+    display: block;
+}
+
+.slide-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: var(--space-2);
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    transition: background var(--transition-base);
+    z-index: 10;
+}
+
+.slide-btn:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.slide-btn svg {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.slide-prev {
+    left: var(--space-4);
+}
+
+.slide-next {
+    right: var(--space-4);
+}
+
+.slide-indicators {
+    position: absolute;
+    bottom: var(--space-4);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: var(--space-2);
+}
+
+.indicator {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: var(--radius-full);
+    background: rgba(255, 255, 255, 0.5);
+    border: none;
+    cursor: pointer;
+    transition: background var(--transition-base);
+}
+
+.indicator.active {
+    background: white;
+}
+
+.program-content {
+    padding: var(--space-8);
+}
+
+.program-header {
+    margin-bottom: var(--space-6);
+}
+
+.program-title {
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--gray-900);
+    margin-bottom: var(--space-4);
+}
+
+.program-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    font-size: var(--font-size-sm);
+}
+
+.program-meta-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    color: var(--gray-600);
+}
+
+.meta-icon {
+    width: 1rem;
+    height: 1rem;
+}
+
+.meta-label {
+    font-weight: var(--font-weight-medium);
+}
+
+.program-description {
+    color: var(--gray-700);
+    font-size: var(--font-size-lg);
+    line-height: 1.75;
+    margin-bottom: var(--space-6);
+}
+
+.program-skills {
+    margin-bottom: var(--space-8);
+}
+
+.skills-title {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+    color: var(--gray-900);
+    margin-bottom: var(--space-4);
+}
+
+.skills-list {
+    list-style: none;
+    display: grid;
+    gap: var(--space-3);
+}
+
+.skill-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+}
+
+.skill-check {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: var(--green-500);
+    margin-top: 0.125rem;
+    flex-shrink: 0;
+}
+
+.program-cta {
+    text-align: center;
+}
+
+.program-register-btn {
+    padding: var(--space-3) var(--space-12);
+    font-weight: var(--font-weight-semibold);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+}
+
+.program-register-btn:hover {
+    box-shadow: var(--shadow-xl);
+}
+
+/* Programs Final CTA */
+.programs-final-cta {
+    background: linear-gradient(135deg, var(--gray-900), var(--gray-800));
+    color: white;
+    padding: var(--space-20) 0;
+}
+
+.final-cta-content {
+    text-align: center;
+    max-width: 64rem;
+    margin: 0 auto;
+}
+
+.final-cta-icon {
+    margin: 0 auto var(--space-6);
+}
+
+.final-cta-icon svg {
+    width: 3rem;
+    height: 3rem;
+    color: var(--orange-500);
+}
+
+.final-cta-title {
+    font-size: var(--font-size-4xl);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--space-6);
+}
+
+.final-cta-description {
+    font-size: var(--font-size-xl);
+    color: var(--gray-300);
+    margin-bottom: var(--space-8);
+    line-height: 1.75;
+}
+
+.final-cta-stats {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-4);
+    margin-bottom: var(--space-12);
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--orange-500);
+}
+
+.stat-label {
+    color: var(--gray-400);
+}
+
+.stat-divider {
+    display: none;
+    width: 1px;
+    height: 3rem;
+    background: var(--gray-600);
+}
+
+.final-cta-button {
+    margin-bottom: var(--space-6);
+}
+
+.final-cta-note {
+    color: var(--gray-400);
+    font-size: var(--font-size-sm);
+}
+
+/* Sections */
+.section {
+    margin-top: var(--space-20) 0;
+}
+
+.section-header {
+    text-align: center;
+    max-width: 64rem;
+    margin: 0 auto;
+    margin-bottom: var(--space-16);
+}
+
+.section-title {
+    font-size: var(--font-size-4xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--gray-900);
+    margin-bottom: var(--space-4);
+}
+
+.section-subtitle {
+    font-size: var(--font-size-xl);
+    color: var(--gray-600);
+    max-width: 48rem;
+    margin: 0 auto;
+}
+
+.section-divider {
+    width: 6rem;
+    height: 4px;
+    background-color: var(--primary-600);
+    margin: 0 auto var(--space-8);
+}
+
+.section-tag {
+    color: var(--primary-600);
+    font-weight: var(--font-weight-semibold);
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-2);
+}
+
+/* About Section */
+.about {
+    background-color: white;
+}
+
+.about-intro {
+    font-size: var(--font-size-lg);
+    color: var(--gray-600);
+    line-height: 1.75;
+}
+
+.about-intro p {
+    margin-bottom: var(--space-6);
+}
+
+.about-content {
+    display: grid;
+    gap: var(--space-12);
+    align-items: center;
+    margin-top: var(--space-16);
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+}
+
+.img-rounded-shadow {
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-2xl);
+}
+
+.about-subtitle {
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--gray-900);
+    margin-bottom: var(--space-6);
+}
+
+.about-text p {
+    color: var(--gray-600);
+    line-height: 1.75;
+    margin-bottom: var(--space-6);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+    padding-top: var(--space-4);
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--primary-600);
+}
+
+.stat-label {
+    font-size: var(--font-size-sm);
+    color: var(--gray-600);
+}
+
+/* Mission Vision Section */
+.mission-vision {
+    background-color: var(--gray-50);
+}
+
+.mission-vision-grid {
+    display: grid;
+    gap: var(--space-12);
+}
+
+.card {
+    background-color: white;
+    border-radius: var(--radius-xl);
+    padding: var(--space-8);
+    box-shadow: var(--shadow-lg);
+    transition: box-shadow var(--transition-base);
+}
+
+.card:hover {
+    box-shadow: var(--shadow-xl);
+}
+
+.card-icon {
+    margin-bottom: var(--space-6);
+}
+
+.icon-circle {
+    width: 4rem;
+    height: 4rem;
+    background-color: var(--primary-100);
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-dot {
+    width: 2rem;
+    height: 2rem;
+    background-color: var(--primary-600);
+    border-radius: var(--radius-full);
+}
+
+.card-title {
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--gray-900);
+    margin-bottom: var(--space-4);
+}
+
+.card-text {
+    color: var(--gray-600);
+    line-height: 1.75;
+}
+
+.card-quote {
+    color: var(--gray-600);
+    line-height: 1.75;
+    font-style: italic;
+}
+
+/* Journey Section */
+.journey {
+    background-color: white;
+}
+
+.timeline-container {
+    max-width: 64rem;
+    margin: 0 auto;
+}
+
+.timeline-line {
+    position: absolute;
+    left: var(--space-4);
+    width: 2px;
+    height: 100%;
+    background-color: var(--primary-200);
+}
+
+.timeline-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--space-12);
+}
+
+.timeline-dot {
+    position: absolute;
+    left: var(--space-4);
+    transform: translateX(-50%);
+    width: 2rem;
+    height: 2rem;
+    background-color: var(--primary-600);
+    border-radius: var(--radius-full);
+    border: 4px solid white;
+    box-shadow: var(--shadow-lg);
+    z-index: 10;
+}
+
+.timeline-content {
+    margin-left: var(--space-16);
+    background: white;
+    border-radius: var(--radius-xl);
+    padding: var(--space-6);
+    box-shadow: var(--shadow-lg);
+    transition: box-shadow var(--transition-base);
+}
+
+.timeline-content:hover {
+    box-shadow: var(--shadow-xl);
+}
+
+.timeline-year {
+    color: var(--primary-600);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-2);
+}
+
+.timeline-title {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--gray-900);
+    margin-bottom: var(--space-2);
+}
+
+.timeline-description {
+    color: var(--gray-600);
+}
+
+/* Values Section */
+.values {
+    background-color: var(--gray-50);
+}
+
+.values-grid {
+    display: grid;
+    gap: var(--space-8);
+}
+
+.value-card {
+    background-color: white;
+    border-radius: var(--radius-xl);
+    padding: var(--space-6);
+    box-shadow: var(--shadow-lg);
+    transition: all var(--transition-base);
+    position: relative;
+    overflow: hidden;
+}
+
+.value-card:hover {
+    box-shadow: var(--shadow-xl);
+    transform: translateY(-8px);
+}
+
+.value-number {
+    font-size: var(--font-size-4xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--primary-600);
+    opacity: 0.2;
+    position: absolute;
+    top: var(--space-4);
+    right: var(--space-4);
+    transition: opacity var(--transition-base);
+}
+
+.value-card:hover .value-number {
+    opacity: 1;
+}
+
+.value-icon {
+    margin-bottom: var(--space-4);
+}
+
+.value-icon svg {
+    width: 2rem;
+    height: 2rem;
+    color: var(--primary-600);
+}
+
+.value-title {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--gray-900);
+    margin-bottom: var(--space-3);
+}
+
+.value-description {
+    color: var(--gray-600);
+    line-height: 1.75;
+}
+
+/* Services Section */
+.services {
+    background-color: white;
+}
+
+.services-grid {
+    display: grid;
+    gap: var(--space-8);
+    margin-bottom: var(--space-16);
+}
+
+.service-card {
+    text-align: center;
+    transition: transform var(--transition-base);
+}
+
+.service-card:hover {
+    transform: scale(1.05);
+}
+
+.service-icon {
+    width: 5rem;
+    height: 5rem;
+    background-color: var(--primary-100);
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--space-6);
+    transition: background-color var(--transition-base);
+}
+
+.service-card:hover .service-icon {
+    background-color: var(--primary-600);
+}
+
+.service-icon svg {
+    width: 2.5rem;
+    height: 2.5rem;
+    color: var(--primary-600);
+    transition: color var(--transition-base);
+}
+
+.service-card:hover .service-icon svg {
+    color: white;
+}
+
+.service-title {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--gray-900);
+    margin-bottom: var(--space-4);
+}
+
+.service-description {
+    color: var(--gray-600);
+    line-height: 1.75;
+}
+
+.services-cta {
+    text-align: center;
+}
+
+.cta-card {
+    background-color: var(--primary-50);
+    border-radius: var(--radius-2xl);
+    padding: var(--space-8) var(--space-12);
+    max-width: 64rem;
+    margin: 0 auto;
+}
+
+.cta-title {
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--gray-900);
+    margin-bottom: var(--space-4);
+}
+
+.cta-description {
+    color: var(--gray-600);
+    font-size: var(--font-size-lg);
+}
+
+/* Call to Action Section */
+.cta-section {
+    background: linear-gradient(135deg, var(--primary-600), var(--primary-800));
+    color: white;
+}
+
+.cta-content {
+    text-align: center;
+    max-width: 64rem;
+    margin: 0 auto;
+}
+
+.cta-main-title {
+    font-size: var(--font-size-4xl);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--space-6);
+}
+
+.cta-main-description {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--space-8);
+    opacity: 0.9;
+    line-height: 1.75;
+}
+
+.cta-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    align-items: center;
+    justify-content: center;
+}
+/* vARIABLES */
+
+:root {
+/* Color Palette */
+--primary-50: #eff6ff;
+--primary-100: #dbeafe;
+--primary-200: #bfdbfe;
+--primary-300: #93c5fd;
+--primary-400: #60a5fa;
+--primary-500: #3b82f6;
+--primary-600: darkblue;
+--primary-700: #1d4ed8;
+--primary-800: #122a7c;
+--primary-900: darkblue;
+
+--gray-50: #f9fafb;
+--gray-100: #f3f4f6;
+--gray-200: #e5e7eb;
+--gray-300: #d1d5db;
+--gray-400: #9ca3af;
+--gray-500: #6b7280;
+--gray-600: #4b5563;
+--gray-700: #374151;
+--gray-800: #1f2937;
+--gray-900: #111827;
+
+--orange-500: #f97316;
+--orange-600: #ea580c;
+
+/* Shadows */
+--shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+--shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+--shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+--shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+--shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+--shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+
+/* Border Radius */
+--radius-sm: 0.125rem;
+--radius: 0.25rem;
+--radius-md: 0.375rem;
+--radius-lg: 0.5rem;
+--radius-xl: 0.75rem;
+--radius-2xl: 1rem;
+--radius-3xl: 1.5rem;
+--radius-full: 9999px;
+
+
+/* Spacing */
+--space-1: 0.25rem;
+--space-2: 0.5rem;
+--space-3: 0.75rem;
+--space-4: 1rem;
+--space-5: 1.25rem;
+--space-6: 1.5rem;
+--space-8: 2rem;
+--space-10: 2.5rem;
+--space-12: 3rem;
+--space-16: 4rem;
+--space-20: 5rem;
+--space-24: 6rem;
+--space-32: 8rem;
+
+/* Typography */
+--font-size-sm: 0.875rem;
+--font-size-base: 1rem;
+--font-size-lg: 1.125rem;
+--font-size-xl: 1.25rem;
+--font-size-2xl: 1.5rem;
+--font-size-3xl: 1.875rem;
+--font-size-4xl: 2.25rem;
+--font-size-5xl: 3rem;
+--font-size-6xl: 3.75rem;
+
+--font-weight-normal: 400;
+--font-weight-medium: 500;
+--font-weight-semibold: 600;
+--font-weight-bold: 700;
+
+/* Transitions */
+--transition-fast: 0.15s ease-out;
+--transition-base: 0.3s ease-out;
+--transition-slow: 0.6s ease-out;
+}
+
+
+
+/* Footer */
+.footer {
+background-color: rgb(32, 32, 46);
+color: white;
+padding: var(--space-16) 0 var(--space-8);
+
+}
+
+.footer-content {
+display: grid;
+gap: var(--space-8);
+margin-bottom: var(--space-12);
+}
+
+.footer-brand {
+max-width: 24rem;
+}
+
+.footer-logo {
+font-size: var(--font-size-2xl);
+font-weight: var(--font-weight-bold);
+color: var(--primary-400);
+margin-bottom: var(--space-4);
+}
+
+.footer-description {
+color: var(--gray-400);
+line-height: 1.75;
+}
+
+.footer-title {
+font-size: var(--font-size-lg);
+font-weight: var(--font-weight-semibold);
+margin-bottom: var(--space-4);
+}
+
+.footer-list {
+list-style: none;
+}
+
+.footer-list li {
+margin-bottom: var(--space-2);
+}
+
+.footer-link {
+color: var(--gray-400);
+text-decoration: none;
+transition: color var(--transition-base);
+}
+
+.footer-link:hover {
+color: white;
+}
+
+.hours-content {
+color: var(--gray-400);
+}
+
+.hours-day {
+margin-bottom: var(--space-1);
+}
+
+.hours-time {
+font-weight: var(--font-weight-medium);
+margin-bottom: var(--space-2);
+}
+
+.footer-bottom {
+border-top: 1px solid var(--gray-700);
+padding-top: var(--space-8);
+}
+
+.footer-bottom-content {
+display: flex;
+flex-direction: column;
+gap: var(--space-4);
+align-items: center;
+}
+
+.footer-copyright {
+color: var(--gray-400);
+}
+
+.footer-social {
+display: flex;
+gap: var(--space-6);
+}
+
+.social-link {
+color: var(--gray-400);
+text-decoration: none;
+transition: color var(--transition-base);
+}
+
+.social-link:hover {
+color: var(--primary-400);
+}
+/* Responsive Design */
+@media (min-width: 640px) {
+    .hero-buttons,
+    .programs-hero-buttons,
+    .cta-buttons {
+        flex-direction: row;
+    }
+    
+    .final-cta-stats {
+        flex-direction: row;
+    }
+    
+    .stat-divider {
+        display: block;
+    }
+    
+    .skills-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 768px) {
+    .nav-desktop {
+        display: flex;
+    }
+    
+    .header-cta {
+        display: block;
+    }
+    
+    .mobile-menu-btn {
+        display: none;
+    }
+    
+    .hero-title,
+    .programs-hero-title {
+        font-size: var(--font-size-6xl);
+    }
+    
+    .hero-subtitle {
+        font-size: var(--font-size-2xl);
+    }
+    
+    .section-title {
+        font-size: var(--font-size-5xl);
+    }
+    
+    .about-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .mission-vision-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .timeline-line {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .timeline-item {
+        width: 50%;
+    }
+    
+    .timeline-item-reverse {
+        margin-left: 50%;
+    }
+    
+    .timeline-dot {
+        left: 50%;
+    }
+    
+    .timeline-content {
+        margin-left: 0;
+    }
+    
+    .timeline-item-reverse .timeline-content {
+        margin-right: var(--space-8);
+    }
+    
+    .values-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .footer-content {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .footer-bottom-content {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+@media (min-width: 1024px) {
+    .programs-sidebar {
+        display: block;
+    }
+    
+    .values-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .services-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .final-cta-title {
+        font-size: var(--font-size-5xl);
+    }
+}
+
+</style>
+</head>
+<body>
+<style type="text/css">
+
+
+.header{display: grid;
+     align-items: center;justify-content: center;}
+
+@media (width > 768px){.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}}
+
+.nav-brand  {
+  display: flex;
+align-items: center;
+justify-content: center;
+img{scale: .8;}
+}
+.nav-menu {
+display: flex;
+gap: var(--spacing-sm);
+flex-wrap: wrap;
+justify-content: center;
+}
+
+.nav-link {
+color: var(--text-primary);
+text-decoration: none;
+font-weight: 500;
+transition: var(--transition);
+position: relative;
+padding-inline: var(--spacing-md);
+border-bottom:3px solid darkblue ;
+border-radius: 5px;
+}
+
+
+.nav-link:hover {
+color: var(--primary);
+scale: 1.3;
+border: none;
+}
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 50%;
+    background-color: var(--primary);
+    transition: var(--transition);
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.contact-btn {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    display: none;
+}
+
+.heading{
+color: darkblue;
+position: relative;
+}
+
+.heading::after{
+position: absolute;
+content: " ";
+width: 70%;
+height: 3px;
+background: darkblue;
+left: 0;
+}
+
+
+.heading::before{
+position: absolute;
+content: " ";
+width: 30%;
+height: 3px;
+background: darkblue;
+left: 0;
+bottom: 0%;
+}
+
+.orangeHeading{
+color: darkblue;
+position: relative;
+}
+
+.orangeHeading::before{
+position: absolute;
+content: " ";
+width: 10%;
+height: 3px;
+background: orangered;
+left: -1;
+bottom: 0%;
+}
+
+.lineHeight{
+line-height: 2em;
+}
+
+button a{
+text-decoration: none;
+color:white;
+}
+
+.programsIntro{
+padding: 0.9rem;
+p{padding: 0.9rem 0;}
+}
+
+
+
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 53%, 80%, 100% {
+        transform: translate3d(0,0,0);
+    }
+    40%, 43% {
+        transform: translate3d(0, -20px, 0);
+    }
+    70% {
+        transform: translate3d(0, -10px, 0);
+    }
+    90% {
+        transform: translate3d(0, -4px, 0);
+    }
+}
+
+.animate-fadeInUp {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.animate-fadeInScale {
+    animation: fadeInScale 0.5s ease-out;
+}
+
+.animate-slideInLeft {
+    animation: slideInLeft 0.6s ease-out;
+}
+
+.animate-slideInRight {
+    animation: slideInRight 0.6s ease-out;
+}
+
+.animate-bounce {
+    animation: bounce 2s infinite;
+}
+
+</style>
+
+
+
+
+
+
+
+<!-- Header -->
+<header class="header">
+    <div class="nav-brand">
+<img src="images/updatedLogo.jpg" max-width="50%" height="100px" alt="je-tech-hub logo">    </div>
+<div class="container">
+
+<nav class="nav-menu" id="navMenu">
+<a href="index.html" class="nav-link">Home</a>
+<a href="gadgets.html" class="nav-link">JE Gadgets </a>
+<a href="aboutUs.html" class="nav-link">About Us</a>
+<a href="programs.html" class="nav-link">Programs</a>
+<a href="contactUs.html" class="nav-link">Contact Us</a>
+</nav>
+<button class="contact-btn"><a href="getStarted.html">Get Started</a></button>
+<button class="mobile-toggle" id="mobileToggle">
+<span></span>
+<span></span>
+<span></span>
+</button>
+</div>
+</header>
+
+<!-- Programs Breadcrumb -->
+
+
+<!-- Programs Hero -->
+<section class="programs-hero">
+<div class="container">
+<div class="programs-hero-content">
+<h1 class="programs-hero-title animate-fade-in">
+Advance Your Tech Career
+</h1>
+
+<div class="programs-hero-buttons animate-fade-in">
+<button class="btn btn-orange btn-lg"> <a href="#explore">Explore Programs</a></button>
+<button class="btn btn-outline-white btn-lg"> <a href="contactUs.html">Contact Us</a>  </button>
+</div>
+</div>
+</div>
+</section>
+<!--<div class="breadcrumb">
+<div class="container">
+<nav class="breadcrumb-nav">
+<a href="index.html" class="breadcrumb-link">
+<svg class="breadcrumb-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+</svg>
+Home
+</a>
+<svg class="breadcrumb-separator" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+</svg>
+<span class="breadcrumb-current">Programs</span>
+</nav>
+</div>
+</div>-->
+<!-- Programs Main Content -->
+
+<div class="programsIntro" id="explore">
+	
+<h2 class="orangeHeading animate-fade-in">
+Innovation at Your Fingertips
+</h2>
+<p class="animate-fade-in">
+Transform your future with our comprehensive technology training programs. 
+At JE Tech Hub, we empower individuals with cutting-edge skills and practical 
+knowledge to excel in today's digital world.
+</p>
+</div>
+
+<div class="programs-main">
+<div class="container">
+<div class="programs-layout">
+<!-- Main Content -->
+<div class="programs-content">
+<!-- Software Development -->
+<div id="software-development" class="program-card">
+<!-- Image Slideshow -->
+<div class="program-images">
+<div class="slideshow-container">
+<img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&h=400&fit=crop" alt="Software Development" class="slide active">
+<img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800&h=400&fit=crop" alt="Software Development" class="slide">
+<img src="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=800&h=400&fit=crop" alt="Software Development" class="slide">
+<img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=800&h=400&fit=crop" alt="Software Development" class="slide">
+
+<!-- Navigation Arrows -->
+<button class="slide-btn slide-prev" onclick="changeSlide('software-development', -1)">
+<svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+</svg>
+</button>
+<button class="slide-btn slide-next" onclick="changeSlide('software-development', 1)">
+<svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+</svg>
+</button>
+
+<!-- Indicators -->
+<div class="slide-indicators">
+<button class="indicator active" onclick="currentSlide('software-development', 1)"></button>
+<button class="indicator" onclick="currentSlide('software-development', 2)"></button>
+<button class="indicator" onclick="currentSlide('software-development', 3)"></button>
+<button class="indicator" onclick="currentSlide('software-development', 4)"></button>
+</div>
+</div>
+</div>
+
+<div class="program-content">
+<!-- Header -->
+<div class="program-header">
+<h3 class="program-title orangeHeading " id="webdev">Software Development</h3>
+<div class="program-meta">
+<div class="program-meta-item">
+<svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+</svg>
+<span class="meta-label">Duration:</span>
+<span class="meta-value">8 Weeks</span>
+</div>
+<div class="program-meta-item">
+<svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+</svg>
+<span class="meta-label">Level:</span>
+<span class="meta-value">Beginner to Intermediate</span>
+</div>
+</div>
+</div>
+
+<!-- Description -->
+<p class="program-description">
+Master the art of creating powerful applications and websites. Learn multiple programming languages, frameworks, and development methodologies used by top tech companies worldwide.
+</p>
+
+<!-- Key Skills -->
+<div class="program-skills">
+<h4 class="skills-title">What You'll Learn:</h4>
+<ul class="skills-list">
+<li class="skill-item">
+<svg class="skill-check" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+</svg>
+<span>HTML, CSS, JavaScript</span>
+</li>
+<li class="skill-item">
+<svg class="skill-check" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+</svg>
+<span>Responsive Design</span>
+</li>
+<li class="skill-item">
+<svg class="skill-check" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+</svg>
+<span>Git Version Control & Team Collaboration</span>
+</li>
+<li class="skill-item">
+<svg class="skill-check" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+</svg>
+<span>API Development & Integration</span>
+</li>
+<li class="skill-item">
+<svg class="skill-check" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+</svg>
+<span>Testing & Debugging Techniques</span>
+</li>
+</ul>
+</div>
+
+<!-- Register Button -->
+<div class="program-cta">
+<button class="btn btn-primary btn-lg program-register-btn">
+ <a href="getStarted.html">Register Now</a>
+</button>
+</div>
+</div>
+</div>
+
+<!-- Data Analysis -->
+<div id="data-analysis" class="program-card">
+<!-- Image Slideshow -->
+<div class="program-images">
+<div class="slideshow-container">
+<img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop" alt="Data Analysis" class="slide active">
+<img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop" alt="Data Analysis" class="slide">
+<img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&h=400&fit=crop" alt="Data Analysis" class="slide">
+<img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=400&fit=crop" alt="Data Analysis" class="slide">
+
+<!-- Navigation Arrows -->
+<button class="slide-btn slide-prev" onclick="changeSlide('data-analysis', -1)">
+<svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+</svg>
+</button>
+<button class="slide-btn slide-next" onclick="changeSlide('data-analysis', 1)">
+<svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+</svg>
+</button>
+
+<!-- Indicators -->
+<div class="slide-indicators">
+<button class="indicator active" onclick="currentSlide('data-analysis', 1)"></button>
+<button class="indicator" onclick="currentSlide('data-analysis', 2)"></button>
+<button class="indicator" onclick="currentSlide('data-analysis', 3)"></button>
+<button class="indicator" onclick="currentSlide('data-analysis', 4)"></button>
+</div>
+</div>
+</div>
+
+<div class="program-content">
+<!-- Header -->
+<div class="program-header">
+<h3 class="program-title  orangeHeading" id="dataAnalysis">Data Analysis</h3>
+<div class="program-meta">
+<div class="program-meta-item">
+<svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+</svg>
+<span class="meta-label">Duration:</span>
+<span class="meta-value">12 Weeks</span>
+</div>
+<div class="program-meta-item">
+<svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+</svg>
+<span class="meta-label">Level:</span>
+<span class="meta-value">Beginner to Intermediate</span>
+</div>
+</div>
+</div>
+
+<!-- Description -->
+<p class="program-description">
+Transform raw data into actionable insights. Learn to analyze, visualize, and interpret data using industry-standard tools and statistical methods.
+</p>
+
+<!-- Key Skills -->
+<div class="program-skills">
+<h4 class="skills-title">What You'll Learn:</h4>
+<ul class="skills-list">
+<li class="skill-item">
+<svg class="skill-check" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+</svg>
+<span>Python for Data Science & Analytics</span>
+</li>
+<li class="skill-item">
+<svg class="skill-check" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+</svg>
+<span>Excel Advanced Functions & Pivot Tables</span>
+</li>
+<li class="skill-item">
+<svg class="skill-check" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+</svg>
+<span>SQL Database Querying</span>
+</li>
+<li class="skill-item">
+<svg class="skill-check" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+</svg>
+<span>Power BI & Tableau Visualization</span>
+</li>
+<li class="skill-item">
+<svg class="skill-check" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+</svg>
+<span>Statistical Analysis & Machine Learning Basics</span>
+</li>
+</ul>
+</div>
+
+<!-- Register Button -->
+<div class="program-cta">
+<button class="btn btn-primary btn-lg program-register-btn">
+<a href="getStarted.html">Register Now </a>
+</button>
+</div>
+</div>
+</div>
+
+<!-- UI/UX Design -->
+<div id="ui-ux-design UI/UX" class="program-card">
+<!-- Image Slideshow -->
+<div class="program-images">
+<div class="slideshow-container">
+<img src="https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=800&h=400&fit=crop" alt="UI/UX Design" class="slide active">
+<img src="https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?w=800&h=400&fit=crop" alt="UI/UX Design" class="slide">
+<img src="https://images.unsplash.com/photo-1558655146-364adaf1fcc9?w=800&h=400&fit=crop" alt="UI/UX Design" class="slide">
+<img src="https://images.unsplash.com/photo-1559028006-448065bd8add?w=800&h=400&fit=crop" alt="UI/UX Design" class="slide">
+
+<!-- Navigation Arrows -->
+<button class="slide-btn slide-prev" onclick="changeSlide('ui-ux-design', -1)">
+<svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+</svg>
+</button>
+<button class="slide-btn slide-next" onclick="changeSlide('ui-ux-design', 1)">
+<svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+</svg>
+</button>
+
+<!-- Indicators -->
+<div class="slide-indicators">
+<button class="indicator active" onclick="currentSlide('ui-ux-design', 1)"></button>
+<button class="indicator" onclick="currentSlide('ui-ux-design', 2)"></button>
+<button class="indicator" onclick="currentSlide('ui-ux-design', 3)"></button>
+<button class="indicator" onclick="currentSlide('ui-ux-design', 4)"></button>
+</div>
+</div>
+</div>
+
+<div class="program-content">
+<!-- Header -->
+<div class="program-header">
+<h3 class="program-title  orangeHeading " id="UI/UX">UI/UX Design</h3>
+<div class="program-meta">
+<div class="program-meta-item">
+<svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+</svg>
+<span class="meta-label">Duration:</span>
+<span class="meta-value">8 Weeks</span>
+</div>
+<div class="program-meta-item">
+<svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+</svg>
+<span class="meta-label">Level:</span>
+<span class="meta-value">Beginner to Intermediate</span>
+</div>
+</div>
+</div>
+
+<!-- Description -->
+<p class="program-description">
+Create stunning and user-friendly digital experiences. Learn design principles, user research, prototyping, and the latest design tools used by professional designers.
+</p>
+
+<!-- Key Skills -->
+<div class="program-skills">
+<h4 class="skills-title">What You'll Learn:</h4>
+<ul class="skills-list">
+<li class="skill-item">
+<svg class="skill-check" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+</svg>
+<span>Figma & Adobe Creative Suite Mastery</span>
+</li>
+<li class="skill-item">
+<svg class="skill-check" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+</svg>
+<span>User Research & Persona Development</span>
+</li>
+<li class="skill-item">
+<svg class="skill-check" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+</svg>
+<span>Wireframing & Prototyping</span>
+</li>
+<li class="skill-item">
+<svg class="skill-check" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+</svg>
+<span>Design Systems & Style Guides</span>
+</li>
+<li class="skill-item">
+<svg class="skill-check" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+</svg>
+<span>Usability Testing & Design Iteration</span>
+</li>
+</ul>
+</div>
+
+<!-- Register Button -->
+<div class="program-cta">
+<button class="btn btn-primary btn-lg program-register-btn">
+ <a href="getStarted.html">Register Now</a>
+</button>
+</div>
+</div>
+</div>
+
+<!-- Forex Trading -->
+<div id="forex-trading" class="program-card">
+<!-- Image Slideshow -->
+<div class="program-images">
+<div class="slideshow-container">
+<img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=400&fit=crop" alt="Forex Trading" class="slide active">
+<img src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=800&h=400&fit=crop" alt="Forex Trading" class="slide">
+<img src="https://images.unsplash.com/photo-1642790106117-e829e14a795f?w=800&h=400&fit=crop" alt="Forex Trading" class="slide">
+<img src="https://images.unsplash.com/photo-1543286386-713bdd548da4?w=800&h=400&fit=crop" alt="Forex Trading" class="slide">
+
+<!-- Navigation Arrows -->
+<button class="slide-btn slide-prev" onclick="changeSlide('forex-trading', -1)">
+<svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+</svg>
+</button>
+<button class="slide-btn slide-next" onclick="changeSlide('forex-trading', 1)">
+<svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+</svg>
+</button>
+
+<!-- Indicators -->
+<div class="slide-indicators">
+<button class="indicator active" onclick="currentSlide('forex-trading', 1)"></button>
+<button class="indicator" onclick="currentSlide('forex-trading', 2)"></button>
+<button class="indicator" onclick="currentSlide('forex-trading', 3)"></button>
+<button class="indicator" onclick="currentSlide('forex-trading', 4)"></button>
+</div>
+</div>
+</div>
+
+<div class="program-content" >
+<!-- Header -->
+<div class="program-header" id="Marketing" >
+<h3 class="program-title  orangeHeading"  >Digital Marketing</h3>
+<div class="program-meta">
+<div class="program-meta-item">
+<svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+</svg>
+<span class="meta-label">Duration:</span>
+<span class="meta-value">8 Weeks</span>
+</div>
+<div class="program-meta-item">
+<svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+</svg>
+<span class="meta-label">Level:</span>
+<span class="meta-value">Beginner To Intermediate</span>
+</div>
+</div>
+</div>
+
+<!-- Description -->
+<p class="program-description">
+We’ll show you , and make money using tools like Instagram, WhatsApp, and Google —</p>
+
+<!-- Key Skills -->
+<div class="program-skills">
+<h4 class="skills-title">What You'll Learn:</h4>
+<ul class="skills-list">
+<li class="skill-item">
+<svg class="skill-check" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+</svg>
+<span>How To Grow a Brand</span>
+</li>
+<li class="skill-item">
+<svg class="skill-check" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+</svg>
+<span>Attract Customers</span>
+</li>
+<li class="skill-item">
+<svg class="skill-check" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+</svg>
+<span> Earn Using Tools Like Instagram, WhatsApp, And Google</span>
+</li>
+<li class="skill-item">
+<svg class="skill-check" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+</svg>
+<span>Economic Indicators Understanding</span>
+</li>
+<li class="skill-item">
+<svg class="skill-check" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+</svg>
+<span>Psychology of Digital Marketing & Discipline</span>
+</li>
+</ul>
+</div>
+
+<!-- Register Button -->
+<div class="program-cta">
+<button class="btn btn-primary btn-lg program-register-btn">
+ <a href="getStarted.html">Register Now</a>
+</button>
+</div>
+</div>
+</div>
+
+<!-- Graphics Design & Video Editing -->
+<div id="graphics-video-editing" class="program-card">
+<!-- Image Slideshow -->
+<div class="program-images">
+<div class="slideshow-container">
+<img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?w=800&h=400&fit=crop" alt="Graphics Design & Video Editing" class="slide active">
+<img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=400&fit=crop" alt="Graphics Design & Video Editing" class="slide">
+<img src="https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=800&h=400&fit=crop" alt="Graphics Design & Video Editing" class="slide">
+<img src="https://images.unsplash.com/photo-1634942537034-2531766767d1?w=800&h=400&fit=crop" alt="Graphics Design & Video Editing" class="slide">
+
+<!-- Navigation Arrows -->
+<button class="slide-btn slide-prev" onclick="changeSlide('graphics-video-editing', -1)">
+<svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+</svg>
+</button>
+<button class="slide-btn slide-next" onclick="changeSlide('graphics-video-editing', 1)">
+<svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+</svg>
+</button>
+
+<!-- Indicators -->
+<div class="slide-indicators">
+<button class="indicator active" onclick="currentSlide('graphics-video-editing', 1)"></button>
+<button class="indicator" onclick="currentSlide('graphics-video-editing', 2)"></button>
+<button class="indicator" onclick="currentSlide('graphics-video-editing', 3)"></button>
+<button class="indicator" onclick="currentSlide('graphics-video-editing', 4)"></button>
+</div>
+</div>
+</div>
+
+<div class="program-content">
+<!-- Header -->
+<div class="program-header">
+<h3 class="program-title  orangeHeading " id="graphics">Graphics Design & Video Editing</h3>
+<div class="program-meta">
+<div class="program-meta-item">
+<svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+</svg>
+<span class="meta-label">Duration:</span>
+<span class="meta-value">6 Weeks</span>
+</div>
+<div class="program-meta-item">
+<svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+</svg>
+<span class="meta-label">Level:</span>
+<span class="meta-value">Beginner to Intermediate</span>
+</div>
+</div>
+</div>
+
+<!-- Description -->
+<p class="program-description">
+Master visual storytelling through graphics and video. Learn professional design software, animation techniques, and video production skills for digital marketing and entertainment.
+</p>
+
+<!-- Key Skills -->
+<div class="program-skills">
+<h4 class="skills-title">What You'll Learn:</h4>
+<ul class="skills-list">
+<li class="skill-item">
+<svg class="skill-check" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+</svg>
+<span>Adobe Creative Suite (Photoshop, Illustrator, Premiere)</span>
+</li>
+<li class="skill-item">
+<svg class="skill-check" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+</svg>
+<span>Motion Graphics & Animation</span>
+</li>
+<li class="skill-item">
+<svg class="skill-check" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+</svg>
+<span>Brand Identity & Logo Design</span>
+</li>
+<li class="skill-item">
+<svg class="skill-check" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+</svg>
+<span>Video Production & Post-Processing</span>
+</li>
+<li class="skill-item">
+<svg class="skill-check" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+</svg>
+<span>Social Media Content Creation</span>
+</li>
+</ul>
+</div>
+
+<!-- Register Button -->
+<div class="program-cta">
+<button class="btn btn-primary btn-lg program-register-btn">
+ <a href="getStarted.html">Register Now</a>
+</button>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Sidebar -->
+<div class="programs-sidebar">
+<div class="sidebar-sticky">
+<div class="sidebar-nav">
+<h3 class="sidebar-title">Course Navigation</h3>
+<nav class="sidebar-links">
+<a href="#software-development" class="sidebar-link active" data-program="software-development">
+<div class="sidebar-link-title" id="webdev">Software Development</div>
+<div class="sidebar-link-meta">8 Weeks • Beginner to Intermediate</div>
+</a>
+<a href="#data-analysis" class="sidebar-link" data-program="data-analysis" id="dataAnalysis">
+<div class="sidebar-link-title">Data Analysis</div>
+<div class="sidebar-link-meta">12 Weeks • Intermediate</div>
+</a>
+<a href="#ui-ux-design" class="sidebar-link" data-program="ui-ux-design" id="UI/UX">
+<div class="sidebar-link-title">UI/UX Design</div>
+<div class="sidebar-link-meta">8 Weeks • Beginner to Intermediate</div>
+</a>
+<a href="#forex-trading" class="sidebar-link" data-program="forex-trading" >
+<div class="sidebar-link-title orangeHeading">Digital Marketing</div>
+<div class="sidebar-link-meta">8 Weeks • Beginner</div>
+</a>
+<a href="#graphics-video-editing" class="sidebar-link" data-program="graphics-video-editing">
+<div class="sidebar-link-title" id="graphics">Graphics Design & Video Editing</div>
+<div class="sidebar-link-meta">6 Weeks • Beginner to Intermediate</div>
+</a>
+</nav>
+</div>
+
+<div class="sidebar-cta">
+<h4 class="sidebar-cta-title">Ready to Start?</h4>
+<p class="sidebar-cta-description">
+Join thousands of students who have transformed their careers with our programs.
+</p>
+<button class="btn btn-orange sidebar-cta-btn">
+Get Started Today
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Programs CTA -->
+<section class="programs-final-cta">
+<div class="container">
+<div class="final-cta-content">
+<div class="final-cta-icon">
+<svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
+</svg>
+</div>
+<h2 class="final-cta-title">
+Your Tech Journey Starts Here
+</h2>
+<p class="final-cta-description">
+Don't let another day pass without investing in your future. Join JE Tech Hub today 
+and unlock your potential in the world of technology. Our expert instructors, 
+hands-on approach, and industry-relevant curriculum will give you the competitive 
+edge you need to succeed.
+</p>
+
+<div class="final-cta-stats">
+<div class="stat-item">
+<div class="stat-number">500+</div>
+<div class="stat-label">Graduates</div>
+</div>
+<div class="stat-divider"></div>
+<div class="stat-item">
+<div class="stat-number">95%</div>
+<div class="stat-label">Job Placement</div>
+</div>
+<div class="stat-divider"></div>
+<div class="stat-item">
+<div class="stat-number">4.9★</div>
+<div class="stat-label">Student Rating</div>
+</div>
+</div>
+
+<button class="btn btn-orange btn-xl final-cta-button">
+<a href="getStarted.html">Get Started Now</a>
+<svg class="btn-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+</svg>
+</button>
+
+<p class="final-cta-note">
+No hidden fees • Flexible payment plans available • Money-back guarantee
+</p>
+</div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+<div class="container">
+<div class="footer-content">
+<!-- Logo and Description -->
+<div class="footer-brand">
+<div class="footer-logo orangeHeading">JE TECH HUB</div>
+<p class="footer-description">
+Empowering individuals and businesses with cutting-edge technology solutions 
+through practical education and professional services.
+</p>
+</div>
+
+<!-- Quick Links -->
+<div class="footer-links">
+<h4 class="footer-title orangeHeading">Quick Links</h4>
+<ul class="footer-list">
+<li><a href="#" class="footer-link">Home</a></li>
+<li><a href="#" class="footer-link">About Us</a></li>
+<li><a href="#" class="footer-link">Programs</a></li>
+<li><a href="#" class="footer-link">Contact Us</a></li>
+</ul>
+</div>
+
+<!-- Open Hours -->
+<div class="footer-hours">
+<h4 class="footer-title orangeHeading">Open Hours</h4>
+<div class="hours-content">
+<div class="hours-day">Monday–Friday:</div>
+<div class="hours-time">8:00 AM – 8:00 PM</div>
+<div class="hours-day">Saturday:</div>
+<div class="hours-time">9:00 AM – 6:30 PM</div>
+</div>
+</div>
+</div>
+
+<!-- Bottom Section -->
+<div class="footer-bottom">
+<div class="footer-bottom-content">
+<div class="footer-copyright">
+© 2018 JE Tech Hub. All Rights Reserved.
+</div>
+
+<!-- Social Links -->
+<div class="footer-social">
+<a href="https://instagram.com/joe.express1" target="_blank" rel="noopener noreferrer" class="social-link">
+Instagram
+</a>
+<a href="#" class="social-link">LinkedIn</a>
+<a href="#" class="social-link">Twitter</a>
+</div>
+</div>
+</div>
+</div>
+</footer>
+
+<!--<script src="main.js"></script>-->
+<!--<script src="programs.js"></script>-->
+<script>
+
+
+// Smooth Scrolling for Navigation Links
+function initSmoothScrolling() {
+const links = document.querySelectorAll('a[href^="#"]');
+
+links.forEach(link => {
+link.addEventListener('click', (e) => {
+e.preventDefault();
+
+const targetId = link.getAttribute('href');
+const targetElement = document.querySelector(targetId);
+
+if (targetElement) {
+const headerHeight = document.querySelector('.header').offsetHeight;
+const targetPosition = targetElement.offsetTop - headerHeight;
+
+window.scrollTo({
+top: targetPosition,
+behavior: 'smooth'
+});
+}
+});
+});
+}
+
+// Enhanced Intersection Observer for Animations
+function initScrollAnimations() {
+const observerOptions = {
+threshold: 0.1,
+rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+const element = entry.target;
+
+// Add different animations based on element type
+if (element.classList.contains('card')) {
+element.classList.add('animate-fadeInScale');
+} else if (element.classList.contains('program-card')) {
+element.classList.add('animate-fadeInUp');
+} else if (element.classList.contains('testimonial-card')) {
+element.classList.add('animate-slideInLeft');
+} else if (element.classList.contains('stat-item')) {
+element.classList.add('animate-bounce');
+} else {
+element.classList.add('animate-fadeInUp');
+}
+
+// Set opacity and transform
+element.style.opacity = '1';
+element.style.transform = 'translateY(0)';
+
+// Unobserve after animation
+observer.unobserve(element);
+}
+});
+}, observerOptions);
+
+// Observe elements that should animate on scroll
+const animatedElements = document.querySelectorAll(
+'.card, .program-card, .testimonial-card, .stat-item, .service-item, .section-header'
+);
+
+animatedElements.forEach((el, index) => {
+el.style.opacity = '0';
+el.style.transform = 'translateY(30px)';
+el.style.transition = 'opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+
+// Add staggered delay for elements in the same section
+const delay = (index % 3) * 0.1;
+el.style.transitionDelay = `${delay}s`;
+
+observer.observe(el);
+});
+}
+
+// Header Background on Scroll with enhanced effects
+function initHeaderScroll() {
+const header = document.querySelector('.header');
+let lastScrollY = window.scrollY;
+
+window.addEventListener('scroll', () => {
+const currentScrollY = window.scrollY;
+
+if (currentScrollY > 50) {
+header.style.background = 'rgba(255, 255, 255, 0.98)';
+header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+header.style.backdropFilter = 'blur(20px)';
+} else {
+header.style.background = 'rgba(255, 255, 255, 0.95)';
+header.style.boxShadow = 'none';
+header.style.backdropFilter = 'blur(10px)';
+}
+
+// Hide/show header on scroll
+if (currentScrollY > lastScrollY && currentScrollY > 100) {
+header.style.transform = 'translateY(-100%)';
+} else {
+header.style.transform = 'translateY(0)';
+}
+
+lastScrollY = currentScrollY;
+});
+}
+
+
+
+	// Slideshow functionality for program cards
+let currentSlides = {};
+
+function initializeSlideshows() {
+    const programs = ['software-development', 'data-analysis', 'ui-ux-design', 'forex-trading', 'graphics-video-editing'];
+    
+    programs.forEach(program => {
+        currentSlides[program] = 1;
+    });
+}
+
+function changeSlide(programId, direction) {
+    const slides = document.querySelectorAll(`#${programId} .slide`);
+    const indicators = document.querySelectorAll(`#${programId} .indicator`);
+    
+    // Hide current slide
+    slides[currentSlides[programId] - 1].classList.remove('active');
+    indicators[currentSlides[programId] - 1].classList.remove('active');
+    
+    // Calculate new slide index
+    currentSlides[programId] += direction;
+    
+    if (currentSlides[programId] > slides.length) {
+        currentSlides[programId] = 1;
+    }
+    if (currentSlides[programId] < 1) {
+        currentSlides[programId] = slides.length;
+    }
+    
+    // Show new slide
+    slides[currentSlides[programId] - 1].classList.add('active');
+    indicators[currentSlides[programId] - 1].classList.add('active');
+}
+
+function currentSlide(programId, slideIndex) {
+    const slides = document.querySelectorAll(`#${programId} .slide`);
+    const indicators = document.querySelectorAll(`#${programId} .indicator`);
+    
+    // Hide current slide
+    slides[currentSlides[programId] - 1].classList.remove('active');
+    indicators[currentSlides[programId] - 1].classList.remove('active');
+    
+    // Set new slide
+    currentSlides[programId] = slideIndex;
+    
+    // Show new slide
+    slides[currentSlides[programId] - 1].classList.add('active');
+    indicators[currentSlides[programId] - 1].classList.add('active');
+}
+
+// Auto-advance slides every 5 seconds
+function startAutoSlideshow() {
+    const programs = ['software-development', 'data-analysis', 'ui-ux-design', 'forex-trading', 'graphics-video-editing'];
+    
+    setInterval(() => {
+        programs.forEach(program => {
+            changeSlide(program, 1);
+        });
+    }, 5000);
+}
+
+// Sidebar navigation functionality
+function initializeSidebarNavigation() {
+    const sidebarLinks = document.querySelectorAll('.sidebar-link');
+    
+    // Intersection Observer for active section tracking
+    const observerOptions = {
+        threshold: 0.3,
+        rootMargin: '-100px 0px -100px 0px'
+    };
+    
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const activeId = entry.target.id;
+                
+                // Update sidebar active state
+                sidebarLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('data-program') === activeId) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+        });
+    }, observerOptions);
+    
+    // Observe all program sections
+    const programSections = document.querySelectorAll('.program-card');
+    programSections.forEach(section => observer.observe(section));
+    
+    // Smooth scroll for sidebar links
+    sidebarLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+            
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+}
+
+// Initialize everything when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    initializeSlideshows();
+    startAutoSlideshow();
+    initializeSidebarNavigation();
+    initSmoothScrolling();
+initScrollAnimations();
+initHeaderScroll();
+initParallaxEffect();
+initCounterAnimation();
+initLoadingAnimations();
+
+});
+
+
+// Mobile menu toggle
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    
+    if (mobileMenuBtn && mobileNav) {
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileMenuBtn.classList.toggle('active');
+            mobileNav.classList.toggle('show');
+        });
+    }
+    
+    // Close mobile menu when clicking on nav links
+    const mobileNavLinks = document.querySelectorAll('.nav-link-mobile');
+    mobileNavLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            if (mobileMenuBtn && mobileNav) {
+                mobileMenuBtn.classList.remove('active');
+                mobileNav.classList.remove('show');
+            }
+        });
+    });
+});
+
+// Smooth scrolling function
+function scrollToSection(sectionId) {
+    const element = document.getElementById(sectionId);
+    if (element) {
+        element.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+        });
+    }
+}
+
+// Intersection Observer for animations
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, observerOptions);
+
+// Observe all animated elements
+document.addEventListener('DOMContentLoaded', function() {
+    const animatedElements = document.querySelectorAll('.animate-fade-in, .animate-slide-in');
+    animatedElements.forEach(el => observer.observe(el));
+});
+
+</script>
+
+
+<!-- jQuery -->
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery-migrate-3.0.0.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+<script src="js/easing.js"></script>
+<script src="js/colors.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap-datepicker.js"></script>
+<script src="js/jquery.nav.js"></script>
+<script src="js/slicknav.min.js"></script>
+<script src="js/jquery.scrollUp.min.js"></script>
+<script src="js/niceselect.js"></script>
+<script src="js/tilt.jquery.min.js"></script>
+<script src="js/owl-carousel.js"></script>
+<script src="js/jquery.counterup.min.js"></script>
+<script src="js/steller.js"></script>
+<script src="js/wow.min.js"></script>
+<script src="js/jquery.magnific-popup.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>

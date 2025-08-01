@@ -1,24 +1,2806 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>joe-express-journey</title>
-    <meta name="description" content="Lovable Generated Project" />
-    <meta name="author" content="Lovable" />
 
-    <meta property="og:title" content="joe-express-journey" />
-    <meta property="og:description" content="Lovable Generated Project" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JE Tech Hub - Dreams Ignite</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
+<link rel="icon" href="images/JE Techhub logo - Copy.png" type="image/x-icon">
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@lovable_dev" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-  </head>
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<style>
+/* Reset and Base Styles */
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+:root {
+/* Colors */
+--primary: darkblue;
+/* --primary: #2563eb; */
+--secondary: #f59e0b;
+--background: #ffffff;
+--muted: #f8fafc;
+--text-primary: black;
+--text-secondary: black;
+--border: #e2e8f0;
+--card-bg: #ffffff;
+--muted: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+/* --muted: 0 10px 15px -3px rgba(0, 0, 0, 0.1); */
+--footer-bg: #1e3a8a;
+--footer-text: #e2e8f0;
+
+/* Typography */
+--font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+--font-size-sm: 0.875rem;
+--font-size-base: 1rem;
+--font-size-lg: 1.125rem;
+--font-size-xl: 1.25rem;
+--font-size-2xl: 1.5rem;
+--font-size-3xl: 1.875rem;
+--font-size-4xl: 2.25rem;
+
+/* Spacing */
+--spacing-xs: 0.5rem;
+--spacing-sm: 0.75rem;
+--spacing-md: 1rem;
+--spacing-lg: 1.5rem;
+--spacing-xl: 2rem;
+--spacing-2xl: 3rem;
+--spacing-3xl: 4rem;
+
+/* Transitions */
+--transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+--transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+font-family: var(--font-family);
+line-height: 1.6;
+color: var(--text-primary);
+/* background-color: var(--background); */
+scroll-behavior: smooth;
+}
+
+.container {
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 var(--spacing-md);
+}
+
+/* Typography */
+h1,
+h2,
+h4,
+h5,
+h6 {
+font-weight: 700;
+line-height: 1.2;
+margin-bottom: var(--spacing-md);
+}
+
+h1 {
+font-size: var(--font-size-4xl);
+}
+
+h2 {
+font-size: var(--font-size-3xl);
+}
+
+h3 {
+font-size: var(--font-size-2xl);
+}
+
+h4 {
+font-size: var(--font-size-xl);
+}
+
+p {
+margin-bottom: var(--spacing-md);
+color: var(--text-secondary);
+}
+
+.lead {
+font-size: var(--font-size-lg);
+font-weight: 500;
+color: var(--text-primary);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+from {
+opacity: 0;
+transform: translateY(30px);
+}
+
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+
+@keyframes fadeInScale {
+from {
+opacity: 0;
+transform: scale(0.9);
+}
+
+to {
+opacity: 1;
+transform: scale(1);
+}
+}
+
+@keyframes slideInLeft {
+from {
+opacity: 0;
+transform: translateX(-30px);
+}
+
+to {
+opacity: 1;
+transform: translateX(0);
+}
+}
+
+@keyframes slideInRight {
+from {
+opacity: 0;
+transform: translateX(30px);
+}
+
+to {
+opacity: 1;
+transform: translateX(0);
+}
+}
+
+@keyframes bounce {
+
+0%,
+20%,
+53%,
+80%,
+100% {
+transform: translate3d(0, 0, 0);
+}
+
+40%,
+43% {
+transform: translate3d(0, -20px, 0);
+}
+
+70% {
+transform: translate3d(0, -10px, 0);
+}
+
+90% {
+transform: translate3d(0, -4px, 0);
+}
+}
+
+.animate-fadeInUp {
+animation: fadeInUp 0.6s ease-out;
+}
+
+.animate-fadeInScale {
+animation: fadeInScale 0.5s ease-out;
+}
+
+.animate-slideInLeft {
+animation: slideInLeft 0.6s ease-out;
+}
+
+.animate-slideInRight {
+animation: slideInRight 0.6s ease-out;
+}
+
+.animate-bounce {
+animation: bounce 2s infinite;
+}
+
+/* Buttons */
+.btn-primary,
+.btn-secondary {
+padding: var(--spacing-sm) var(--spacing-lg);
+border: none;
+border-radius: 8px;
+font-size: var(--font-size-base);
+font-weight: 500;
+cursor: pointer;
+transition: var(--transition);
+text-decoration: none;
+display: inline-block;
+text-align: center;
+position: relative;
+overflow: hidden;
+}
+
+.btn-primary {
+background-color: var(--primary);
+color: white;
+}
+
+.btn-primary:hover {
+background-color: var(--primary);
+transform: translateY(-2px);
+box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+}
+
+.btn-primary:active {
+transform: translateY(0);
+}
+
+.btn-secondary {
+background-color: transparent;
+color: var(--primary);
+border: 2px solid var(--primary);
+}
+
+.btn-secondary:hover {
+background-color: var(--primary);
+color: white;
+transform: translateY(-2px);
+box-shadow: 0 8px 25px rgba(59, 130, 246, 0.2);
+}
+
+/* Grid System */
+.grid-2 {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: var(--spacing-2xl);
+align-items: center;
+}
+
+.grid-3 {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: var(--spacing-xl);
+}
+
+/* Cards */
+.card {
+background: var(--card-bg);
+border-radius: 16px;
+padding: var(--spacing-xl);
+box-shadow: var(--shadow);
+transition: var(--transition);
+border: 1px solid rgba(59, 130, 246, 0.1);
+}
+
+.card:hover {
+box-shadow: var(--shadow-lg);
+transform: translateY(-4px);
+border-color: rgba(59, 130, 246, 0.2);
+}
+
+.card-content {
+display: flex;
+gap: var(--spacing-lg);
+align-items: flex-start;
+}
+
+.card-text h3 {
+color: var(--primary);
+margin-bottom: var(--spacing-sm);
+}
+
+.icon-wrapper {
+padding: var(--spacing-md);
+border-radius: 12px;
+display: flex;
+align-items: center;
+justify-content: center;
+transition: var(--transition);
+}
+
+.mission-icon {
+background-color: rgba(59, 130, 246, 0.1);
+color: var(--primary);
+}
+
+.vision-icon {
+background-color: rgba(245, 158, 11, 0.1);
+color: var(--secondary);
+}
+
+.learn-more {
+color: orangered;
+text-decoration: none;
+font-weight: 500;
+font-size: var(--font-size-sm);
+transition: var(--transition);
+position: relative;
+}
+
+.learn-more:hover {
+color: orange;
+transform: translateX(5px);
+}
+
+/* Header */
+/* .header {
+position: fixed;
+top: 0;
+left: 0;
+right: 0;
+background: rgba(255, 255, 255, 0.95);
+backdrop-filter: blur(20px);
+border-bottom: 1px solid var(--border);
+z-index: 1000;
+padding: var(--spacing-sm) 0;
+transition: var(--transition);
+} */
+.header {
+align-items: center;
+justify-content: center;
+display: grid;
+align-items: center;
+justify-content: center;
+position: sticky !important;
+top: 0 !important;
+padding-bottom: 15px;
+
+z-index: 5555555;
+}
+
+@media (width > 768px) {
+.header .container {
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+}
+
+.nav-brand {
+display: grid;
+align-content: center;
+justify-items: center;
+img{
+scale: .8;
+}
+}
+
+.nav-menu {
+display: flex;
+gap: var(--spacing-sm);
+flex-wrap: wrap;
+justify-content: center;
+
+}
+
+.nav-link {
+color: var(--text-primary);
+text-decoration: none;
+font-weight: 500;
+transition: var(--transition);
+position: relative;
+padding-inline: var(--spacing-md);
+border-bottom:3px solid darkblue ;
+border-radius: 5px;
+}
+
+
+.nav-link:hover {
+color: var(--primary);
+scale: 1.3;
+border: none;
+}
+
+.nav-link::after {
+content: '';
+position: absolute;
+width: 0;
+height: 2px;
+bottom: -5px;
+left: 50%;
+background-color: var(--primary);
+transition: var(--transition);
+transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+width: 100%;
+}
+
+.contact-btn {
+background: var(--primary);
+color: white;
+border: none;
+padding: var(--spacing-sm) var(--spacing-lg);
+border-radius: 8px;
+font-weight: 500;
+cursor: pointer;
+transition: var(--transition);
+display: none;
+}
+
+/* 
+.contact-btn:hover {
+background: var(--primary);
+transform: translateY(-2px);
+box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.mobile-toggle {
+display: none;
+flex-direction: column;
+gap: 4px;
+background: none;
+border: none;
+cursor: pointer;
+}
+
+.mobile-toggle span {
+width: 25px;
+height: 3px;
+background: var(--text-primary);
+transition: var(--transition);
+border-radius: 2px;
+}
+*/
+/* Hero Section */
+.hero-section {
+height: 100vh !important;
+position: relative;
+overflow: hidden;
+}
+
+.carousel-container {
+height: 100%;
+position: relative;
+}
+
+.carousel-slides {
+height: 100%;
+position: relative;
+}
+
+.slide {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-size: cover;
+background-position: center;
+display: flex;
+align-items: center;
+justify-content: center;
+opacity: 0;
+transition: opacity 0.8s ease;
+}
+
+.slide.active {
+opacity: 1;
+}
+
+.slide::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background: rgba(0, 0, 0, 0.4);
+}
+
+.slide-content {
+text-align: center;
+color: white;
+z-index: 1;
+max-width: 600px;
+background: rgba(0, 0, 0, 0.3);
+padding: 2.5rem !important;
+border-radius: 20px;
+backdrop-filter: blur(10px);
+border: 1px solid rgba(255, 255, 255, 0.1);
+transition: var(--transition-smooth);
+}
+
+.slide-content h1 {
+font-size: var(--font-size-4xl);
+margin-bottom: var(--spacing-lg);
+color: white;
+animation: fadeInUp 1s ease-out;
+}
+
+.slide-content p {
+font-size: var(--font-size-lg);
+margin-bottom: var(--spacing-xl);
+color: rgba(255, 255, 255, 0.9);
+
+}
+
+.slide-content span {
+color: var(--secondary);
+font-weight: 600;
+text-shadow: 0 0 20px rgba(245, 158, 11, 0.5);
+}
+
+.slide-content .btn-primary {
+animation: fadeInUp 1s ease-out 0.4s both;
+}
+
+.carousel-btn {
+position: absolute;
+top: 50%;
+transform: translateY(-50%);
+background: rgba(255, 255, 255, 0.2);
+border: none;
+color: white;
+font-size: 2rem;
+width: 50px;
+height: 50px;
+cursor: pointer;
+border-radius: 100%;
+transition: var(--transition);
+z-index: 2;
+}
+
+.carousel-btn:hover {
+background: rgba(255, 255, 255, 0.3);
+transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-btn.prev {
+left: var(--spacing-xl);
+}
+
+.carousel-btn.next {
+right: var(--spacing-xl);
+}
+
+.carousel-indicators {
+position: absolute;
+bottom: var(--spacing-xl);
+left: 50%;
+transform: translateX(-50%);
+display: flex;
+gap: var(--spacing-sm);
+z-index: 2;
+}
+
+.indicator {
+width: 12px;
+height: 12px;
+border-radius: 50%;
+background: rgba(255, 255, 255, 0.5);
+cursor: pointer;
+transition: var(--transition);
+}
+
+.indicator.active {
+background: white;
+transform: scale(1.2);
+}
+
+.carousel-progress {
+position: absolute;
+bottom: 0;
+left: 0;
+right: 0;
+height: 4px;
+background: rgba(255, 255, 255, 0.2);
+z-index: 2;
+}
+
+.progress-bar {
+height: 100%;
+background: var(--primary);
+width: 0%;
+transition: width 5s linear;
+}
+
+/* Mission Vision Section */
+.mission-vision-section {
+padding: var(--spacing-3xl) 0;
+}
+
+/* About Section */
+.about-section {
+padding: var(--spacing-3xl) 0;
+}
+
+.about-image img {
+width: 100%;
+height: 400px;
+object-fit: cover;
+border-radius: 16px;
+transition: var(--transition);
+}
+
+.about-image img:hover {
+transform: scale(1.02);
+}
+
+.stats-grid {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: var(--spacing-lg);
+margin: var(--spacing-xl) 0;
+}
+
+.stat-item {
+text-align: center;
+padding: var(--spacing-lg);
+background: var(--muted);
+border-radius: 12px;
+transition: var(--transition);
+}
+
+.stat-item:hover {
+transform: translateY(-4px);
+box-shadow: var(--shadow);
+}
+
+.stat-item h3 {
+color: var(--primary);
+font-size: var(--font-size-3xl);
+margin-bottom: var(--spacing-xs);
+}
+
+.stat-item p {
+color: var(--text-secondary);
+margin: 0;
+}
+
+.action-buttons {
+display: flex;
+gap: var(--spacing-md);
+}
+
+
+@media (width < 768px) {
+.action-buttons-2 {
+display: none;
+}
+}
+
+@media (width > 768px) {
+.action-buttons {
+display: none;
+}
+}
+
+/* Programs Section */
+.programs-section {
+padding: var(--spacing-3xl) 0;
+/* background: var(--muted); */
+
+p {
+padding: var(--spacing-sm);
+}
+}
+
+.section-header {
+text-align: center;
+/* margin-bottom: var(--spacing-3xl); */
+max-width: 800px;
+margin-left: auto;
+margin-right: auto;
+}
+
+.section-header h2 {
+color: var(--primary);
+margin-bottom: var(--spacing-md);
+}
+
+.programs-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+gap: var(--spacing-xl);
+margin-bottom: var(--spacing-3xl);
+}
+
+.program-card {
+/* background: var(--card-bg); */
+border-radius: 16px;
+overflow: hidden;
+box-shadow: 0px 3px 3px darkblue;
+transition: var(--transition);
+}
+
+.program-card:hover {
+box-shadow: var(--shadow-lg);
+transform: translateY(-8px);
+}
+
+.program-image-slideshow {
+position: relative;
+height: 250px;
+overflow: hidden;
+}
+
+.program-slides {
+position: relative;
+height: 100%;
+}
+
+.program-slide {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+object-fit: cover;
+opacity: 0;
+transition: opacity 0.5s ease;
+}
+
+.program-slide.active {
+opacity: 1;
+}
+
+.program-indicators {
+position: absolute;
+bottom: 10px;
+left: 50%;
+transform: translateX(-50%);
+display: flex;
+gap: 6px;
+z-index: 2;
+}
+
+.program-indicator {
+width: 8px;
+height: 8px;
+border-radius: 50%;
+background: rgba(255, 255, 255, 0.5);
+cursor: pointer;
+transition: var(--transition);
+}
+
+.program-indicator.active {
+background: white;
+transform: scale(1.2);
+}
+
+.program-content {
+padding: var(--spacing-sm);
+}
+
+.program-content h3 {
+color: var(--primary);
+margin-bottom: var(--spacing-sm);
+}
+
+.cta-section {
+text-align: center;
+padding: var(--spacing-3xl);
+background: var(--card-bg);
+border-radius: 20px;
+box-shadow: var(--shadow);
+margin-bottom: var(--spacing-lg);
+
+}
+
+.cta-section h3 {
+color: var(--primary);
+margin-bottom: var(--spacing-sm);
+}
+
+/* Services Section */
+.services-section {
+padding: var(--spacing-3xl) 0;
+}
+
+.services-list h3 {
+color: var(--primary);
+margin-bottom: var(--spacing-lg);
+}
+
+.services-grid {
+display: grid;
+grid-template-columns: 1fr;
+gap: var(--spacing-md);
+margin-bottom: var(--spacing-xl);
+}
+
+.service-item {
+display: flex;
+align-items: center;
+gap: var(--spacing-md);
+padding: var(--spacing-md);
+background: var(--primary);
+border-radius: 12px;
+transition: var(--transition);
+
+span {
+color: orange;
+}
+
+}
+
+
+.service-item:hover span {
+background: var(--primary);
+color: white;
+transform: translateX(8px);
+}
+
+.service-item svg {
+color: var(--secondary);
+transition: var(--transition);
+}
+
+.service-item:hover svg {
+color: white;
+}
+
+.services-image img {
+width: 100%;
+height: 400px;
+object-fit: cover;
+border-radius: 16px;
+transition: var(--transition);
+}
+
+.services-image img:hover {
+transform: scale(1.02);
+}
+
+/* Testimonials Section */
+.testimonials-section {
+padding: var(--spacing-3xl) 0;
+position: relative;
+background: rgba(0, 0, 139, 0.637);
+margin-block: 4rem;
+
+}
+
+.testimonials-bg {
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-image: url("https://www.cio.com/wp-content/uploads/2025/04/304911-0-96969100-1744090469-shutterstock_2304727595.jpg?quality=50&strip=all&w=1024");
+background-size: cover;
+background-position: center;
+opacity: 0.7;
+}
+
+.testimonials-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+gap: var(--spacing-xl);
+position: relative;
+z-index: 1;
+padding: 2rem 2rem;
+}
+
+.testimonial-card {
+background: var(--card-bg);
+padding: var(--spacing-xl);
+border-radius: 16px;
+box-shadow: var(--shadow);
+transition: var(--transition);
+}
+
+.testimonial-card:hover {
+box-shadow: var(--shadow-lg);
+transform: translateY(-4px);
+}
+
+.testimonial-content {
+margin-bottom: var(--spacing-lg);
+}
+
+.testimonial-content p {
+font-style: italic;
+color: var(--text-primary);
+margin: 0;
+}
+
+.testimonial-author h4 {
+color: var(--primary);
+margin-bottom: var(--spacing-xs);
+}
+
+.testimonial-author .date {
+color: var(--text-secondary);
+font-size: var(--font-size-sm);
+}
+
+/* Contact Section */
+.contact-section {
+padding: var(--spacing-3xl) 0;
+}
+
+.contact-form-wrapper {
+background: var(--card-bg);
+padding: var(--spacing-xl);
+border-radius: 16px;
+box-shadow: var(--shadow);
+}
+
+.contact-form {
+display: flex;
+flex-direction: column;
+gap: var(--spacing-lg);
+}
+
+.form-group {
+display: flex;
+flex-direction: column;
+gap: var(--spacing-xs);
+}
+
+.form-group label {
+font-weight: 500;
+color: var(--text-primary);
+}
+
+.form-group input,
+.form-group textarea {
+padding: var(--spacing-sm);
+border: none;
+border-bottom: 2px solid var(--border);
+border-radius: 8px;
+font-size: var(--font-size-base);
+transition: var(--transition);
+font-family: inherit;
+background: transparent;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+outline: none;
+border-color: var(--primary);
+box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.contact-info img {
+width: 100%;
+height: 250px;
+object-fit: cover;
+border-radius: 16px;
+margin-bottom: var(--spacing-lg);
+transition: var(--transition);
+}
+
+.contact-info img:hover {
+transform: scale(1.02);
+}
+
+.contact-details {
+background: var(--card-bg);
+padding: var(--spacing-3xl);
+margin-bottom: var(--spacing-3xl);
+border-radius: 16px;
+}
+
+.contact-details h3 {
+color: var(--primary);
+margin-bottom: var(--spacing-sm);
+}
+
+.contact-item {
+margin-bottom: var(--spacing-sm);
+color: var(--text-secondary);
+}
+
+.contact-item strong {
+color: var(--text-primary);
+}
+
+/* Footer */
+.footer {
+background: var(--footer-bg);
+color: var(--footer-text);
+padding: var(--spacing-3xl) 0 var(--spacing-lg) 0;
+}
+
+.footer-content {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+gap: var(--spacing-2xl);
+margin-bottom: var(--spacing-2xl);
+}
+
+.footer-section h3 {
+color: white;
+font-size: var(--font-size-xl);
+margin-bottom: var(--spacing-lg);
+}
+
+.footer-section h4 {
+color: white;
+font-size: var(--font-size-lg);
+margin-bottom: var(--spacing-md);
+}
+
+.footer-section p {
+color: var(--footer-text);
+line-height: 1.6;
+margin-bottom: var(--spacing-lg);
+}
+
+.social-links {
+display: flex;
+gap: var(--spacing-md);
+}
+
+.social-link {
+display: flex;
+align-items: center;
+justify-content: center;
+width: 40px;
+height: 40px;
+background: rgba(255, 255, 255, 0.1);
+border-radius: 50%;
+color: var(--footer-text);
+text-decoration: none;
+transition: var(--transition);
+}
+
+.social-link:hover {
+background: var(--primary);
+color: white;
+transform: translateY(-2px);
+}
+
+.footer-links {
+list-style: none;
+}
+
+.footer-links li {
+margin-bottom: var(--spacing-xs);
+}
+
+.footer-links a {
+color: var(--footer-text);
+text-decoration: none;
+transition: var(--transition);
+}
+
+.footer-links a:hover {
+color: white;
+padding-left: var(--spacing-xs);
+}
+
+.contact-info-footer {
+display: flex;
+flex-direction: column;
+gap: var(--spacing-sm);
+}
+
+.footer-contact-item {
+display: flex;
+align-items: center;
+gap: var(--spacing-sm);
+color: var(--footer-text);
+}
+
+.footer-contact-item svg {
+flex-shrink: 0;
+}
+
+.footer-bottom {
+border-top: 1px solid rgba(255, 255, 255, 0.1);
+padding-top: var(--spacing-lg);
+}
+
+.footer-bottom-content {
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-wrap: wrap;
+gap: var(--spacing-md);
+}
+
+.footer-bottom-links {
+display: flex;
+gap: var(--spacing-lg);
+}
+
+.footer-bottom-links a {
+color: var(--footer-text);
+text-decoration: none;
+font-size: var(--font-size-sm);
+transition: var(--transition);
+}
+
+.footer-bottom-links a:hover {
+color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+.programs-grid {
+grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.grid-3 {
+grid-template-columns: repeat(2, 1fr);
+}
+}
+
+@media (max-width: 768px) {
+/* .header .nav-menu {
+display: none;
+position: absolute;
+top: 100%;
+left: 0;
+right: 0;
+background: white;
+flex-direction: column;
+padding: var(--spacing-lg);
+box-shadow: var(--shadow-lg);
+border-radius: 0 0 16px 16px;
+}
+
+.header .nav-menu.active {
+display: flex;
+}
+
+.mobile-toggle {
+display: flex;
+}
+
+.contact-btn {
+display: none;
+} */
+
+.grid-2 {
+grid-template-columns: 1fr;
+gap: var(--spacing-xl);
+}
+
+/*     
+.grid-2 div{
+background: darkblue;
+h3,p{  color: whitesmoke;}
+} */
+.grid-3 {
+grid-template-columns: 1fr;
+}
+
+.slide-content h1 {
+font-size: var(--font-size-3xl);
+}
+
+.carousel-btn {
+top: 80%;
+}
+
+.stats-grid {
+grid-template-columns: 1fr;
+}
+
+.action-buttons {
+flex-direction: column;
+}
+
+.programs-grid {
+grid-template-columns: 1fr;
+}
+
+.services-grid {
+grid-template-columns: 1fr;
+}
+
+.testimonials-grid {
+grid-template-columns: 1fr;
+}
+
+.container {
+padding: 0 var(--spacing-sm);
+}
+
+.section-header,
+.programs-section,
+.services-section,
+.testimonials-section,
+.contact-section,
+.about-section,
+.mission-vision-section {
+padding: var(--spacing-4xl) 0;
+}
+
+.footer-content {
+grid-template-columns: 1fr;
+gap: var(--spacing-xl);
+}
+
+.footer-bottom-content {
+flex-direction: column;
+text-align: center;
+}
+
+.footer-bottom-links {
+flex-wrap: wrap;
+justify-content: center;
+}
+}
+
+@media (max-width: 480px) {
+:root {
+--font-size-4xl: 1.875rem;
+--font-size-3xl: 1.5rem;
+--font-size-2xl: 1.25rem;
+--spacing-3xl: 2.5rem;
+--spacing-2xl: 2rem;
+}
+
+.slide-content {
+padding: 0 var(--spacing-sm);
+}
+
+.card {
+padding: var(--spacing-lg);
+}
+
+.card-content {
+flex-direction: column;
+text-align: center;
+}
+
+.programs-grid {
+grid-template-columns: 1fr;
+gap: var(--spacing-lg);
+}
+
+.program-card {
+min-width: unset;
+}
+
+.program-image-slideshow {
+height: 200px;
+}
+
+.hero-section {
+height: 80vh;
+}
+
+.footer {
+padding: var(--spacing-2xl) 0 var(--spacing-md) 0;
+}
+
+.social-links {
+justify-content: center;
+}
+}
+
+/* Ultra-wide screens */
+@media (min-width: 1400px) {
+.container {
+max-width: 1400px;
+}
+
+.programs-grid {
+grid-template-columns: repeat(3, 1fr);
+}
+}
+
+/* High-resolution displays */
+@media (-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+.hero-section {
+background-attachment: scroll;
+}
+}
+
+/* Print styles */
+@media print {
+
+.header,
+.carousel-btn,
+.carousel-indicators,
+.carousel-progress,
+.footer {
+display: none;
+}
+
+.hero-section {
+height: auto;
+page-break-after: always;
+}
+
+body {
+font-size: 12pt;
+line-height: 1.4;
+}
+
+.container {
+max-width: none;
+margin: 0;
+padding: 0;
+}
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+* {
+animation-duration: 0.01ms !important;
+animation-iteration-count: 1 !important;
+transition-duration: 0.01ms !important;
+}
+
+.slide {
+transition: none;
+}
+
+.carousel-progress .progress-bar {
+transition: none;
+}
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+:root {
+--background: darkblue;
+--card-bg: #d9e7fb;
+--text-primary: darkblue;
+--text-secondary: black;
+--muted: #5b7496;
+--border: #475569;
+}
+
+/*     
+.header {
+background: rgba(30, 41, 59, 0.95);
+} */
+
+.contact-form-wrapper input,
+.contact-form-wrapper textarea {
+/* background: var(--muted); */
+color: var(--text-primary);
+}
+}
+
+
+
+
+.borderdHeading {
+
+text-align: left;
+position: relative;
+
+
+
+}@media (width > 768px) {
+.borderdHeading{font-size: 50px;
+}}
+
+@media (width < 768px) {
+.borderdHeading{margin-top: 1rem;
+}}
+
+.borderdHeading::before {
+
+content: ' ';
+width: 75%;
+height: 3px;
+background-color: darkblue;
+position: absolute;
+top: 0;
+}
+
+
+.borderdHeading::after {
+
+content: ' ';
+width: 45%;
+height: 3px;
+background-color: darkblue;
+position: absolute;
+bottom: 0;
+left: 0;
+}
+
+.OurOffer {
+/* padding-inline: var(--spacing-2xl); */
+
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 5%;
+text-align: center justify;
+}
+
+@media (width < 568px) {
+
+.OurOffer {
+grid-template-columns: 1fr;
+}
+}
+
+.orangeHeading {
+text-align: left;
+position: relative;
+}
+
+.orangeHeading::before {
+content: ' ';
+width: 10%;
+height: 3px;
+background-color: orangered;
+position: absolute;
+bottom: 0;
+}
+
+p {
+line-height: 30px;
+}
+
+@media (width > 768px) {
+.horizontalLine {
+display: none;
+}
+}
+
+button a {
+text-decoration: none;
+color: whitesmoke;
+}
+
+main {
+position: relative;
+}
+
+
+
+
+#scrollUp:hover {
+    background: #2C2D3F;
+}
+#scrollUp {
+    bottom: 15px;
+    right: 15px;
+    padding: 10px 20px;
+    background: darkblue;
+    color: #fff;
+    font-size: 25px;
+    width: 45px;
+    height: 45px;
+    text-align: center;
+    line-height: 45px;
+    padding: 0;
+    border-radius: 3px;
+    box-shadow: 0px 0px 10px #00000026;
+}
+</style>
+</head>
+
+<body>
+
+
+
+
+<main>
+<!-- Hero Carousel Section -->
+<section id="home" class="hero-section">
+<div class="carousel-container">
+<div class="carousel-slides" id="carouselSlides">
+<div class="slide active"
+style="background-image: url('https://www.shutterstock.com/image-photo/young-african-male-programmer-writing-600nw-1233182206.jpg')">
+<div class="slide-content">
+<h1>LEARN, GROW <span>&amp;</span> EXPLORE ENDLESS <span>OPPORTUNITIES!</span></h1>
+<p>
+Join thousands of satisfied clients who have achieved their goals with our expert
+guidance.
+
+</p>
+<button class="btn-primary"><a href="getStarted.html">Get Started</a></button>
+</div>
+</div>
+<div class="slide"
+style="background-image: url('https://peopleofcolorintech.com/wp-content/uploads/2021/09/lagos-techie-IgUR1iX0mqM-unsplash-1080x635.jpg');">
+<div class="slide-content">
+<h1>We Provide <span>Services</span> That You Can <span>Trust!</span></h1>
+<p>Dedicated to empowering individuals and businesses with cutting-edge solutions.
+</p>
+
+<button class="btn-primary"><a href="aboutUs.html#services">Our Services</a></button>
+</div>
+</div>
+<div class="slide"
+style="background-image:url('https://www.brookings.edu/wp-content/uploads/2022/11/shutterstock_2136404171_small.jpg');">
+<div class="slide-content">
+<h1>Excellence in Every Detail
+</h1>
+<p>Get the <span>skills</span>, mentorship, and resources you need to thrive <span>in
+today's digital world.</span></p>
+<button class="btn-primary"><a href="getStarted.html">Join Now </a></button>
+</div>
+</div>
+</div>
+<button class="carousel-btn prev" id="prevBtn">‹</button>
+<button class="carousel-btn next" id="nextBtn">›</button>
+<div class="carousel-indicators" id="indicators"></div>
+<div class="carousel-progress">
+<div class="progress-bar" id="progressBar"></div>
+</div>
+</div>
+</section>
+
+<!-- Header -->
+<header class="header">
+<div class="nav-brand">
+<img src="images/updatedLogo.jpg" max-width="50%" height="100px" alt="je-tech-hub logo">
+</div>
+<div class="container">
+
+<nav class="nav-menu" id="navMenu">
+<a href="index.html" class="nav-link">Home</a>
+<a href="gadgets.html" class="nav-link">JE Gadgets </a>
+<a href="aboutUs.html" class="nav-link">About Us</a>
+<a href="programs.html" class="nav-link">Programs</a>
+<a href="contactUs.html" class="nav-link">Contact Us</a>
+</nav>
+<button class="contact-btn"><a href="getStarted.html">Get Started</a></button>
+<button class="mobile-toggle" id="mobileToggle">
+<span></span>
+<span></span>
+<span></span>
+</button>
+</div>
+</header>
+
+
+<!-- Mission Vision Section -->
+<section class="mission-vision-section">
+<div class="container">
+<div class="grid-2">
+<div class="card">
+<div class="card-content">
+<div class="icon-wrapper mission-icon">
+<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+stroke-width="2">
+<path d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16Z" />
+<path d="M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" />
+<path d="M12 2v2" />
+<path d="M12 20v2" />
+<path d="m4.93 4.93 1.41 1.41" />
+<path d="m17.66 17.66 1.41 1.41" />
+<path d="M2 12h2" />
+<path d="M20 12h2" />
+<path d="m6.34 17.66-1.41 1.41" />
+<path d="m19.07 4.93-1.41 1.41" />
+</svg>
+</div>
+<div class="card-text">
+<h3>Our Mission</h3>
+<p>To connect education and technology with innovative and practical tutoring that
+enhances tech skills....</p>
+<a href="aboutUs.html#mission" class="learn-more">LEARN MORE →</a>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="card-content">
+<div class="icon-wrapper vision-icon">
+<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+stroke-width="2">
+<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+<polyline points="14,2 14,8 20,8" />
+<line x1="16" y1="13" x2="8" y2="13" />
+<line x1="16" y1="17" x2="8" y2="17" />
+<polyline points="10,9 9,9 8,9" />
+</svg>
+</div>
+<div class="card-text">
+<h3>Our Vision</h3>
+<p>Shaping the future of tech—raising brilliant minds and crafting skilled...</p>
+<a href="aboutUs.html#vision" class="learn-more">LEARN MORE →</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="about-section">
+<div class="container">
+<div class="grid-2">
+<div class="about-content">
+<h2 class="borderdHeading">About Us</h2>
+<p>JE Tech Hub, officially launched February 2024, marking a new phase of growth and innovation
+to deliver top-tier tech solutions while empowering individuals and businesses with
+industry-leading skills.
+</p>
+<p>
+Having several training programs ongoing and approximately 30 graduates, we believe in
+nurturing creativity, fostering growth, and equipping our community with practical skills to
+thrive in the digital era.</p>
+
+<div class="stats-grid">
+<div class="stat-item">
+<h3>500+</h3>
+<p>Students Trained</p>
+</div>
+<div class="stat-item">
+<h3>15+</h3>
+<p>Expert Instructors</p>
+</div>
+<div class="stat-item">
+<h3>95%</h3>
+<p>Job Placement Rate</p>
+</div>
+<div class="stat-item">
+<h3>50+</h3>
+<p>Partner Companies</p>
+</div>
+</div>
+<div class="action-buttons">
+<button class="btn-primary"><a href="aboutUs.html">Learn More</a></button>
+
+
+</div>
+
+</div>
+<div class="about-image">
+<img src="https://www.cio.com/wp-content/uploads/2025/04/304911-0-96969100-1744090469-shutterstock_2304727595.jpg?quality=50&strip=all&w=1024"
+alt="JE Tech Hub Team">
+
+<div class="action-buttons-2">
+<button class="btn-primary"><a href="aboutUs.html">Learn More</a></button>
+<button class="btn-primary"><a href="aboutUs.html#services">Our Tech Services</a></button>
+</div>
+</div>
+</div>
+</div>
+
+
+</section>
+<style>
+
+
+</style>
+
+<!-- Programs Section -->
+<section id="programs" class="programs-section OfferSec">
+
+<h3 class="borderdHeading section-header ">What We offer</h3>
+
+
+<style>
+/* .OfferSec{
+padding-inline:var(--spacing-1xl) ;
+
+} */
+
+@media (width <=768px) {
+.offer {
+
+display: block;
+
+}
+}
+
+@media (width > 768px) {
+.offer {
+display: flex;
+padding-inline: var(--spacing-2xl);
+gap: 2rem;
+}
+}
+</style>
+
+
+<div class="offer">
+
+<div class="left">
+<p>
+
+Operating under the umbrella of JE Gadgets, our parent brand, which specializes in gadget sales,
+repairs, and swaps. We offer a wide range of mobile devices, accessories and tech essentials at
+unbeatable prices.
+<br>
+</p>
+<!-- <span class="action-buttons">
+<button class="btn-primary">JE-Gadgets</button>
+</span> -->
+</div>
+
+
+<div class="right">
+<p>
+Whether you're an entrepreneur looking to scale, a tech enthusiast eager to explore new
+frontiers, or someone seeking to upskill, we offer the knowledge, tools, and mentorship to help
+you thrive in the ever-evolving digital landscape.
+<br>
+</p>
+</div>
+
+</div>
+
+</div>
+<style>
+.action-buttons-1 {
+display: flex;
+justify-self:
+center;
+}
+</style>
+<span class="action-buttons-1">
+
+<button class="btn-primary"><a href="gadgets.html">JE Gadget</a></button>
+</span>
+
+<div class="container">
+<div class="section-header" style="padding-top: 48px;">
+<h3 class="borderdHeading">Our Cutting-Edge Programs
+</h3>
+<p>We provide practical experience and expert guidance across various tech-driven fields with
+several ongoing training programs to empower you with the skills you need to excel.</p>
+<p>
+Check Out Our advanced IT training, software development courses and more
+</p>
+
+<span class="orangeHeading">
+
+#Training Courses:
+</span>
+</div>
+
+<div class="programs-grid">
+<div class="program-card" data-program="software-dev">
+<div class="program-image-slideshow">
+<div class="program-slides">
+<img src="src/assets/software-dev.jpg" alt="Software Development"
+class="program-slide active">
+<img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400"
+alt="Coding" class="program-slide">
+<img src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=400"
+alt="Programming" class="program-slide">
+</div>
+<div class="program-indicators">
+<span class="program-indicator active"></span>
+<span class="program-indicator"></span>
+<span class="program-indicator"></span>
+</div>
+</div>
+<div class="program-content">
+<h3 class="orangeHeading">Software Development</h3>
+<p>Learn to build responsive and dynamic websites using modern technologies like HTML, CSS,
+JavaScript, and frameworks. Whether you want to create personal blogs, business
+websites, or complex web applications, our courses will equip you with the skills to
+succeed in the tech industry.</p>
+<button class="btn-primary"><a href="programs.html#webdev">Learn More</a></button>
+</div>
+</div>
+
+<div class="program-card" data-program="data-analysis">
+<div class="program-image-slideshow">
+<div class="program-slides">
+<img src="src/assets/data-analysis.jpg" alt="Data Analysis"
+class="program-slide active">
+<img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400"
+alt="Data Visualization" class="program-slide">
+<img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400"
+alt="Analytics" class="program-slide">
+</div>
+<div class="program-indicators">
+<span class="program-indicator active"></span>
+<span class="program-indicator"></span>
+<span class="program-indicator"></span>
+</div>
+</div>
+<div class="program-content">
+<h3 class="orangeHeading">Data Analysis</h3>
+<p>Master data science, analytics, and visualization tools to make data-driven decisions in
+any industry.
+Turn data into insights. Learn how to use tools like Excel, Python, SQL, and Power BI to
+analyze and visualize data, helping businesses and organizations optimize their
+performance.
+</p>
+<button class="btn-primary"><a href="programs.html#dataAnalysis">Learn More</a></button>
+</div>
+</div>
+
+<div class="program-card" data-program="uiux-design">
+<div class="program-image-slideshow">
+<div class="program-slides">
+<img src="src/assets/uiux-design.jpg" alt="UI/UX Design" class="program-slide active">
+<img src="https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=400"
+alt="Design Process" class="program-slide">
+<img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400"
+alt="User Experience" class="program-slide">
+</div>
+<div class="program-indicators">
+<span class="program-indicator active"></span>
+<span class="program-indicator"></span>
+<span class="program-indicator"></span>
+</div>
+</div>
+<div class="program-content">
+<h3 class="orangeHeading">UI/UX Design</h3>
+<p>Master the art of creating user-friendly and visually appealing interfaces. Learn the
+principles of user experience (UX) and user interface (UI) design using tools like Figma
+and Adobe XD to craft intuitive and engaging digital experiences.</p>
+<button class="btn-primary"><a href="programs.html#UI/UX">Learn More</a></button>
+</div>
+</div>
+
+<div class="program-card" data-program="graphics-design">
+<div class="program-image-slideshow">
+<div class="program-slides">
+<img src="src/assets/graphics-design.jpg" alt="Graphics Design"
+class="program-slide active">
+<img src="https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=400"
+alt="Creative Design" class="program-slide">
+<img src="https://images.unsplash.com/photo-1609921141835-710b7fa6e438?w=400"
+alt="Digital Art" class="program-slide">
+</div>
+<div class="program-indicators">
+<span class="program-indicator active"></span>
+<span class="program-indicator"></span>
+<span class="program-indicator"></span>
+</div>
+</div>
+<div class="program-content">
+<h3 class="orangeHeading">Graphics Design</h3>
+<p>Unleash your creativity by mastering both video editing and graphic design. Learn to
+transform raw footage into professional-quality videos using industry-standard software
+like Adobe Premiere Pro and DaVinci Resolve. At the same time, develop skills in graphic
+design with tools like Photoshop, Illustrator, and Canva..</p>
+<button class="btn-primary"><a href="programs.html#graphics">Learn More</a></button>
+</div>
+</div>
+
+<div class="program-card" data-program="forex-trading">
+<div class="program-image-slideshow">
+<div class="program-slides">
+<img src="src/assets/forex-trading.jpg" alt="Forex Trading"
+class="program-slide active">
+<img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=400"
+alt="Trading Charts" class="program-slide">
+<img src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=400"
+alt="Financial Markets" class="program-slide">
+</div>
+<div class="program-indicators">
+<span class="program-indicator active"></span>
+<span class="program-indicator"></span>
+<span class="program-indicator"></span>
+</div>
+</div>
+<div class="program-content">
+<h3 class="orangeHeading">Digital Marketing</h3>
+<p> looking to earn more or build a career online? <br> &mdash;Learn digital marketing — the
+#1 skill for today’s world. Start building your future now while others are still
+scrolling, even with just your phone. No tech experience needed. </p>
+<button class="btn-primary"><a href="programs.html/#Marketing">Learn More</a></button>
+</div>
+</div>
+
+<div class="program-card" data-program="gadget-repair">
+<div class="program-image-slideshow">
+<div class="program-slides">
+<img src="src/assets/gadget-repair.jpg" alt="Gadget Repair"
+class="program-slide active">
+<img src="https://images.unsplash.com/photo-1562408590-e32931084e23?w=400"
+alt="Phone Repair" class="program-slide">
+<img src="https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?w=400"
+alt="Electronics" class="program-slide">
+</div>
+<div class="program-indicators">
+<span class="program-indicator active"></span>
+<span class="program-indicator"></span>
+<span class="program-indicator"></span>
+</div>
+</div>
+<div class="program-content">
+<h3 class="orangeHeading">Gadget Repair</h3>
+<p>Top-Quality Gadgets, or reliable repair services? We offer a wide range of mobile
+devices, accessories and tech essentials at unbeatable prices. Whether you need a
+brand-new, high-performance gadget or expert repairs for your damaged device, we are
+ready to assist.</p>
+<button class="btn-primary"><a href="#">Learn More</a></button>
+</div>
+</div>
+</div>
+
+<div class="cta-section">
+<h3 class="orangeHeading">Ready to Elevate Your Skills?
+
+</h3>
+<p>Whether you're interested in web development, graphic design, data analysis, or other innovative
+sectors, our tailored courses equip you with the skills needed to excel in today's fast-paced
+digital landscape.
+</p>
+<div style="background-color: darkblue; width: 80%; height: 2px; margin: auto;"
+class="horizontalLine"></div>
+<p>
+Join a community of like-minded learners and industry professionals who are passionate about
+technology and personal growth. Get the skills, mentorship, and resources you need to thrive in
+today's digital world..</p>
+<button class="btn-primary"><a href="getStarted.html">Get Started</a></button>
+</div>
+</div>
+</section>
+
+<!-- Services Section -->
+<section id="services" class="services-section">
+<div class="container">
+<h2 class="borderdHeading">Delivery Services</h2>
+
+<div class="section-header" style="padding-inline: var(--spacing-3xl);">
+<p>We Also Offer reliable delivery services.</p>
+<p>Explore the world of logistics and deliveries. Learn how to start and operate a successful
+delivery business, optimize routes, manage orders, and use digital tools to ensure fast and
+efficient deliveries for e-commerce, food, and courier services.</p>
+<p>Whether you are purchasing or whatever, we ensure that everything arrives at your doorstep or
+your preferred location.</p>
+</div>
+
+<div class="grid-2">
+<div class="services-list">
+<h3 class="orangeHeading">Services Offered:</h3>
+<div class="services-grid">
+<div class="service-item">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+stroke-width="2">
+<path d="M3 9h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9Z" />
+<path d="m3 9 2.45-4.9A2 2 0 0 1 7.24 3h9.52a2 2 0 0 1 1.8 1.1L21 9" />
+<path d="M12 3v6" />
+</svg>
+<span>Door-To-Door Delivery</span>
+</div>
+<div class="service-item">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+stroke-width="2">
+<path d="M2 3h6l1 2v13a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H9" />
+<path d="M8 21V7a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v14" />
+</svg>
+<span>Office Delivery</span>
+</div>
+<div class="service-item">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+stroke-width="2">
+<path d="M18 8h1a4 4 0 0 1 0 8h-1" />
+<path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8Z" />
+<path d="M6 1v3" />
+<path d="M10 1v3" />
+<path d="M14 1v3" />
+</svg>
+<span>Food Delivery</span>
+</div>
+<div class="service-item">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+stroke-width="2">
+<path d="M7 17l9.2-9.2M17 17H7v-10" />
+</svg>
+<span>Motor Park Pickup</span>
+</div>
+<div class="service-item">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+stroke-width="2">
+<path d="M7 7l9.2 9.2M17 7v10H7" />
+</svg>
+<span>Motor Park Dropoff</span>
+</div>
+<div class="service-item">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+stroke-width="2">
+<path
+d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+<polyline points="22,6 12,13 2,6" />
+</svg>
+<span>Mail Pockets</span>
+</div>
+</div>
+<button class="btn-primary"><a href="contactUs.html">Contact Us</a></button>
+</div>
+<div class="services-image">
+<img src="https://je-tech-hub.github.io/fresh-web-craft/images/delivery-service-DIqfsVCx.jpg"
+alt="Delivery Services">
+</div>
+</div>
+</div>
+</section>
+<style>
+.members {
+padding-inline: var(--spacing-sm);
+
+}
+</style>
+
+<div class="section-header members">
+<h2 class="orangeHeading">What Our Members Say</h2>
+<p>Our members' experiences are a testament to the quality of training and mentorship we provide at JE Tech
+Hub. Hear what they have to say about their journey with us.</p>
+</div>
+<!-- Testimonials Section -->
+<section id="testimonials" class="testimonials-section">
+<div class="testimonials-bg"></div>
+<div class="container">
+
+
+<div class="testimonials-grid">
+<div class="testimonial-card">
+<div class="testimonial-content">
+<p>"JE Tech Hub transformed my career. The hands-on training and expert instructors helped
+me gain the skills I needed to land my first job in web development. The community and
+support I received here were amazing!"</p>
+</div>
+<div class="testimonial-author">
+<h4>Sarah Jones</h4>
+<span class="date">22 Aug, 2023</span>
+</div>
+</div>
+
+<div class="testimonial-card">
+<div class="testimonial-content">
+<p>"I've been through several tech training programs, but none compared to the quality of JE
+Tech Hub. The curriculum was up-to-date, and I learned everything I needed to start my
+own freelance business in digital marketing. Highly recommend!"</p>
+</div>
+<div class="testimonial-author">
+<h4>Michael Smith</h4>
+<span class="date">15 Sept, 2023</span>
+</div>
+</div>
+
+<div class="testimonial-card">
+<div class="testimonial-content">
+<p>"Thanks to JE Tech Hub's software development course, I now have the skills to build my
+own applications. The instructors were not only experts but also genuinely caring, and
+the practical training helped me grow fast!"</p>
+</div>
+<div class="testimonial-author">
+<h4>Emma Watson</h4>
+<span class="date">5 Jan, 2024</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="contact-section">
+<div class="container">
+<div class="section-header">
+<h2 class="orangeHeading">We Are Always Ready For You</h2>
+<p>Send Us A Message And We'll Get Back To You</p>
+</div>
+
+<div class="grid-2">
+<div class="contact-form-wrapper">
+<form class="contact-form" id="contactForm">
+<div class="form-group">
+<label for="fullName">Full Name</label>
+<input type="text" id="fullName" name="fullName" required>
+</div>
+
+<div class="form-group">
+<label for="email">Email Address</label>
+<input type="email" id="email" name="email" required>
+</div>
+
+<div class="form-group">
+<label for="phone">Phone Number</label>
+<input type="tel" id="phone" name="phone" required>
+</div>
+
+<div class="form-group">
+<label for="subject">Subject</label>
+<input type="text" id="subject" name="subject" required>
+</div>
+
+<div class="form-group">
+<label for="message">Write Your Message</label>
+<textarea id="message" name="message" rows="5" required></textarea>
+</div>
+
+<button type="submit" class="btn-primary">Submit Message</button>
+</form>
+</div>
+
+<div class="contact-info">
+<img src="https://je-tech-hub.github.io/fresh-web-craft/images/contact-support-BqxCtmjx.jpg"
+alt="Contact Support">
+<div class="contact-details">
+<h3 class="orangeHeading">Get in Touch</h3>
+<p>We're here to help and answer any question you might have.</p>
+<div class="contact-item">
+<strong>Email:</strong> info@jetechhub.com
+</div>
+<div class="contact-item">
+<strong>Phone:</strong> +234 xxx xxx xxxx
+</div>
+<div class="contact-item">
+<strong>Address:</strong> Abuja, Nigeria
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+<div class="container">
+<div class="footer-content">
+<div class="footer-section">
+<h3>JE Tech Hub</h3>
+<p>Empowering the next generation of tech innovators with cutting-edge training and real-world
+experience.</p>
+<div class="social-links">
+<a href="#" class="social-link">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+<path
+d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
+</svg>
+</a>
+<a href="#" class="social-link">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+<path
+d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z" />
+</svg>
+</a>
+<a href="#" class="social-link">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+<path
+d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+</svg>
+</a>
+</div>
+</div>
+
+<div class="footer-section">
+<h4>Quick Links</h4>
+<ul class="footer-links">
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About Us</a></li>
+<li><a href="#programs">Programs</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</div>
+
+<div class="footer-section">
+<h4>Programs</h4>
+<ul class="footer-links">
+<li><a href="#">Software Development</a></li>
+<li><a href="#">Data Analysis</a></li>
+<li><a href="#">UI/UX Design</a></li>
+<li><a href="#">Graphics Design</a></li>
+<li><a href="#">Forex Trading</a></li>
+<li><a href="#">Gadget Repair</a></li>
+</ul>
+</div>
+
+<div class="footer-section">
+<h4>Contact Info</h4>
+<div class="contact-info-footer">
+<div class="footer-contact-item">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+stroke-width="2">
+<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+<circle cx="12" cy="10" r="3" />
+</svg>
+<span>Abuja, Nigeria</span>
+</div>
+<div class="footer-contact-item">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+stroke-width="2">
+<path
+d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+</svg>
+<span>+234 xxx xxx xxxx</span>
+</div>
+<div class="footer-contact-item">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+stroke-width="2">
+<path
+d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+<polyline points="22,6 12,13 2,6" />
+</svg>
+<span>info@jetechhub.com</span>
+</div>
+</div>
+</div>
+</div>
+
+<div class="footer-bottom">
+<div class="footer-bottom-content">
+<p>&copy; 2024 JE Tech Hub. All rights reserved.</p>
+<div class="footer-bottom-links">
+<a href="#">Privacy Policy</a>
+<a href="#">Terms of Service</a>
+<a href="#">Cookie Policy</a>
+</div>
+</div>
+</div>
+</div>
+</footer>
+</main>
+
+<script>
+
+
+// Mobile Menu Toggle
+const mobileToggle = document.getElementById('mobileToggle');
+const navMenu = document.getElementById('navMenu');
+
+mobileToggle.addEventListener('click', () => {
+navMenu.classList.toggle('active');
+
+// Animate hamburger menu
+const spans = mobileToggle.querySelectorAll('span');
+spans.forEach((span, index) => {
+if (navMenu.classList.contains('active')) {
+if (index === 0) span.style.transform = 'rotate(45deg) translateY(7px)';
+if (index === 1) span.style.opacity = '0';
+if (index === 2) span.style.transform = 'rotate(-45deg) translateY(-7px)';
+} else {
+span.style.transform = '';
+span.style.opacity = '';
+}
+});
+});
+
+// Close mobile menu when clicking on a link
+const navLinks = document.querySelectorAll('.nav-link');
+navLinks.forEach(link => {
+link.addEventListener('click', () => {
+navMenu.classList.remove('active');
+const spans = mobileToggle.querySelectorAll('span');
+spans.forEach(span => {
+span.style.transform = '';
+span.style.opacity = '';
+});
+});
+});
+
+// Hero Carousel Functionality
+class HeroCarousel {
+constructor() {
+this.currentSlide = 0;
+this.slides = document.querySelectorAll('.slide');
+this.totalSlides = this.slides.length;
+this.isAnimating = false;
+this.autoSlideInterval = null;
+
+this.init();
+}
+
+init() {
+this.createIndicators();
+this.bindEvents();
+this.startAutoSlide();
+this.updateProgressBar();
+}
+
+createIndicators() {
+const indicatorsContainer = document.getElementById('indicators');
+indicatorsContainer.innerHTML = '';
+
+for (let i = 0; i < this.totalSlides; i++) {
+const indicator = document.createElement('div');
+indicator.className = `indicator ${i === 0 ? 'active' : ''}`;
+indicator.addEventListener('click', () => this.goToSlide(i));
+indicatorsContainer.appendChild(indicator);
+}
+}
+
+bindEvents() {
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+
+prevBtn.addEventListener('click', () => this.prevSlide());
+nextBtn.addEventListener('click', () => this.nextSlide());
+
+// Pause on hover
+const carouselContainer = document.querySelector('.carousel-container');
+carouselContainer.addEventListener('mouseenter', () => this.pauseAutoSlide());
+carouselContainer.addEventListener('mouseleave', () => this.startAutoSlide());
+}
+
+goToSlide(index) {
+if (this.isAnimating || index === this.currentSlide) return;
+
+this.isAnimating = true;
+
+// Remove active class from current slide and indicator
+this.slides[this.currentSlide].classList.remove('active');
+document.querySelectorAll('.indicator')[this.currentSlide].classList.remove('active');
+
+// Update current slide index
+this.currentSlide = index;
+
+// Add active class to new slide and indicator
+this.slides[this.currentSlide].classList.add('active');
+document.querySelectorAll('.indicator')[this.currentSlide].classList.add('active');
+
+// Reset progress bar
+this.updateProgressBar();
+
+setTimeout(() => {
+this.isAnimating = false;
+}, 800);
+}
+
+nextSlide() {
+const nextIndex = (this.currentSlide + 1) % this.totalSlides;
+this.goToSlide(nextIndex);
+}
+
+prevSlide() {
+const prevIndex = (this.currentSlide - 1 + this.totalSlides) % this.totalSlides;
+this.goToSlide(prevIndex);
+}
+
+startAutoSlide() {
+this.pauseAutoSlide();
+this.autoSlideInterval = setInterval(() => {
+this.nextSlide();
+}, 5000);
+}
+
+pauseAutoSlide() {
+if (this.autoSlideInterval) {
+clearInterval(this.autoSlideInterval);
+this.autoSlideInterval = null;
+}
+}
+
+updateProgressBar() {
+const progressBar = document.getElementById('progressBar');
+progressBar.style.width = '0%';
+
+setTimeout(() => {
+progressBar.style.width = '100%';
+}, 100);
+}
+}
+
+// Program Card Slideshow Functionality
+class ProgramSlideshow {
+constructor() {
+this.programCards = document.querySelectorAll('.program-card');
+this.slideshows = new Map();
+this.init();
+}
+
+init() {
+this.programCards.forEach((card, cardIndex) => {
+const slides = card.querySelectorAll('.program-slide');
+const indicators = card.querySelectorAll('.program-indicator');
+
+if (slides.length > 1) {
+const slideshow = {
+currentSlide: 0,
+slides: slides,
+indicators: indicators,
+totalSlides: slides.length,
+interval: null,
+card: card
+};
+
+this.slideshows.set(cardIndex, slideshow);
+this.bindEvents(slideshow, cardIndex);
+this.startAutoSlide(slideshow);
+}
+});
+}
+
+bindEvents(slideshow, cardIndex) {
+// Indicator clicks
+slideshow.indicators.forEach((indicator, index) => {
+indicator.addEventListener('click', () => {
+this.goToSlide(slideshow, index);
+});
+});
+
+// Pause on hover
+slideshow.card.addEventListener('mouseenter', () => {
+this.pauseAutoSlide(slideshow);
+});
+
+slideshow.card.addEventListener('mouseleave', () => {
+this.startAutoSlide(slideshow);
+});
+}
+
+goToSlide(slideshow, index) {
+if (index === slideshow.currentSlide) return;
+
+// Remove active classes
+slideshow.slides[slideshow.currentSlide].classList.remove('active');
+slideshow.indicators[slideshow.currentSlide].classList.remove('active');
+
+// Update current slide
+slideshow.currentSlide = index;
+
+// Add active classes
+slideshow.slides[slideshow.currentSlide].classList.add('active');
+slideshow.indicators[slideshow.currentSlide].classList.add('active');
+}
+
+nextSlide(slideshow) {
+const nextIndex = (slideshow.currentSlide + 1) % slideshow.totalSlides;
+this.goToSlide(slideshow, nextIndex);
+}
+
+startAutoSlide(slideshow) {
+this.pauseAutoSlide(slideshow);
+slideshow.interval = setInterval(() => {
+this.nextSlide(slideshow);
+}, 3000);
+}
+
+pauseAutoSlide(slideshow) {
+if (slideshow.interval) {
+clearInterval(slideshow.interval);
+slideshow.interval = null;
+}
+}
+}
+
+// Contact Form Functionality
+class ContactForm {
+constructor() {
+this.form = document.getElementById('contactForm');
+this.init();
+}
+
+init() {
+this.form.addEventListener('submit', (e) => this.handleSubmit(e));
+}
+
+handleSubmit(e) {
+e.preventDefault();
+
+// Get form data
+const formData = new FormData(this.form);
+const data = {};
+
+for (let [key, value] of formData.entries()) {
+data[key] = value;
+}
+
+// Validate form
+if (this.validateForm(data)) {
+this.submitForm(data);
+}
+}
+
+validateForm(data) {
+const requiredFields = ['fullName', 'email', 'phone', 'subject', 'message'];
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+for (let field of requiredFields) {
+if (!data[field] || data[field].trim() === '') {
+this.showError(`Please fill in the ${field.replace(/([A-Z])/g, ' $1').toLowerCase()}`);
+return false;
+}
+}
+
+if (!emailRegex.test(data.email)) {
+this.showError('Please enter a valid email address');
+return false;
+}
+
+return true;
+}
+
+submitForm(data) {
+// Show loading state
+const submitBtn = this.form.querySelector('button[type="submit"]');
+const originalText = submitBtn.textContent;
+submitBtn.textContent = 'Sending...';
+submitBtn.disabled = true;
+
+// Simulate form submission
+setTimeout(() => {
+this.showSuccess('Thank you! Your message has been sent successfully.');
+this.form.reset();
+
+// Reset button
+submitBtn.textContent = originalText;
+submitBtn.disabled = false;
+}, 1000);
+}
+
+showError(message) {
+this.showNotification(message, 'error');
+}
+
+showSuccess(message) {
+this.showNotification(message, 'success');
+}
+
+showNotification(message, type) {
+// Remove existing notifications
+const existingNotification = document.querySelector('.notification');
+if (existingNotification) {
+existingNotification.remove();
+}
+
+// Create notification element
+const notification = document.createElement('div');
+notification.className = `notification ${type}`;
+notification.textContent = message;
+
+// Style the notification
+notification.style.cssText = `
+position: fixed;
+top: 20px;
+right: 20px;
+padding: 15px 20px;
+border-radius: 8px;
+color: white;
+font-weight: 500;
+z-index: 1000;
+animation: slideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+max-width: 350px;
+background-color: ${type === 'success' ? '#10b981' : '#ef4444'};
+box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+`;
+
+// Add CSS animation
+if (!document.querySelector('#notification-styles')) {
+const style = document.createElement('style');
+style.id = 'notification-styles';
+style.textContent = `
+@keyframes slideIn {
+from { transform: translateX(100%); opacity: 0; }
+to { transform: translateX(0); opacity: 1; }
+}
+@keyframes slideOut {
+from { transform: translateX(0); opacity: 1; }
+to { transform: translateX(100%); opacity: 0; }
+}
+`;
+document.head.appendChild(style);
+}
+
+document.body.appendChild(notification);
+
+// Auto remove after 5 seconds
+setTimeout(() => {
+notification.style.animation = 'slideOut 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+setTimeout(() => {
+if (notification.parentNode) {
+notification.parentNode.removeChild(notification);
+}
+}, 300);
+}, 5000);
+}
+}
+
+// Smooth Scrolling for Navigation Links
+function initSmoothScrolling() {
+const links = document.querySelectorAll('a[href^="#"]');
+
+links.forEach(link => {
+link.addEventListener('click', (e) => {
+e.preventDefault();
+
+const targetId = link.getAttribute('href');
+const targetElement = document.querySelector(targetId);
+
+if (targetElement) {
+const headerHeight = document.querySelector('.header').offsetHeight;
+const targetPosition = targetElement.offsetTop - headerHeight;
+
+window.scrollTo({
+top: targetPosition,
+behavior: 'smooth'
+});
+}
+});
+});
+}
+
+// Enhanced Intersection Observer for Animations
+function initScrollAnimations() {
+const observerOptions = {
+threshold: 0.1,
+rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+const element = entry.target;
+
+// Add different animations based on element type
+if (element.classList.contains('card')) {
+element.classList.add('animate-fadeInScale');
+} else if (element.classList.contains('program-card')) {
+element.classList.add('animate-fadeInUp');
+} else if (element.classList.contains('testimonial-card')) {
+element.classList.add('animate-slideInLeft');
+} else if (element.classList.contains('stat-item')) {
+element.classList.add('animate-bounce');
+} else {
+element.classList.add('animate-fadeInUp');
+}
+
+// Set opacity and transform
+element.style.opacity = '1';
+element.style.transform = 'translateY(0)';
+
+// Unobserve after animation
+observer.unobserve(element);
+}
+});
+}, observerOptions);
+
+// Observe elements that should animate on scroll
+const animatedElements = document.querySelectorAll(
+'.card, .program-card, .testimonial-card, .stat-item, .service-item, .section-header'
+);
+
+animatedElements.forEach((el, index) => {
+el.style.opacity = '0';
+el.style.transform = 'translateY(30px)';
+el.style.transition = 'opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+
+// Add staggered delay for elements in the same section
+const delay = (index % 3) * 0.1;
+el.style.transitionDelay = `${delay}s`;
+
+observer.observe(el);
+});
+}
+
+// Header Background on Scroll with enhanced effects
+function initHeaderScroll() {
+const header = document.querySelector('.header');
+let lastScrollY = window.scrollY;
+
+window.addEventListener('scroll', () => {
+const currentScrollY = window.scrollY;
+
+if (currentScrollY > 50) {
+header.style.background = 'rgba(255, 255, 255, 0.98)';
+header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+header.style.backdropFilter = 'blur(20px)';
+} else {
+header.style.background = 'rgba(255, 255, 255, 0.95)';
+header.style.boxShadow = 'none';
+header.style.backdropFilter = 'blur(10px)';
+}
+
+// Hide/show header on scroll
+if (currentScrollY > lastScrollY && currentScrollY > 100) {
+header.style.transform = 'translateY(-100%)';
+} else {
+header.style.transform = 'translateY(0)';
+}
+
+lastScrollY = currentScrollY;
+});
+}
+
+// Parallax effect for hero section
+function initParallaxEffect() {
+const heroSection = document.querySelector('.hero-section');
+
+if (heroSection) {
+window.addEventListener('scroll', () => {
+const scrolled = window.pageYOffset;
+const rate = scrolled * -0.5;
+
+heroSection.style.transform = `translate3d(0, ${rate}px, 0)`;
+});
+}
+}
+
+// Counter animation for stats
+function initCounterAnimation() {
+const counters = document.querySelectorAll('.stat-item h3');
+
+const animateCounter = (counter) => {
+const target = parseInt(counter.textContent.replace(/\D/g, ''));
+const suffix = counter.textContent.replace(/\d/g, '');
+let current = 0;
+const increment = target / 100;
+const timer = setInterval(() => {
+current += increment;
+if (current >= target) {
+current = target;
+clearInterval(timer);
+}
+counter.textContent = Math.floor(current) + suffix;
+}, 20);
+};
+
+const observer = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+animateCounter(entry.target);
+observer.unobserve(entry.target);
+}
+});
+});
+
+counters.forEach(counter => observer.observe(counter));
+}
+
+// Enhanced loading animations
+function initLoadingAnimations() {
+// Add loading class to body
+document.body.classList.add('loading');
+
+// Remove loading class after content is loaded
+window.addEventListener('load', () => {
+setTimeout(() => {
+document.body.classList.remove('loading');
+
+// Animate hero content
+const slideContent = document.querySelector('.slide.active .slide-content');
+if (slideContent) {
+slideContent.style.animation = 'fadeInUp 1s ease-out';
+}
+}, 500);
+});
+}
+
+// Initialize everything when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+new HeroCarousel();
+new ProgramSlideshow();
+new ContactForm();
+initSmoothScrolling();
+initScrollAnimations();
+initHeaderScroll();
+initParallaxEffect();
+initCounterAnimation();
+initLoadingAnimations();
+
+console.log('JE Tech Hub website loaded successfully with enhanced features!');
+});
+
+// Handle window resize
+window.addEventListener('resize', () => {
+// Close mobile menu on resize to desktop
+if (window.innerWidth > 768) {
+navMenu.classList.remove('active');
+const spans = mobileToggle.querySelectorAll('span');
+spans.forEach(span => {
+span.style.transform = '';
+span.style.opacity = '';
+});
+}
+});
+
+// Keyboard navigation for accessibility
+document.addEventListener('keydown', (e) => {
+if (e.key === 'Escape') {
+// Close mobile menu on Escape key
+if (navMenu.classList.contains('active')) {
+navMenu.classList.remove('active');
+const spans = mobileToggle.querySelectorAll('span');
+spans.forEach(span => {
+span.style.transform = '';
+span.style.opacity = '';
+});
+}
+}
+});
+
+// Add loading state for better UX
+window.addEventListener('beforeunload', () => {
+document.body.style.opacity = '0.8';
+});
+
+// Error handling for images
+document.addEventListener('DOMContentLoaded', () => {
+const images = document.querySelectorAll('img');
+images.forEach(img => {
+img.addEventListener('error', function () {
+this.style.display = 'none';
+console.warn(`Failed to load image: ${this.src}`);
+});
+});
+});
+
+</script>
+<script src="js/jquery.scrollUp.min.js"></script>
+
+</body>
+
 </html>

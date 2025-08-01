@@ -1,0 +1,1391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JE Tech Hub - Empowering Tech Education & Innovation</title>
+<meta name="description" content="JE Tech Hub - Dedicated to empowering individuals and businesses with cutting-edge tech solutions, training programs, and innovative services.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+--primary: hsl(221, 83%, 53%);
+--primary-foreground: hsl(210, 40%, 98%);
+--primary-orange: hsl(25, 95%, 53%);
+--primary-orange-foreground: hsl(0, 0%, 100%);
+--primary-glow: hsl(221, 83%, 70%);
+--background: hsl(0, 0%, 100%);
+--foreground: hsl(222.2, 84%, 4.9%);
+--card: hsl(0, 0%, 100%);
+--card-foreground: hsl(222.2, 84%, 4.9%);
+--card-hover: hsl(0, 0%, 98%);
+--secondary: hsl(210, 40%, 96.1%);
+--secondary-foreground: hsl(222.2, 47.4%, 11.2%);
+--muted: hsl(210, 40%, 96.1%);
+--muted-foreground: hsl(215.4, 16.3%, 46.9%);
+--border: hsl(214.3, 31.8%, 91.4%);
+--input: hsl(214.3, 31.8%, 91.4%);
+--radius: 0.5rem;
+}
+
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+line-height: 1.6;
+color: var(--foreground);
+background-color: var(--background);
+}
+
+.container {
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 1rem;
+}
+
+/* Header Styles */
+.header {
+position: fixed;
+top: 0;
+left: 0;
+right: 0;
+z-index: 50;
+background: rgba(255, 255, 255, 0.95);
+backdrop-filter: blur(10px);
+border-bottom: 1px solid var(--border);
+padding: 0.75rem 0;
+}
+
+.header-content {
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+
+.logo {
+font-size: 1.5rem;
+font-weight: 700;
+color: var(--primary);
+}
+
+.nav {
+display: none;
+}
+
+.nav.desktop {
+display: flex;
+align-items: center;
+gap: 2rem;
+}
+
+.nav a {
+text-decoration: none;
+color: var(--foreground);
+transition: color 0.3s;
+}
+
+.nav a:hover {
+color: var(--primary);
+}
+
+.btn {
+padding: 0.75rem 1.5rem;
+border: none;
+border-radius: var(--radius);
+font-weight: 500;
+cursor: pointer;
+transition: all 0.3s;
+text-decoration: none;
+display: inline-block;
+text-align: center;
+}
+
+.btn-primary {
+background-color: var(--primary);
+color: var(--primary-foreground);
+}
+
+.btn-primary:hover {
+background-color: hsl(221, 83%, 45%);
+}
+
+.btn-outline {
+border: 2px solid var(--primary);
+color: var(--primary);
+background: transparent;
+}
+
+.btn-outline:hover {
+background-color: var(--primary);
+color: var(--primary-foreground);
+}
+
+.btn-lg {
+padding: 1rem 2rem;
+font-size: 1.125rem;
+}
+
+.mobile-menu-btn {
+display: block;
+background: none;
+border: none;
+cursor: pointer;
+padding: 0.5rem;
+}
+
+.mobile-nav {
+display: none;
+margin-top: 1rem;
+padding-bottom: 1rem;
+}
+
+.mobile-nav.active {
+display: block;
+}
+
+.mobile-nav a {
+display: block;
+padding: 0.5rem 0;
+text-decoration: none;
+color: var(--foreground);
+transition: color 0.3s;
+}
+
+.mobile-nav a:hover {
+color: var(--primary);
+}
+
+/*Hero Section
+.hero {
+position: relative;
+min-height: 100vh;
+display: flex;
+align-items: center;
+justify-content: center;
+overflow: hidden;
+background: linear-gradient(135deg, rgba(59, 130, 246, 0.9), rgba(251, 146, 60, 0.8)),
+url('src/assets/hero-bg.jpg') center/cover;
+}
+
+.hero-content {
+position: relative;
+z-index: 10;
+text-align: center;
+color: white;
+max-width: 64rem;
+margin: 0 auto;
+padding: 0 1rem;
+}
+
+.hero h1 {
+font-size: clamp(2rem, 5vw, 4rem);
+font-weight: 700;
+margin-bottom: 1.5rem;
+line-height: 1.1;
+animation: slideUp 1s ease-out;
+}
+
+.hero-highlight {
+color: var(--primary-orange);
+}
+
+.hero p {
+font-size: clamp(1.125rem, 3vw, 1.5rem);
+margin-bottom: 2rem;
+opacity: 0.9;
+animation: slideUp 1s ease-out 0.2s both;
+}
+
+.hero-buttons {
+display: flex;
+flex-direction: column;
+gap: 1rem;
+align-items: center;
+animation: slideUp 1s ease-out 0.4s both;
+}
+
+.hero-nav-btn {
+position: absolute;
+top: 50%;
+transform: translateY(-50%);
+z-index: 20;
+background: rgba(0, 0, 0, 0.3);
+color: white;
+border: none;
+border-radius: 50%;
+width: 3rem;
+height: 3rem;
+cursor: pointer;
+transition: all 0.3s;
+}
+
+.hero-nav-btn:hover {
+background: var(--primary);
+}
+
+.hero-nav-btn.prev {
+left: 1rem;
+}
+
+.hero-nav-btn.next {
+right: 1rem;
+}
+
+.hero-indicators {
+position: absolute;
+bottom: 2rem;
+left: 50%;
+transform: translateX(-50%);
+display: flex;
+gap: 0.75rem;
+z-index: 20;
+}
+
+.indicator {
+width: 0.75rem;
+height: 0.75rem;
+border-radius: 50%;
+background: rgba(255, 255, 255, 0.5);
+cursor: pointer;
+transition: all 0.3s;
+}
+
+.indicator.active {
+background: var(--primary-orange);
+}
+*/
+
+.hero {
+  padding: 6rem 1rem 4rem;
+  background:#000;
+  color: #fff;
+  position: relative;
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 48rem;
+  margin: 0 auto;
+}
+
+.hero-title {
+  font-size: 2.75rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.hero-highlight {
+  color: var(--primary);
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  color: var(--muted-foreground);
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.hero-slider-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.slider-nav {
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  color: var(--primary);
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.slider-nav:hover {
+  transform: scale(1.2);
+}
+
+.hero-indicators {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.indicator {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  background: #ccc;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.indicator.active {
+  background: var(--primary);
+}
+/* Header Styles */
+.header {
+  background: var(--background);
+  padding: 1rem 0;
+}
+
+.header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.header p {
+  text-align: center;
+  color: var(--muted-foreground);
+}
+
+/* Section Styles */
+.section {
+padding: 5rem 0;
+}
+
+.section-title {
+font-size: clamp(2rem, 4vw, 2.5rem);
+font-weight: 700;
+text-align: center;
+margin-bottom: 1.5rem;
+}
+
+.section-subtitle {
+font-size: 1.125rem;
+text-align: center;
+color: var(--muted-foreground);
+margin-bottom: 4rem;
+max-width: 64rem;
+margin-left: auto;
+margin-right: auto;
+}
+
+/* Grid Layouts */
+.grid {
+display: grid;
+gap: 2rem;
+}
+
+.grid-2 {
+grid-template-columns: repeat(1, 1fr);
+}
+
+.grid-3 {
+grid-template-columns: repeat(1, 1fr);
+}
+
+/* Card Styles */
+.card {
+background: var(--card);
+border-radius: var(--radius);
+border: 1px solid var(--border);
+padding: 1.5rem;
+transition: all 0.3s;
+}
+
+.card:hover {
+box-shadow: 0 10px 30px -10px hsl(221, 83%, 53%, 0.3);
+transform: translateY(-4px);
+}
+
+.card-header {
+margin-bottom: 1rem;
+}
+
+.card-title {
+font-size: 1.25rem;
+font-weight: 600;
+margin-bottom: 0.5rem;
+}
+
+.card-description {
+color: var(--muted-foreground);
+line-height: 1.6;
+}
+
+/* Program Cards */
+.program-card {
+overflow: hidden;
+}
+
+.program-image {
+position: relative;
+aspect-ratio: 16/9;
+overflow: hidden;
+margin-bottom: 1rem;
+}
+
+.program-image img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+transition: transform 0.5s;
+}
+
+.program-card:hover .program-image img {
+transform: scale(1.1);
+}
+
+.image-nav {
+position: absolute;
+top: 50%;
+transform: translateY(-50%);
+background: rgba(0, 0, 0, 0.5);
+color: white;
+border: none;
+border-radius: 50%;
+width: 2rem;
+height: 2rem;
+cursor: pointer;
+opacity: 0;
+transition: opacity 0.3s;
+}
+
+.program-image:hover .image-nav {
+opacity: 1;
+}
+
+.image-nav.prev {
+left: 0.5rem;
+}
+
+.image-nav.next {
+right: 0.5rem;
+}
+
+/* Form Styles */
+.form-group {
+margin-bottom: 1rem;
+}
+
+.form-label {
+display: block;
+margin-bottom: 0.5rem;
+font-weight: 500;
+}
+
+.form-input,
+.form-textarea {
+width: 100%;
+padding: 0.75rem;
+border: 1px solid var(--input);
+border-radius: var(--radius);
+background: var(--background);
+transition: border-color 0.3s;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+outline: none;
+border-color: var(--primary);
+}
+
+.form-textarea {
+resize: vertical;
+min-height: 120px;
+}
+
+/* Footer */
+.footer {
+background: linear-gradient(135deg, var(--primary), var(--primary-glow));
+color: var(--primary-foreground);
+padding: 4rem 0 2rem;
+}
+
+.footer h3 {
+color: var(--primary-orange);
+margin-bottom: 1rem;
+}
+
+.footer-grid {
+display: grid;
+gap: 2rem;
+margin-bottom: 3rem;
+}
+
+.footer-links {
+list-style: none;
+}
+
+.footer-links li {
+margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+color: rgba(255, 255, 255, 0.8);
+text-decoration: none;
+transition: color 0.3s;
+}
+
+.footer-links a:hover {
+color: var(--primary-orange);
+}
+
+.social-links {
+display: flex;
+gap: 1rem;
+margin-top: 1rem;
+}
+
+.social-links a {
+color: rgba(255, 255, 255, 0.8);
+transition: color 0.3s;
+}
+
+.social-links a:hover {
+color: var(--primary-orange);
+}
+
+.footer-bottom {
+border-top: 1px solid rgba(255, 255, 255, 0.2);
+padding-top: 2rem;
+text-align: center;
+color: rgba(255, 255, 255, 0.8);
+}
+
+/* Animations */
+@keyframes slideUp {
+from {
+opacity: 0;
+transform: translateY(20px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+
+@keyframes fadeIn {
+from {
+opacity: 0;
+}
+to {
+opacity: 1;
+}
+}
+
+.animate-on-scroll {
+opacity: 0;
+transform: translateY(20px);
+transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.animate {
+opacity: 1;
+transform: translateY(0);
+}
+
+/* Responsive Design */
+/*@media (min-width: 640px) {
+.hero-buttons {
+flex-direction: row;
+}
+}*/
+
+@media (min-width: 768px) {
+.mobile-menu-btn {
+display: none;
+}
+
+.nav.desktop {
+display: flex;
+}
+
+.grid-2 {
+grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-3 {
+grid-template-columns: repeat(3, 1fr);
+}
+
+.footer-grid {
+grid-template-columns: repeat(2, 1fr);
+}
+}
+
+@media (min-width: 1024px) {
+.footer-grid {
+grid-template-columns: repeat(4, 1fr);
+}
+}
+
+/* Toast Styles */
+.toast {
+position: fixed;
+top: 2rem;
+right: 2rem;
+background: var(--card);
+color: var(--card-foreground);
+padding: 1rem 1.5rem;
+border-radius: var(--radius);
+border: 1px solid var(--border);
+box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
+z-index: 100;
+opacity: 0;
+transform: translateX(100%);
+transition: all 0.3s;
+}
+
+.toast.show {
+opacity: 1;
+transform: translateX(0);
+}
+
+.toast.error {
+border-color: hsl(0, 84%, 60%);
+background: hsl(0, 84%, 95%);
+}
+
+.toast.success {
+border-color: hsl(120, 84%, 60%);
+background: hsl(120, 84%, 95%);
+}
+</style>
+</head>
+<body>
+<!-- Header -->
+<!--<header class="header">
+<div class="container">
+<div class="header-content">
+<div class="logo">JE Tech Hub</div>
+
+<nav class="nav desktop">
+<a href="#home">Home</a>
+<a href="#about">About Us</a>
+<a href="#programs">Programs</a>
+<a href="#contact">Contact Us</a>
+</nav>
+
+<div style="display: none;" class="desktop-cta">
+<a href="#contact" class="btn btn-primary">Contact Now</a>
+</div>
+
+<button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+<span id="menu-icon">☰</span>
+</button>
+</div>
+
+<nav class="mobile-nav" id="mobile-nav">
+<a href="#home" onclick="toggleMobileMenu()">Home</a>
+<a href="#about" onclick="toggleMobileMenu()">About Us</a>
+<a href="#programs" onclick="toggleMobileMenu()">Programs</a>
+<a href="#contact" onclick="toggleMobileMenu()">Contact Us</a>
+<a href="#contact" class="btn btn-primary" style="margin-top: 1rem;" onclick="toggleMobileMenu()">Contact Now</a>
+</nav>
+</div>
+</header>-->
+
+<!--Hero Section
+<section id="home" class="hero">
+<div class="hero-content">
+<h1 id="hero-title">We Provide <span class="hero-highlight">Services</span> That You Can Trust!</h1>
+<p id="hero-subtitle">dedicated to empowering individuals and businesses with cutting-edge solutions</p>
+<div class="hero-buttons">
+<a href="#programs" class="btn btn-lg" style="background: linear-gradient(135deg, var(--primary), var(--primary-glow)); color: var(--primary-foreground);">Learn More</a>
+<a href="#contact" class="btn btn-lg btn-outline" style="border-color: white; color: white;">Contact Us</a>
+</div>
+</div>
+
+<button class="hero-nav-btn prev" onclick="prevSlide()">‹</button>
+<button class="hero-nav-btn next" onclick="nextSlide()">›</button>
+
+<div class="hero-indicators">
+<button class="indicator active" onclick="setSlide(0)"></button>
+<button class="indicator" onclick="setSlide(1)"></button>
+<button class="indicator" onclick="setSlide(2)"></button>
+</div>
+</section>-->
+
+
+<!-- Hero Section -->
+<section id="home" class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <h1 id="hero-title" class="hero-title animate-on-scroll">
+        We Provide <span class="hero-highlight">Services</span> That You Can Trust!
+      </h1>
+      <p id="hero-subtitle" class="hero-subtitle animate-on-scroll">
+        dedicated to empowering individuals and businesses with cutting-edge solutions
+      </p>
+      <div class="hero-buttons animate-on-scroll">
+        <a href="#programs" class="btn btn-primary">Explore Our Programs</a>
+        <a href="#contact" class="btn btn-outline">Get In Touch</a>
+      </div>
+    </div>
+
+    <div class="hero-slider-controls animate-on-scroll">
+      <button class="slider-nav" onclick="prevSlide()">‹</button>
+      <div class="hero-indicators">
+        <button class="indicator active" onclick="setSlide(0)"></button>
+        <button class="indicator" onclick="setSlide(1)"></button>
+        <button class="indicator" onclick="setSlide(2)"></button>
+      </div>
+      <button class="slider-nav" onclick="nextSlide()">›</button>
+    </div>
+  </div>
+</section>
+
+
+<!-- Mission & Vision Section -->
+<section class="section" style="background-color: hsl(210, 40%, 98%);">
+<div class="container">
+<div class="grid grid-2" style="max-width: 72rem; margin: 0 auto;">
+<div class="card">
+<div class="card-header">
+<h3 class="card-title" style="font-size: 1.5rem;">Our Mission</h3>
+</div>
+<div>
+<p class="card-description" style="margin-bottom: 1.5rem;">
+to connect education and technology with innovative and practical tutoring that enhances tech skills....
+</p>
+<button class="btn" style="background: none; border: none; color: var(--primary); padding: 0;">
+LEARN MORE →
+</button>
+</div>
+</div>
+
+<div class="card">
+<div class="card-header">
+<h3 class="card-title" style="font-size: 1.5rem;">Our Vision</h3>
+</div>
+<div>
+<p class="card-description" style="margin-bottom: 1.5rem;">
+Shaping the future of tech—raising brilliant minds and crafting skilled...
+</p>
+<button class="btn" style="background: none; border: none; color: var(--primary); padding: 0;">
+LEARN MORE →
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="section">
+<div class="container">
+<div style="max-width: 72rem; margin: 0 auto;">
+<div style="text-align: center; margin-bottom: 4rem;">
+<h2 class="section-title">About Us</h2>
+<p class="section-subtitle">
+JE Tech Hub, Officially launched February 2024, marking a new phase of growth and innovation 
+to deliver top-tier tech solutions while empowering individuals and businesses with industry-leading skills.
+</p>
+</div>
+
+<div class="grid grid-2" style="align-items: center; margin-bottom: 4rem;">
+<div>
+<img src="src/assets/about-team.jpg" alt="JE Tech Hub Team" style="width: 100%; border-radius: var(--radius); box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);">
+</div>
+<div>
+<p style="color: var(--muted-foreground); margin-bottom: 1.5rem; line-height: 1.6;">
+Having several training programs ongoing and approximately 30 graduates...we believe in 
+nurturing creativity, fostering growth, and equipping our community with practical skills 
+to thrive in the digital era.
+</p>
+<a href="#programs" class="btn btn-primary">Get Started</a>
+</div>
+</div>
+
+<div class="grid grid-2" style="align-items: center;">
+<div>
+<h3 style="font-size: 1.875rem; font-weight: 700; margin-bottom: 1.5rem;">What We Offer</h3>
+<p style="font-size: 1.125rem; color: var(--muted-foreground); font-style: italic; margin-bottom: 1.5rem;">
+hands-on training and innovative solutions
+</p>
+<p style="color: var(--muted-foreground); margin-bottom: 1.5rem; line-height: 1.6;">
+Operating under the umbrella of <strong>JE Gadgets</strong>, our parent brand, which specializes 
+in gadget sales, repairs, and swaps. We pride ourselves on being a leading tech education center 
+that empowers individuals to transform their ideas into impactful, actionable opportunities.
+</p>
+<a href="#contact" class="btn btn-outline">Contact Us</a>
+</div>
+<div>
+<p style="color: var(--muted-foreground); margin-bottom: 1.5rem; line-height: 1.6;">
+Whether you're an entrepreneur looking to scale, a tech enthusiast eager to explore new frontiers, 
+or someone seeking to upskill, we offer the knowledge, tools, and mentorship to help you thrive 
+in the ever-evolving digital landscape.
+</p>
+<a href="#programs" class="btn btn-primary">Join Us</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Programs Section -->
+<section id="programs" class="section" style="background: linear-gradient(to bottom, hsl(210, 40%, 98%), var(--background));">
+<div class="container">
+<div style="max-width: 72rem; margin: 0 auto;">
+<div style="text-align: center; margin-bottom: 4rem;">
+<h2 class="section-title" style="background: linear-gradient(135deg, var(--primary), var(--primary-orange)); background-clip: text; -webkit-text-fill-color: transparent;">
+Our Cutting-Edge Programs
+</h2>
+<p class="section-subtitle">
+We provide practical experience and expert guidance across various tech-driven fields with 
+several ongoing training programs empower our you with the skills you need to excel.
+</p>
+<p style="color: var(--muted-foreground);">
+Check Out Our advanced IT training, software development courses and more
+</p>
+</div>
+
+<div style="margin-bottom: 3rem;">
+<h3 style="font-size: 1.5rem; font-weight: 700; display: flex; align-items: center;">
+<span style="color: var(--primary-orange);">#</span>Training Courses:
+</h3>
+</div>
+
+<div class="grid grid-3" style="margin-bottom: 4rem;" id="programs-grid">
+<!-- Programs will be populated by JavaScript -->
+</div>
+
+<div class="card" style="background: linear-gradient(135deg, var(--card), var(--card-hover)); text-align: center; padding: 2rem;">
+<h3 style="font-size: 1.875rem; font-weight: 700; margin-bottom: 1.5rem;">Ready to Elevate Your Skills?</h3>
+<div style="color: var(--muted-foreground); line-height: 1.6; max-width: 64rem; margin: 0 auto;">
+<p style="margin-bottom: 1rem;">
+Whether you're interested in web development, graphic design, data analysis, or other innovative sectors, 
+our tailored courses equip you with the skills needed to excel in today's fast-paced digital landscape.
+</p>
+<p style="margin-bottom: 1rem;">
+Our mission goes beyond education—we aim to cultivate a creative, entrepreneurial mindset that prepares 
+you for the future of technology.
+</p>
+<p style="margin-bottom: 2rem;">
+Join a community of like-minded learners and industry professionals who are passionate about technology 
+and personal growth. Get the skills, mentorship, and resources you need to thrive in today's digital world.
+</p>
+</div>
+<a href="#contact" class="btn btn-lg" style="background: linear-gradient(135deg, var(--primary), var(--primary-glow)); color: var(--primary-foreground);">Get Started</a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Delivery Section -->
+<section class="section">
+<div class="container">
+<div style="max-width: 72rem; margin: 0 auto;">
+<div style="text-align: center; margin-bottom: 4rem;">
+<h2 class="section-title">Delivery Services</h2>
+<p class="section-subtitle">
+We Also Offer reliable delivery services. Explore the world of logistics and deliveries. 
+Learn how to start and operate a successful delivery business, optimize routes, manage orders, 
+and use digital tools to ensure fast and efficient deliveries for e-commerce, food, and courier services.
+</p>
+<p style="color: var(--muted-foreground);">
+Whether you are purchasing or whatever, we ensure that everything arrives at your doorstep or your preferred location.
+</p>
+</div>
+
+<div style="margin-bottom: 4rem;">
+<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 2rem;">Services Offered:</h3>
+<div class="grid grid-3">
+<div class="card" style="text-align: center;">
+<div style="margin: 0 auto 1rem; padding: 0.75rem; background: hsl(221, 83%, 53%, 0.1); border-radius: 50%; width: fit-content;">
+<span style="font-size: 2rem;">🚚</span>
+</div>
+<h4 class="card-title">Door-To-Door Delivery</h4>
+<p class="card-description">Convenient delivery right to your doorstep</p>
+</div>
+<div class="card" style="text-align: center;">
+<div style="margin: 0 auto 1rem; padding: 0.75rem; background: hsl(221, 83%, 53%, 0.1); border-radius: 50%; width: fit-content;">
+<span style="font-size: 2rem;">🏢</span>
+</div>
+<h4 class="card-title">Office Delivery</h4>
+<p class="card-description">Professional delivery to your workplace</p>
+</div>
+<div class="card" style="text-align: center;">
+<div style="margin: 0 auto 1rem; padding: 0.75rem; background: hsl(221, 83%, 53%, 0.1); border-radius: 50%; width: fit-content;">
+<span style="font-size: 2rem;">🍽️</span>
+</div>
+<h4 class="card-title">Food Delivery</h4>
+<p class="card-description">Fresh meals delivered fast and hot</p>
+</div>
+<div class="card" style="text-align: center;">
+<div style="margin: 0 auto 1rem; padding: 0.75rem; background: hsl(221, 83%, 53%, 0.1); border-radius: 50%; width: fit-content;">
+<span style="font-size: 2rem;">📍</span>
+</div>
+<h4 class="card-title">Motor Park Pickup</h4>
+<p class="card-description">Easy pickup from designated transport hubs</p>
+</div>
+<div class="card" style="text-align: center;">
+<div style="margin: 0 auto 1rem; padding: 0.75rem; background: hsl(221, 83%, 53%, 0.1); border-radius: 50%; width: fit-content;">
+<span style="font-size: 2rem;">📍</span>
+</div>
+<h4 class="card-title">Motor Park Dropoff</h4>
+<p class="card-description">Reliable dropoff at motor park locations</p>
+</div>
+<div class="card" style="text-align: center;">
+<div style="margin: 0 auto 1rem; padding: 0.75rem; background: hsl(221, 83%, 53%, 0.1); border-radius: 50%; width: fit-content;">
+<span style="font-size: 2rem;">📧</span>
+</div>
+<h4 class="card-title">Mail Pockets</h4>
+<p class="card-description">Secure document and mail delivery services</p>
+</div>
+</div>
+</div>
+
+<div style="text-align: center; margin-bottom: 4rem;">
+<button class="btn btn-lg btn-primary" onclick="showToast('Booking feature coming soon!', 'success')">📩 Book Now</button>
+</div>
+
+<div style="text-align: center;">
+<img src="src/assets/delivery-service.jpg" alt="Professional Delivery Service" style="width: 100%; max-width: 32rem; border-radius: var(--radius); box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);">
+</div>
+</div>
+</div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="section" style="background-color: hsl(210, 40%, 98%);">
+<div class="container">
+<div style="max-width: 72rem; margin: 0 auto;">
+<div style="text-align: center; margin-bottom: 4rem;">
+<h2 class="section-title">What Our Members Say</h2>
+<p class="section-subtitle">
+Our members' experiences are a testament to the quality of training and mentorship we provide at JE Tech Hub. 
+Hear what they have to say about their journey with us.
+</p>
+</div>
+
+<div class="grid grid-3" style="margin-bottom: 4rem;">
+<div class="card">
+<div style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 1rem;">
+<span style="font-size: 1.5rem; color: var(--primary);">"</span>
+<p style="color: var(--muted-foreground); font-style: italic; line-height: 1.6;">
+JE Tech Hub transformed my career. The hands-on training and expert instructors helped me gain the skills I needed to land my first job in web development. The community and support I received here were amazing!
+</p>
+</div>
+<div>
+<h4 style="font-weight: 600; margin-bottom: 0.25rem;">Adunni Olatunde</h4>
+<p style="font-size: 0.875rem; color: var(--muted-foreground);">📅 22 Aug, 2023</p>
+</div>
+
+<div class="card">
+<div style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 1rem;">
+<span style="font-size: 1.5rem; color: var(--primary);">"</span>
+<p style="color: var(--muted-foreground); font-style: italic; line-height: 1.6;">
+I've been through several tech training programs, but none compared to the quality of JE Tech Hub. The curriculum was up-to-date, and I learned everything I needed to start my own freelance business in digital marketing. Highly recommend!
+</p>
+</div>
+<div>
+<h4 style="font-weight: 600; margin-bottom: 0.25rem;">Emeka Okoro</h4>
+<p style="font-size: 0.875rem; color: var(--muted-foreground);">📅 15 Sept, 2023</p>
+</div>
+</div>
+
+<div class="card">
+<div style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 1rem;">
+<span style="font-size: 1.5rem; color: var(--primary);">"</span>
+<p style="color: var(--muted-foreground); font-style: italic; line-height: 1.6;">
+Thanks to JE Tech Hub's software development course, I now have the skills to build my own applications. The instructors were not only experts but also genuinely caring, and the practical training helped me grow fast!
+</p>
+</div>
+<div>
+<h4 style="font-weight: 600; margin-bottom: 0.25rem;">Fatima Abdullahi</h4>
+<p style="font-size: 0.875rem; color: var(--muted-foreground);">📅 5 Jan, 2024</p>
+</div>
+</div>
+</div>
+
+<div class="card" style="text-align: center; padding: 2rem;">
+<h3 style="font-size: 1.875rem; font-weight: 700; margin-bottom: 1.5rem;">Ready to Join Our Success Stories?</h3>
+<p style="color: var(--muted-foreground); margin-bottom: 2rem; line-height: 1.6;">
+Start your journey with JE Tech Hub today and become part of our growing community of successful graduates.
+</p>
+<a href="#programs" class="btn btn-lg btn-primary">Get Started</a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="section">
+<div class="container">
+<div style="max-width: 72rem; margin: 0 auto;">
+<div style="text-align: center; margin-bottom: 4rem;">
+<h2 class="section-title">We Are Always Ready For You</h2>
+<h3 style="font-size: 1.5rem; font-weight: 600; color: var(--muted-foreground);">
+Send Us A Message And We'll Get Back To You
+</h3>
+</div>
+
+<div class="grid grid-2" style="align-items: flex-start;">
+<div class="card">
+<div class="card-header">
+<h3 class="card-title">Get In Touch</h3>
+<p class="card-description">
+Have questions about our programs or services? We're here to help! Fill out the form and our team will respond promptly.
+</p>
+</div>
+<form id="contact-form" onsubmit="handleFormSubmit(event)">
+<div class="form-group">
+<label class="form-label" for="fullName">Full Name *</label>
+<input class="form-input" type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+</div>
+<div class="form-group">
+<label class="form-label" for="email">Email Address *</label>
+<input class="form-input" type="email" id="email" name="email" placeholder="Enter your email address" required>
+</div>
+<div class="form-group">
+<label class="form-label" for="phone">Phone Number</label>
+<input class="form-input" type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+</div>
+<div class="form-group">
+<label class="form-label" for="subject">Subject</label>
+<input class="form-input" type="text" id="subject" name="subject" placeholder="Enter message subject">
+</div>
+<div class="form-group">
+<label class="form-label" for="message">Write Your Message *</label>
+<textarea class="form-textarea" id="message" name="message" placeholder="Write your message here..." required></textarea>
+</div>
+<button type="submit" class="btn btn-primary" style="width: 100%;">📨 Submit Message</button>
+</form>
+</div>
+
+<div>
+<div style="text-align: center; margin-bottom: 2rem;">
+<img src="src/assets/contact-support.jpg" alt="Customer Support Representative" style="width: 100%; max-width: 24rem; border-radius: var(--radius); box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);">
+</div>
+<div class="card">
+<p style="color: var(--muted-foreground); line-height: 1.6;">
+Whether you're interested in our training courses, delivery services, or need technical support, 
+we're committed to providing you with exceptional service and support.
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+<div class="container">
+<div class="footer-grid">
+<div>
+<h3>JE Tech Hub</h3>
+<p style="color: rgba(255, 255, 255, 0.8); line-height: 1.6; margin-bottom: 1rem;">
+Empowering individuals and businesses with cutting-edge tech solutions, 
+training programs, and innovative services since 2024.
+</p>
+<div class="social-links">
+<a href="#">📘</a>
+<a href="#">🐦</a>
+<a href="#">📷</a>
+<a href="#">💼</a>
+</div>
+</div>
+
+<div>
+<h3>Quick Links</h3>
+<ul class="footer-links">
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About Us</a></li>
+<li><a href="#programs">Programs</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</div>
+
+<div>
+<h3>Training Programs</h3>
+<ul class="footer-links">
+<li><a href="#">Software Development</a></li>
+<li><a href="#">Graphics Design</a></li>
+<li><a href="#">Data Analysis</a></li>
+<li><a href="#">UI/UX Design</a></li>
+<li><a href="#">Forex Trading</a></li>
+</ul>
+</div>
+
+<div>
+<h3>Contact Info</h3>
+<ul class="footer-links">
+<li style="display: flex; align-items: flex-start; gap: 0.75rem;">
+<span>📍</span>
+<span>Lagos, Nigeria</span>
+</li>
+<li style="display: flex; align-items: center; gap: 0.75rem;">
+<span>📞</span>
+<span>+234 (0) 123 456 7890</span>
+</li>
+<li style="display: flex; align-items: center; gap: 0.75rem;">
+<span>📧</span>
+<span>info@jetechhub.com</span>
+</li>
+<li style="display: flex; align-items: flex-start; gap: 0.75rem;">
+<span>🕒</span>
+<div>
+<p>Mon - Fri: 9:00 AM - 6:00 PM</p>
+<p>Sat: 10:00 AM - 4:00 PM</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="footer-bottom">
+<p>© 2024 JE Tech Hub. All rights reserved. | Powered by JE Gadgets</p>
+<p style="margin-top: 0.5rem; color: rgba(255, 255, 255, 0.6);">
+Shaping the future of tech education and innovation
+</p>
+</div>
+</div>
+</footer>
+
+<!-- Toast Container -->
+<div id="toast" class="toast"></div>
+
+<script>
+let currentSlide = 0;
+let mobileMenuOpen = false;
+
+const slides = [
+  {
+    title: "We Provide <span class='hero-highlight'>Services</span> That You Can Trust!",
+    subtitle: "dedicated to empowering individuals and businesses with cutting-edge solutions"
+  },
+  {
+    title: "Excellence in Every Detail",
+    subtitle: "Get the skills, mentorship, and resources you need to thrive in today's digital world."
+  },
+  {
+    title: "LEARN GROW & EXPLORE ENDLESS OPPORTUNITIES!",
+    subtitle: "Join thousands of satisfied clients who have achieved their goals with our expert guidance."
+  }
+];
+
+// HERO SLIDER FUNCTIONS
+function updateSlide() {
+  const titleElement = document.getElementById('hero-title');
+  const subtitleElement = document.getElementById('hero-subtitle');
+  const indicators = document.querySelectorAll('.indicator');
+
+  titleElement.innerHTML = slides[currentSlide].title;
+  subtitleElement.textContent = slides[currentSlide].subtitle;
+
+  indicators.forEach((indicator, index) => {
+    indicator.classList.toggle('active', index === currentSlide);
+  });
+}
+
+function nextSlide() {
+  currentSlide = (currentSlide + 1) % slides.length;
+  updateSlide();
+}
+
+function prevSlide() {
+  currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+  updateSlide();
+}
+
+function setSlide(index) {
+  currentSlide = index;
+  updateSlide();
+}
+
+// MOBILE MENU TOGGLE
+function toggleMobileMenu() {
+  const mobileNav = document.getElementById('mobile-nav');
+  const menuIcon = document.getElementById('menu-icon');
+
+  mobileMenuOpen = !mobileMenuOpen;
+
+  if (mobileMenuOpen) {
+    mobileNav.classList.add('active');
+    menuIcon.textContent = '✕';
+  } else {
+    mobileNav.classList.remove('active');
+    menuIcon.textContent = '☰';
+  }
+}
+
+// TOAST NOTIFICATION
+function showToast(message, type = 'success') {
+  const toast = document.getElementById('toast');
+  toast.textContent = message;
+  toast.className = `toast ${type}`;
+
+  setTimeout(() => toast.classList.add('show'), 100);
+  setTimeout(() => toast.classList.remove('show'), 3100);
+}
+
+// SMOOTH SCROLLING
+function setupSmoothScrolling() {
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+}
+
+// SCROLL ANIMATION
+function setupScrollAnimation() {
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate');
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.animate-on-scroll').forEach(el => {
+    observer.observe(el);
+  });
+}
+
+// PROGRAM CARD FUNCTIONS
+function createProgramCard(program, index) {
+  const isContactUs = program.buttonText === "Contact Us";
+  const buttonClass = isContactUs ? "btn-outline" : "btn-primary";
+
+  return `
+    <div class="card program-card animate-on-scroll" style="animation-delay: ${index * 0.1}s;">
+      <div class="program-image" id="program-${program.id}">
+        <img src="${program.images[0]}" alt="${program.title} - Image 1" id="program-img-${program.id}">
+        ${program.images.length > 1 ? `
+          <button class="image-nav prev" onclick="prevProgramImage(${program.id})">‹</button>
+          <button class="image-nav next" onclick="nextProgramImage(${program.id})">›</button>
+          <div style="position: absolute; bottom: 1rem; left: 50%; transform: translateX(-50%); display: flex; gap: 0.5rem;">
+            ${program.images.map((_, imgIndex) => `
+              <button 
+                class="indicator ${imgIndex === 0 ? 'active' : ''}" 
+                onclick="setProgramImage(${program.id}, ${imgIndex})"
+                id="indicator-${program.id}-${imgIndex}"
+                style="width: 0.5rem; height: 0.5rem;">
+              </button>
+            `).join('')}
+          </div>
+        ` : ''}
+      </div>
+      <div class="card-header">
+        <h3 class="card-title" style="color: var(--primary);">${program.title}</h3>
+      </div>
+      <div>
+        <p class="card-description" style="margin-bottom: 1rem;">${program.description}</p>
+        <button class="btn ${buttonClass}" style="width: 100%;" onclick="handleProgramAction('${program.buttonText}')">
+          ${program.buttonText}
+        </button>
+      </div>
+    </div>
+  `;
+}
+
+function nextProgramImage(programId) {
+  const program = programs.find(p => p.id === programId);
+  const currentImg = document.getElementById(`program-img-${programId}`);
+  const currentSrc = currentImg.src.split('/').pop();
+  const currentIndex = program.images.findIndex(img => currentSrc.endsWith(img.split('/').pop()));
+  const nextIndex = (currentIndex + 1) % program.images.length;
+
+  currentImg.src = program.images[nextIndex];
+  updateProgramIndicators(programId, nextIndex);
+}
+
+function prevProgramImage(programId) {
+  const program = programs.find(p => p.id === programId);
+  const currentImg = document.getElementById(`program-img-${programId}`);
+  const currentSrc = currentImg.src.split('/').pop();
+  const currentIndex = program.images.findIndex(img => currentSrc.endsWith(img.split('/').pop()));
+  const prevIndex = (currentIndex - 1 + program.images.length) % program.images.length;
+
+  currentImg.src = program.images[prevIndex];
+  updateProgramIndicators(programId, prevIndex);
+}
+
+function setProgramImage(programId, imageIndex) {
+  const program = programs.find(p => p.id === programId);
+  const currentImg = document.getElementById(`program-img-${programId}`);
+
+  currentImg.src = program.images[imageIndex];
+  updateProgramIndicators(programId, imageIndex);
+}
+
+function updateProgramIndicators(programId, activeIndex) {
+  const program = programs.find(p => p.id === programId);
+  program.images.forEach((_, index) => {
+    const indicator = document.getElementById(`indicator-${programId}-${index}`);
+    if (indicator) {
+      indicator.classList.toggle('active', index === activeIndex);
+    }
+  });
+}
+
+function handleProgramAction(buttonText) {
+  if (buttonText === "Contact Us") {
+    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+  } else {
+    showToast('Program details coming soon!', 'success');
+  }
+}
+
+// FORM HANDLING
+function handleFormSubmit(event) {
+  event.preventDefault();
+
+  const formData = new FormData(event.target);
+  const fullName = formData.get('fullName');
+  const email = formData.get('email');
+  const message = formData.get('message');
+
+  if (!fullName || !email || !message) {
+    showToast('Please fill in all required fields.', 'error');
+    return;
+  }
+
+  showToast('Thank you for your message. We\'ll get back to you soon!', 'success');
+  event.target.reset();
+}
+
+// INIT
+document.addEventListener('DOMContentLoaded', function () {
+  updateSlide();
+  setupSmoothScrolling();
+  setupScrollAnimation();
+
+  const programsGrid = document.getElementById('programs-grid');
+  if (programsGrid && typeof programs !== 'undefined') {
+    programsGrid.innerHTML = programs.map((program, index) => createProgramCard(program, index)).join('');
+  }
+
+  setInterval(nextSlide, 6000);
+});
+
+// RESPONSIVE MENU CLOSE ON WIDE SCREENS
+window.addEventListener('resize', function () {
+  if (window.innerWidth >= 768 && mobileMenuOpen) {
+    toggleMobileMenu();
+  }
+});
+</script>
+
+</body>
+</html>

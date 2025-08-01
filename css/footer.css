@@ -1,0 +1,52 @@
+
+/* Enhanced Footer */
+.footer {
+  background: #1A76D1;
+  color: #fff;
+}
+
+.footer h2 {
+  color: #fff;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.footer h2:before {
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 50px;
+  background: #fff;
+}
+
+.footer ul li a {
+  color: #eee;
+  transition: all 0.3s ease;
+}
+
+.footer ul li a:hover {
+  color: #fff;
+  padding-left: 8px;
+}
+
+/* Copyright */
+.copyright {
+  background: #0d62b8;
+  padding: 20px 0;
+}
+
+.copyright-content {
+  text-align: center;
+}
+
+.copyright-content p {
+  color: #fff;
+  margin: 0;
+}
+
+.copyright-content a {
+  color: #fff;
+  font-weight: 600;
+}

@@ -1,0 +1,278 @@
+<!-- ...existing code... -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JE Tech Hub - Dreams Ignite</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* ======= REMOVED HEADER & HERO SECTION STYLES ======= */
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Colors */
+    --primary: #3b82f6;
+    --primary-dark: #2563eb;
+    --secondary: #f59e0b;
+    --background: #ffffff;
+    --muted: #f8fafc;
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --border: #e2e8f0;
+    --card-bg: #ffffff;
+    --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --footer-bg: #1e3a8a;
+    --footer-text: #e2e8f0;
+    /* ...existing code... */
+    /* Typography, Spacing, Transitions ... */
+}
+
+/* ...existing code... */
+
+body {
+    font-family: var(--font-family);
+    line-height: 1.6;
+    color: var(--text-primary);
+    background-color: var(--background);
+    scroll-behavior: smooth;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: var(--spacing-md);
+}
+
+h1 { font-size: var(--font-size-4xl); }
+h2 { font-size: var(--font-size-3xl); }
+h3 { font-size: var(--font-size-2xl); }
+h4 { font-size: var(--font-size-xl); }
+
+p {
+    margin-bottom: var(--spacing-md);
+    color: var(--text-secondary);
+}
+
+.lead {
+    font-size: var(--font-size-lg);
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 53%, 80%, 100% {
+        transform: translate3d(0,0,0);
+    }
+    40%, 43% {
+        transform: translate3d(0, -20px, 0);
+    }
+    70% {
+        transform: translate3d(0, -10px, 0);
+    }
+    90% {
+        transform: translate3d(0, -4px, 0);
+    }
+}
+
+.animate-fadeInUp {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.animate-fadeInScale {
+    animation: fadeInScale 0.5s ease-out;
+}
+
+.animate-slideInLeft {
+    animation: slideInLeft 0.6s ease-out;
+}
+
+.animate-slideInRight {
+    animation: slideInRight 0.6s ease-out;
+}
+
+.animate-bounce {
+    animation: bounce 2s infinite;
+}
+
+/* Buttons, Grid, Cards, ... */
+/* ...existing code... */
+
+/* ======= REMOVE HEADER & HERO SECTION STYLES BELOW ======= */
+/* .header, .nav-brand, .nav-menu, .nav-link, .contact-btn, .mobile-toggle, .hero-section, .carousel-container, .carousel-slides, .slide, .carousel-btn, .carousel-indicators, .carousel-progress, .progress-bar, .slide-content, .indicator, etc. */
+/* All CSS for header and hero section removed */
+
+/* ...keep all other styles as needed... */
+
+/* Responsive Design, Footer, etc. */
+/* ...existing code... */
+
+</style>
+</head>
+<body>
+
+<!-- ======= REMOVED HEADER AND HERO SECTION ======= -->
+<!-- 
+<header class="header"> ... </header>
+<section id="home" class="hero-section"> ... </section>
+-->
+
+<main>
+<!-- Mission Vision Section -->
+<section class="mission-vision-section">
+<!-- ...existing code... -->
+</section>
+<!-- ...rest of your HTML... -->
+</main>
+
+<script>
+// ======= REMOVE HEADER & HERO SECTION JS =======
+// Removed all JS related to header (mobile menu, nav links, scroll effects) and hero carousel
+
+// Program Card Slideshow Functionality
+class ProgramSlideshow {
+    constructor() {
+        this.programCards = document.querySelectorAll('.program-card');
+        this.slideshows = new Map();
+        this.init();
+    }
+    // ...existing code...
+}
+
+// Contact Form Functionality
+class ContactForm {
+    constructor() {
+        this.form = document.getElementById('contactForm');
+        this.init();
+    }
+    // ...existing code...
+}
+
+// Smooth Scrolling for Navigation Links
+function initSmoothScrolling() {
+    // You may want to keep this if you have in-page navigation
+    // ...existing code...
+}
+
+// Enhanced Intersection Observer for Animations
+function initScrollAnimations() {
+    // ...existing code...
+}
+
+// Counter animation for stats
+function initCounterAnimation() {
+    // ...existing code...
+}
+
+// Enhanced loading animations
+function initLoadingAnimations() {
+    // ...existing code...
+}
+
+// Initialize everything when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    new ProgramSlideshow();
+    new ContactForm();
+    initSmoothScrolling();
+    initScrollAnimations();
+    initCounterAnimation();
+    initLoadingAnimations();
+    // Removed: new HeroCarousel();
+    // Removed: initHeaderScroll();
+    // Removed: initParallaxEffect();
+    // Removed: any header/hero related logs
+});
+
+// Handle window resize
+window.addEventListener('resize', () => {
+    // No header/mobile menu to handle anymore
+});
+
+// Keyboard navigation for accessibility
+document.addEventListener('keydown', (e) => {
+    // No header/mobile menu to handle anymore
+});
+
+// Add loading state for better UX
+window.addEventListener('beforeunload', () => {
+    document.body.style.opacity = '0.8';
+});
+
+// Error handling for images
+document.addEventListener('DOMContentLoaded', () => {
+    const images = document.querySelectorAll('img');
+    images.forEach(img => {
+        img.addEventListener('error', function() {
+            this.style.display = 'none';
+            console.warn(`Failed to load image: ${this.src}`);
+        });
+    });
+});
+
+</script>
+</body>
+</html>

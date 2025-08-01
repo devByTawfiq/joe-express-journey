@@ -1,0 +1,46 @@
+
+/* Enhanced Contact Form */
+.appointment .form {
+  background: #fff;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+.appointment .form input,
+.appointment .form textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #e6e6e6;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+
+.appointment .form input:focus,
+.appointment .form textarea:focus {
+  border-color: #1A76D1;
+  box-shadow: 0 0 10px rgba(26,118,209,0.1);
+}
+
+.appointment .form textarea {
+  height: 120px;
+  resize: none;
+}
+
+.appointment .form input[type="submit"] {
+  background: #1A76D1;
+  color: #fff;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: none;
+  width: auto;
+  padding: 12px 30px;
+}
+
+.appointment .form input[type="submit"]:hover {
+  background: #0d62b8;
+}

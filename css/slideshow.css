@@ -1,0 +1,141 @@
+
+/* Image Slideshow Styles */
+.card-slideshow {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px 10px 0 0;
+}
+
+.card-slideshow img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.card-slideshow img.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+/* Image Slideshow Controls */
+.slideshow-controls {
+  position: absolute;
+  bottom: 15px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  z-index: 2;
+}
+
+.slideshow-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.5);
+  margin: 0 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.slideshow-dot:hover {
+  transform: scale(1.2);
+  background: rgba(255,255,255,0.8);
+}
+
+.slideshow-dot.active {
+  background: #fff;
+  box-shadow: 0 0 8px rgba(255,255,255,0.8);
+  width: 10px;
+  height: 10px;
+}
+
+/* Responsive adjustments */
+@media only screen and (max-width: 767px) {
+  .card-image, .course-image {
+    height: 180px;
+  }
+  
+  .slideshow-dot {
+    width: 6px;
+    height: 6px;
+    margin: 0 3px;
+  }
+  
+  .slideshow-dot.active {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+/* Add transition effects to slideshow images */
+.card-slideshow img.active {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Overlay effect for slideshow images */
+.card-slideshow::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40%;
+  background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Navigation arrows for slideshows */
+.slideshow-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  background: rgba(0,0,0,0.4);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+  z-index: 3;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.slideshow-arrow.prev {
+  left: 10px;
+}
+
+.slideshow-arrow.next {
+  right: 10px;
+}
+
+.card-slideshow:hover .slideshow-arrow {
+  opacity: 0.8;
+}
+
+.slideshow-arrow:hover {
+  background: rgba(0,0,0,0.6);
+  opacity: 1 !important;
+}

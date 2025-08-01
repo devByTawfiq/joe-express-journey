@@ -1,0 +1,19 @@
+
+/* ... keep existing code */
+
+/* Fix for fadeSection visibility issues on iOS Safari */
+.fadeSection {
+  opacity: 1 !important; /* Force visibility */
+  -webkit-transform: none !important; /* Reset any transforms that might cause issues */
+  transform: none !important;
+  -webkit-backface-visibility: visible !important; /* Fix common iOS rendering issue */
+  backface-visibility: visible !important;
+  -webkit-perspective: 1000;
+  perspective: 1000;
+  -webkit-font-smoothing: antialiased; /* Improve text rendering */
+  visibility: visible !important; /* Ensure visibility */
+}
+
+/* If you want to retain fade animations on non-iOS devices, use feature detection in JavaScript instead */
+
+/* ... keep existing code */
