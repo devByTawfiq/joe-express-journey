@@ -6,7 +6,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@supabase/supabase-js": "^2.50.3",
+    "@supabase/supabase-js": "^2.53.0",
     "@vitejs/plugin-react": "^4.4.1",
     "bcryptjs": "^3.0.2",
     "body-parser": "^2.2.0",
