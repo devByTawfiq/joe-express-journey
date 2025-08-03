@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,10 +10,15 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="icon" href="images/JE Techhub logo - Copy.png" type="image/x-icon">
+
 <!-- CSS Files -->
 <style>
 	/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 :root {
     /* Color Palette */
@@ -97,54 +101,6 @@
     --transition-fast: 0.15s ease-out;
     --transition-base: 0.3s ease-out;
     --transition-slow: 0.6s ease-out;
-}
-
-
-/* Reset and Base Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-:root {
-    /* Colors */
-    --primary: darkblue;
-    /* --primary: #2563eb; */
-    --secondary: #f59e0b;
-    --background: #ffffff;
-    --muted: #f8fafc;
-    --text-primary:black;
-    --text-secondary: black;
-    --border: #e2e8f0;
-    --card-bg: #ffffff;
-    --muted: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
-    /* --muted: 0 10px 15px -3px rgba(0, 0, 0, 0.1); */
-    --footer-bg: #1e3a8a;
-    --footer-text: #e2e8f0;
-    
-    /* Typography */
-    --font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    --font-size-sm: 0.875rem;
-    --font-size-base: 1rem;
-    --font-size-lg: 1.125rem;
-    --font-size-xl: 1.25rem;
-    --font-size-2xl: 1.5rem;
-    --font-size-3xl: 1.875rem;
-    --font-size-4xl: 2.25rem;
-    
-    /* Spacing */
-    --spacing-xs: 0.5rem;
-    --spacing-sm: 0.75rem;
-    --spacing-md: 1rem;
-    --spacing-lg: 1.5rem;
-    --spacing-xl: 2rem;
-    --spacing-2xl: 3rem;
-    --spacing-3xl: 4rem;
-    
-    /* Transitions */
-    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 html {
@@ -766,7 +722,7 @@ body {
 
 /* Sections */
 .section {
-    margin-top: var(--space-20) 0;
+    padding: var(--space-20) 0;
 }
 
 .section-header {
@@ -1483,73 +1439,54 @@ color: var(--primary-400);
 <body>
 <style type="text/css">
 
-
-.header{display: grid;
-     align-items: center;justify-content: center;}
-
-@media (width > 768px){.header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}}
-
-.nav-brand  {
-  display: flex;
+.header {
+display: flex;
+flex-direction: column; /* stack vertically */
 align-items: center;
-justify-content: center;
-img{scale: .8;}
+padding: 20px 0;
 }
+
+.logo-container {
+display: flex;
+align-items: center;
+margin-bottom: 20px; /* space between logo and nav */
+}
+
+.logo {
+height: 100px;
+margin-right: 10px;
+scale:1.2;
+}
+
+
 .nav-menu {
 display: flex;
-gap: var(--spacing-sm);
-flex-wrap: wrap;
-justify-content: center;
+gap: 25px;
 }
 
-.nav-link {
-color: var(--text-primary);
+.nav-menu a {
 text-decoration: none;
-font-weight: 500;
-transition: var(--transition);
+color: #000;
+font-size: 16px;
 position: relative;
-padding-inline: var(--spacing-md);
-border-bottom:3px solid darkblue ;
-border-radius: 5px;
 }
 
-
-.nav-link:hover {
-color: var(--primary);
-scale: 1.3;
-border: none;
-}
-.nav-link::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: -5px;
-    left: 50%;
-    background-color: var(--primary);
-    transition: var(--transition);
-    transform: translateX(-50%);
+.nav-menu a.active {
+color: darkblue;
 }
 
-.nav-link:hover::after {
-    width: 100%;
+.nav-menu a.active::after {
+content: "";
+display: block;
+width: 25px;
+height: 3px;
+background-color: darkblue;
+margin-top: 5px;
+border-radius: 2px;
+margin-left: auto;
+margin-right: auto;
 }
 
-.contact-btn {
-    background: var(--primary);
-    color: white;
-    border: none;
-    padding: var(--spacing-sm) var(--spacing-lg);
-    border-radius: 8px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: var(--transition);
-    display: none;
-}
 
 .heading{
 color: darkblue;
@@ -1604,118 +1541,20 @@ color:white;
 padding: 0.9rem;
 p{padding: 0.9rem 0;}
 }
-
-
-
-
-/* Animations */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeInScale {
-    from {
-        opacity: 0;
-        transform: scale(0.9);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-@keyframes slideInLeft {
-    from {
-        opacity: 0;
-        transform: translateX(-30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes slideInRight {
-    from {
-        opacity: 0;
-        transform: translateX(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes bounce {
-    0%, 20%, 53%, 80%, 100% {
-        transform: translate3d(0,0,0);
-    }
-    40%, 43% {
-        transform: translate3d(0, -20px, 0);
-    }
-    70% {
-        transform: translate3d(0, -10px, 0);
-    }
-    90% {
-        transform: translate3d(0, -4px, 0);
-    }
-}
-
-.animate-fadeInUp {
-    animation: fadeInUp 0.6s ease-out;
-}
-
-.animate-fadeInScale {
-    animation: fadeInScale 0.5s ease-out;
-}
-
-.animate-slideInLeft {
-    animation: slideInLeft 0.6s ease-out;
-}
-
-.animate-slideInRight {
-    animation: slideInRight 0.6s ease-out;
-}
-
-.animate-bounce {
-    animation: bounce 2s infinite;
-}
-
 </style>
 
 
-
-
-
-
-
-<!-- Header -->
 <header class="header">
-    <div class="nav-brand">
-<img src="images/updatedLogo.jpg" max-width="50%" height="100px" alt="je-tech-hub logo">    </div>
-<div class="container">
-
-<nav class="nav-menu" id="navMenu">
-<a href="index.html" class="nav-link">Home</a>
-<a href="gadgets.html" class="nav-link">JE Gadgets </a>
-<a href="aboutUs.html" class="nav-link">About Us</a>
-<a href="programs.html" class="nav-link">Programs</a>
-<a href="contactUs.html" class="nav-link">Contact Us</a>
-</nav>
-<button class="contact-btn"><a href="getStarted.html">Get Started</a></button>
-<button class="mobile-toggle" id="mobileToggle">
-<span></span>
-<span></span>
-<span></span>
-</button>
+<div class="logo-container">
+<img src="images/JE Techhub logo.png" width="100%" height="100%" alt="JEX Logo" class="logo" />
 </div>
+<nav class="nav-menu">
+<a href="index.html" class="nav-item ">Home</a>
+<a href="gadgets.html" class="nav-item">Gadgets</a>
+<a href="aboutUs.html">About Us</a>
+<a href="programs.html" class="active">Programms</a>
+<a href="contactUs.html">Contact Us</a>
+</nav>
 </header>
 
 <!-- Programs Breadcrumb -->
@@ -1772,7 +1611,7 @@ knowledge to excel in today's digital world.
 <!-- Main Content -->
 <div class="programs-content">
 <!-- Software Development -->
-<div id="software-development" class="program-card">
+<div id="software-development" class="program-card" id="webdev">
 <!-- Image Slideshow -->
 <div class="program-images">
 <div class="slideshow-container">
@@ -1806,21 +1645,21 @@ knowledge to excel in today's digital world.
 <div class="program-content">
 <!-- Header -->
 <div class="program-header">
-<h3 class="program-title orangeHeading " id="webdev">Software Development</h3>
+<h3 class="program-title orangeHeading ">Software Development</h3>
 <div class="program-meta">
 <div class="program-meta-item">
 <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
 </svg>
 <span class="meta-label">Duration:</span>
-<span class="meta-value">8 Weeks</span>
+<span class="meta-value">6 months</span>
 </div>
 <div class="program-meta-item">
 <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
 </svg>
 <span class="meta-label">Level:</span>
-<span class="meta-value">Beginner to Intermediate</span>
+<span class="meta-value">Beginner to Advanced</span>
 </div>
 </div>
 </div>
@@ -1838,13 +1677,13 @@ Master the art of creating powerful applications and websites. Learn multiple pr
 <svg class="skill-check" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
 </svg>
-<span>HTML, CSS, JavaScript</span>
+<span>Python, JavaScript, Java Programming</span>
 </li>
 <li class="skill-item">
 <svg class="skill-check" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
 </svg>
-<span>Responsive Design</span>
+<span>React, Node.js, Database Management</span>
 </li>
 <li class="skill-item">
 <svg class="skill-check" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1911,21 +1750,21 @@ Master the art of creating powerful applications and websites. Learn multiple pr
 <div class="program-content">
 <!-- Header -->
 <div class="program-header">
-<h3 class="program-title  orangeHeading" id="dataAnalysis">Data Analysis</h3>
+<h3 class="program-title  orangeHeading">Data Analysis</h3>
 <div class="program-meta">
 <div class="program-meta-item">
 <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
 </svg>
 <span class="meta-label">Duration:</span>
-<span class="meta-value">12 Weeks</span>
+<span class="meta-value">4 months</span>
 </div>
 <div class="program-meta-item">
 <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
 </svg>
 <span class="meta-label">Level:</span>
-<span class="meta-value">Beginner to Intermediate</span>
+<span class="meta-value">Intermediate</span>
 </div>
 </div>
 </div>
@@ -1982,7 +1821,7 @@ Transform raw data into actionable insights. Learn to analyze, visualize, and in
 </div>
 
 <!-- UI/UX Design -->
-<div id="ui-ux-design UI/UX" class="program-card">
+<div id="ui-ux-design" class="program-card">
 <!-- Image Slideshow -->
 <div class="program-images">
 <div class="slideshow-container">
@@ -2016,14 +1855,14 @@ Transform raw data into actionable insights. Learn to analyze, visualize, and in
 <div class="program-content">
 <!-- Header -->
 <div class="program-header">
-<h3 class="program-title  orangeHeading " id="UI/UX">UI/UX Design</h3>
+<h3 class="program-title  orangeHeading ">UI/UX Design</h3>
 <div class="program-meta">
 <div class="program-meta-item">
 <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
 </svg>
 <span class="meta-label">Duration:</span>
-<span class="meta-value">8 Weeks</span>
+<span class="meta-value">3 months</span>
 </div>
 <div class="program-meta-item">
 <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -2118,31 +1957,32 @@ Create stunning and user-friendly digital experiences. Learn design principles, 
 </div>
 </div>
 
-<div class="program-content" >
+<div class="program-content">
 <!-- Header -->
-<div class="program-header" id="Marketing" >
-<h3 class="program-title  orangeHeading"  >Digital Marketing</h3>
+<div class="program-header">
+<h3 class="program-title  orangeHeading">Forex Trading</h3>
 <div class="program-meta">
 <div class="program-meta-item">
 <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
 </svg>
 <span class="meta-label">Duration:</span>
-<span class="meta-value">8 Weeks</span>
+<span class="meta-value">2 months</span>
 </div>
 <div class="program-meta-item">
 <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
 </svg>
 <span class="meta-label">Level:</span>
-<span class="meta-value">Beginner To Intermediate</span>
+<span class="meta-value">Beginner</span>
 </div>
 </div>
 </div>
 
 <!-- Description -->
 <p class="program-description">
-We’ll show you , and make money using tools like Instagram, WhatsApp, and Google —</p>
+Learn the fundamentals of foreign exchange trading. Understand market analysis, risk management, and trading strategies to make informed financial decisions.
+</p>
 
 <!-- Key Skills -->
 <div class="program-skills">
@@ -2152,19 +1992,19 @@ We’ll show you , and make money using tools like Instagram, WhatsApp, and Goog
 <svg class="skill-check" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
 </svg>
-<span>How To Grow a Brand</span>
+<span>Market Analysis & Chart Reading</span>
 </li>
 <li class="skill-item">
 <svg class="skill-check" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
 </svg>
-<span>Attract Customers</span>
+<span>Risk Management Strategies</span>
 </li>
 <li class="skill-item">
 <svg class="skill-check" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
 </svg>
-<span> Earn Using Tools Like Instagram, WhatsApp, And Google</span>
+<span>Trading Platforms & Tools</span>
 </li>
 <li class="skill-item">
 <svg class="skill-check" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -2176,7 +2016,7 @@ We’ll show you , and make money using tools like Instagram, WhatsApp, and Goog
 <svg class="skill-check" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
 </svg>
-<span>Psychology of Digital Marketing & Discipline</span>
+<span>Psychology of Trading & Discipline</span>
 </li>
 </ul>
 </div>
@@ -2225,14 +2065,14 @@ We’ll show you , and make money using tools like Instagram, WhatsApp, and Goog
 <div class="program-content">
 <!-- Header -->
 <div class="program-header">
-<h3 class="program-title  orangeHeading " id="graphics">Graphics Design & Video Editing</h3>
+<h3 class="program-title  orangeHeading ">Graphics Design & Video Editing</h3>
 <div class="program-meta">
 <div class="program-meta-item">
 <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
 </svg>
 <span class="meta-label">Duration:</span>
-<span class="meta-value">6 Weeks</span>
+<span class="meta-value">4 months</span>
 </div>
 <div class="program-meta-item">
 <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -2303,24 +2143,24 @@ Master visual storytelling through graphics and video. Learn professional design
 <h3 class="sidebar-title">Course Navigation</h3>
 <nav class="sidebar-links">
 <a href="#software-development" class="sidebar-link active" data-program="software-development">
-<div class="sidebar-link-title" id="webdev">Software Development</div>
-<div class="sidebar-link-meta">8 Weeks • Beginner to Intermediate</div>
+<div class="sidebar-link-title">Software Development</div>
+<div class="sidebar-link-meta">6 months • Beginner to Advanced</div>
 </a>
-<a href="#data-analysis" class="sidebar-link" data-program="data-analysis" id="dataAnalysis">
+<a href="#data-analysis" class="sidebar-link" data-program="data-analysis">
 <div class="sidebar-link-title">Data Analysis</div>
-<div class="sidebar-link-meta">12 Weeks • Intermediate</div>
+<div class="sidebar-link-meta">4 months • Intermediate</div>
 </a>
-<a href="#ui-ux-design" class="sidebar-link" data-program="ui-ux-design" id="UI/UX">
+<a href="#ui-ux-design" class="sidebar-link" data-program="ui-ux-design">
 <div class="sidebar-link-title">UI/UX Design</div>
-<div class="sidebar-link-meta">8 Weeks • Beginner to Intermediate</div>
+<div class="sidebar-link-meta">3 months • Beginner to Intermediate</div>
 </a>
-<a href="#forex-trading" class="sidebar-link" data-program="forex-trading" >
-<div class="sidebar-link-title orangeHeading">Digital Marketing</div>
-<div class="sidebar-link-meta">8 Weeks • Beginner</div>
+<a href="#forex-trading" class="sidebar-link" data-program="forex-trading">
+<div class="sidebar-link-title orangeHeading">Forex Trading</div>
+<div class="sidebar-link-meta">2 months • Beginner</div>
 </a>
 <a href="#graphics-video-editing" class="sidebar-link" data-program="graphics-video-editing">
-<div class="sidebar-link-title" id="graphics">Graphics Design & Video Editing</div>
-<div class="sidebar-link-meta">6 Weeks • Beginner to Intermediate</div>
+<div class="sidebar-link-title">Graphics Design & Video Editing</div>
+<div class="sidebar-link-meta">4 months • Beginner to Intermediate</div>
 </a>
 </nav>
 </div>
@@ -2449,116 +2289,6 @@ Instagram
 <!--<script src="main.js"></script>-->
 <!--<script src="programs.js"></script>-->
 <script>
-
-
-// Smooth Scrolling for Navigation Links
-function initSmoothScrolling() {
-const links = document.querySelectorAll('a[href^="#"]');
-
-links.forEach(link => {
-link.addEventListener('click', (e) => {
-e.preventDefault();
-
-const targetId = link.getAttribute('href');
-const targetElement = document.querySelector(targetId);
-
-if (targetElement) {
-const headerHeight = document.querySelector('.header').offsetHeight;
-const targetPosition = targetElement.offsetTop - headerHeight;
-
-window.scrollTo({
-top: targetPosition,
-behavior: 'smooth'
-});
-}
-});
-});
-}
-
-// Enhanced Intersection Observer for Animations
-function initScrollAnimations() {
-const observerOptions = {
-threshold: 0.1,
-rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-entries.forEach(entry => {
-if (entry.isIntersecting) {
-const element = entry.target;
-
-// Add different animations based on element type
-if (element.classList.contains('card')) {
-element.classList.add('animate-fadeInScale');
-} else if (element.classList.contains('program-card')) {
-element.classList.add('animate-fadeInUp');
-} else if (element.classList.contains('testimonial-card')) {
-element.classList.add('animate-slideInLeft');
-} else if (element.classList.contains('stat-item')) {
-element.classList.add('animate-bounce');
-} else {
-element.classList.add('animate-fadeInUp');
-}
-
-// Set opacity and transform
-element.style.opacity = '1';
-element.style.transform = 'translateY(0)';
-
-// Unobserve after animation
-observer.unobserve(element);
-}
-});
-}, observerOptions);
-
-// Observe elements that should animate on scroll
-const animatedElements = document.querySelectorAll(
-'.card, .program-card, .testimonial-card, .stat-item, .service-item, .section-header'
-);
-
-animatedElements.forEach((el, index) => {
-el.style.opacity = '0';
-el.style.transform = 'translateY(30px)';
-el.style.transition = 'opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
-
-// Add staggered delay for elements in the same section
-const delay = (index % 3) * 0.1;
-el.style.transitionDelay = `${delay}s`;
-
-observer.observe(el);
-});
-}
-
-// Header Background on Scroll with enhanced effects
-function initHeaderScroll() {
-const header = document.querySelector('.header');
-let lastScrollY = window.scrollY;
-
-window.addEventListener('scroll', () => {
-const currentScrollY = window.scrollY;
-
-if (currentScrollY > 50) {
-header.style.background = 'rgba(255, 255, 255, 0.98)';
-header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-header.style.backdropFilter = 'blur(20px)';
-} else {
-header.style.background = 'rgba(255, 255, 255, 0.95)';
-header.style.boxShadow = 'none';
-header.style.backdropFilter = 'blur(10px)';
-}
-
-// Hide/show header on scroll
-if (currentScrollY > lastScrollY && currentScrollY > 100) {
-header.style.transform = 'translateY(-100%)';
-} else {
-header.style.transform = 'translateY(0)';
-}
-
-lastScrollY = currentScrollY;
-});
-}
-
-
-
 	// Slideshow functionality for program cards
 let currentSlides = {};
 
@@ -2672,13 +2402,6 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeSlideshows();
     startAutoSlideshow();
     initializeSidebarNavigation();
-    initSmoothScrolling();
-initScrollAnimations();
-initHeaderScroll();
-initParallaxEffect();
-initCounterAnimation();
-initLoadingAnimations();
-
 });
 
 
@@ -2738,29 +2461,5 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 </script>
-
-
-<!-- jQuery -->
-<script src="js/jquery.min.js"></script>
-<script src="js/jquery-migrate-3.0.0.js"></script>
-<script src="js/jquery-ui.min.js"></script>
-<script src="js/easing.js"></script>
-<script src="js/colors.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap-datepicker.js"></script>
-<script src="js/jquery.nav.js"></script>
-<script src="js/slicknav.min.js"></script>
-<script src="js/jquery.scrollUp.min.js"></script>
-<script src="js/niceselect.js"></script>
-<script src="js/tilt.jquery.min.js"></script>
-<script src="js/owl-carousel.js"></script>
-<script src="js/jquery.counterup.min.js"></script>
-<script src="js/steller.js"></script>
-<script src="js/wow.min.js"></script>
-<script src="js/jquery.magnific-popup.min.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/main.js"></script>
-
 </body>
 </html>

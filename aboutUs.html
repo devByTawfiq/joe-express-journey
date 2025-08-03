@@ -10,90 +10,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="icon" href="images/JE Techhub logo - Copy.png" type="image/x-icon">
+
 <style>
-
-/* Header */
- .header {
-    position: sticky;
-    top: 0;
-    background: rgba(255, 255, 255, 0.95);
-    /* backdrop-filter: blur(20px); */
-    border-bottom: 1px solid var(--border);
-    z-index: 1000;
-    padding: var(--spacing-sm) 0;
-    transition: var(--transition);
-}
-.header{display: grid;
-     align-items: center;justify-content: center;}
-
-@media (width > 768px){.header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}}
-
-.nav-brand  {
-display: flex;
-align-items: center;
-justify-content: center;
-img{scale: .8;}
-}
-
-.nav-menu {
-    display: flex;
-    gap: var(--spacing-sm);
-    flex-wrap:wrap ;
-    justify-content: center;
-}
-
-.nav-link {
-    color: darkblue;
-    text-decoration: none;
-    font-weight: 500;
-    transition: var(--transition);
-    position: relative;
-        padding-inline: var(--spacing-md);
-    border-bottom: solid darkblue 3px;
-    border-radius: 5px;
-}
-
-
-.nav-link:hover {
-color: var(--primary);
-scale: 1.3;
-border: none;
-
-}
-
-.nav-link::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: -5px;
-    left: 50%;
-    background-color: var(--primary);
-    transition: var(--transition);
-    transform: translateX(-50%);
-}
-
-.nav-link:hover::after {
-    width: 100%;
-}
-
-.contact-btn {
-    background: var(--primary);
-    color: white;
-    border: none;
-    padding: var(--spacing-sm) var(--spacing-lg);
-    border-radius: 8px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: var(--transition);
-    display: none;
-}
-
 /* Reset and Base Styles */
 * {
 margin: 0;
@@ -267,9 +185,18 @@ color: var(--primary-600);
 padding: var(--space-4) var(--space-8);
 font-size: var(--font-size-lg);
 }
-/* 
-/* Header 
 
+/* Header */
+.header {
+position: fixed;
+top: 0;
+left: 0;
+right: 0;
+background: rgba(255, 255, 255, 0.95);
+backdrop-filter: blur(8px);
+border-bottom: 1px solid var(--gray-200);
+z-index: 50;
+}
 
 .header-content {
 display: flex;
@@ -361,7 +288,7 @@ font-weight: var(--font-weight-medium);
 .mobile-cta {
 margin-top: var(--space-4);
 width: 100%;
-} */
+}
 
 .about-intro{
 	img{transform: translateY(-20%);}
@@ -994,7 +921,7 @@ text-align: right;
 }
 
 @media (min-width: 768px) {
-/* .nav-desktop {
+.nav-desktop {
 display: flex;
 }
 
@@ -1004,7 +931,7 @@ display: block;
 
 .mobile-menu-btn {
 display: none;
-} */
+}
 
 .hero-title,
 .cta-main-title {
@@ -1085,30 +1012,30 @@ grid-template-columns: repeat(4, 1fr);
 display: flex;
 flex-direction: column; /* stack vertically */
 align-items: center;
-justify-content: center;
-/* padding: 20px 0; */
+padding: 20px 0;
 }
 
-/* .logo-container {
-
+.logo-container {
+display: flex;
 align-items: center;
-margin-bottom: 20px; /* space between logo and nav
-} */
+margin-bottom: 20px; /* space between logo and nav */
+}
 
-.nav-brand{display: flex;
-	align-items: center;
-	justify-content: center;
- width: 100%;	}
+.logo {
+height: 100px;
+margin-right: 10px;
+scale:1.2;
+}
+
 
 .nav-menu {
 display: flex;
-gap: 8px;
+gap: 25px;
 }
 
-.nav-menu a {font-weight: 500;
-
+.nav-menu a {
 text-decoration: none;
-color:darkblue;
+color: #000;
 font-size: 16px;
 position: relative;
 }
@@ -1179,58 +1106,20 @@ button a{
 text-decoration: none;
 color:white;
 }
-
-
-
-
-
-:root {
-    /* Colors */
-    --primary: darkblue;
-    /* --primary: #2563eb; */
-    --secondary: #f59e0b;
-    --background: #ffffff;
-    --muted: #f8fafc;
-    --text-primary:black;
-    --text-secondary: black;
-    --border: #e2e8f0;
-    --card-bg: #ffffff;
-    --muted: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
-    /* --muted: 0 10px 15px -3px rgba(0, 0, 0, 0.1); */
-    --footer-bg: #1e3a8a;
-    --footer-text: #e2e8f0;
-    
-    /* Typography */
-    --font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    --font-size-sm: 0.875rem;
-    --font-size-base: 1rem;
-    --font-size-lg: 1.125rem;
-    --font-size-xl: 1.25rem;
-    --font-size-2xl: 1.5rem;
-    --font-size-3xl: 1.875rem;
-    --font-size-4xl: 2.25rem;
-    
-    /* Spacing */
-    --spacing-xs: 0.5rem;
-    --spacing-sm: 0.75rem;
-    --spacing-md: 1rem;
-    --spacing-lg: 1.5rem;
-    --spacing-xl: 2rem;
-    --spacing-2xl: 3rem;
-    --spacing-3xl: 4rem;
-    
-    /* Transitions */
-    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
-}
 </style>
 
 
-
-
-
-
-
+<header class="header">
+<div class="logo-container">
+<img src="images/JE Techhub logo.png" width="100%" height="100%" alt="JEX Logo" class="logo" />
+</div>
+<nav class="nav-menu">
+<a href="index.html" class="nav-item ">Home</a>
+<a href="aboutUs.html" class="active">About Us</a>
+<a href="programs.html">Programms</a>
+<a href="#">Contact Us</a>
+</nav>
+</header>
 <!-- Hero Section -->
 <section class="hero">
 <div class="hero-bg"></div>
@@ -1254,30 +1143,6 @@ About Us
 </div>
 </div>
 </section>
-
-<!-- Header -->
-<header class="header">
-    <div class="nav-brand">
-<img src="images/updatedLogo.jpg" max-width="50%" height="100px" alt="je-tech-hub logo">
-    </div>
-<div class="container">
-
-<nav class="nav-menu" id="navMenu">
-<a href="index.html" class="nav-link">Home</a>
-<a href="gadgets.html" class="nav-link">JE Gadgets </a>
-<a href="aboutUs.html" class="nav-link">About Us</a>
-<a href="programs.html" class="nav-link">Programs</a>
-<a href="contactUs.html" class="nav-link">Contact Us</a>
-</nav>
-<button class="contact-btn"><a href="getStarted.html">Get Started</a></button>
-<button class="mobile-toggle" id="mobileToggle">
-<span></span>
-<span></span>
-<span></span>
-</button>
-</div>
-</header>
-
 
 <!-- About Section -->
 <section id="about" class="section about">
@@ -1327,12 +1192,11 @@ are not just learning, but truly understanding and applying their skills.
 </div>
 </div>
 </section>
-<div id="mission"></div>
+
 <!-- Mission Vision Section -->
 <section class="section mission-vision">
 <div class="container">
 <div class="mission-vision-grid">
-
 <!-- Mission -->
 <div class="card animate-fade-in">
 <div class="card-icon">
@@ -1344,11 +1208,10 @@ are not just learning, but truly understanding and applying their skills.
 <p class="card-text">
 In today's fast-paced world, technology is at the heart of nearly every industry. 
 At JE Tech Hub, we aim to bridge the gap between education and the evolving tech landscape. 
-<p id="vision"></p>
-
 <br>We understand that learning technology can seem daunting, which is why we focus on creating an environment that nurtures curiosity and fosters growth. Whether you are a beginner looking to start your journey in the tech field or an experienced professional aiming to upskill, our mission is to provide you with the tools, guidance, and confidence you need to succeed.
 </p>
 </div>
+
 <!-- Vision -->
 <div class="card animate-fade-in">
 <div class="card-icon">
@@ -1356,7 +1219,7 @@ At JE Tech Hub, we aim to bridge the gap between education and the evolving tech
 <div class="icon-dot"></div>
 </div>
 </div>
-<h3 class="card-title orangeHeading " >Our Vision</h3>
+<h3 class="card-title orangeHeading">Our Vision</h3>
 <blockquote class="card-quote">
 "Shaping the future of tech—raising brilliant minds and crafting skilled professionals 
 who drive innovation and solve real-world challenges",
@@ -1613,45 +1476,23 @@ through practical education and professional services.
 <div class="footer-bottom">
 <div class="footer-bottom-content">
 <div class="footer-copyright">
-© 2024 JE Tech Hub. All Rights Reserved.
+© 2018 JE Tech Hub. All Rights Reserved.
 </div>
 
+<!-- Social Links -->
+<div class="footer-social">
+<a href="https://instagram.com/joe.express1" target="_blank" rel="noopener noreferrer" class="social-link">
+Instagram
+</a>
+<a href="#" class="social-link">LinkedIn</a>
+<a href="#" class="social-link">Twitter</a>
+</div>
 </div>
 </div>
 </div>
 </footer>
 
 <script>
-
-// Header Background on Scroll with enhanced effects
-function initHeaderScroll() {
-    const header = document.querySelector('.header');
-    let lastScrollY = window.scrollY;
-    
-    window.addEventListener('scroll', () => {
-        const currentScrollY = window.scrollY;
-        
-        if (currentScrollY > 50) {
-            header.style.background = 'rgba(255, 255, 255, 0.98)';
-            header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-            header.style.backdropFilter = 'blur(20px)';
-        } else {
-            header.style.background = 'rgba(255, 255, 255, 0.95)';
-            header.style.boxShadow = 'none';
-            header.style.backdropFilter = 'blur(10px)';
-        }
-        
-        // Hide/show header on scroll
-        if (currentScrollY > lastScrollY && currentScrollY > 100) {
-            header.style.transform = 'translateY(-100%)';
-        } else {
-            header.style.transform = 'translateY(0)';
-        }
-        
-        lastScrollY = currentScrollY;
-    });
-}
-
 // Mobile menu toggle
 document.addEventListener('DOMContentLoaded', function() {
 const mobileMenuBtn = document.getElementById('mobileMenuBtn');
