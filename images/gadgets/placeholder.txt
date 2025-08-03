@@ -1,0 +1,18 @@
+
+Place actual gadget images in this directory with the following names:
+- smartphone1.jpg
+- smartphone2.jpg
+- smartphone3.jpg
+- smartphone4.jpg
+- smartphone5.jpg
+- laptop1.jpg
+- laptop2.jpg
+- laptop3.jpg
+- laptop4.jpg
+- laptop5.jpg
+- tablet1.jpg
+- tablet2.jpg
+- headphones1.jpg
+- headphones2.jpg
+
+This ensures the slideshow works correctly with proper images.

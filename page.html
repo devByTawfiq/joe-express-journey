@@ -1,0 +1,1421 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Meta Tags -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="keywords" content="JE Tech Hub, Technology Training, Tech Education, Web Development, Data Analysis, UI/UX Design, Forex Trading, Graphics Design">
+<meta name="description" content="JE Tech Hub - Your gateway to tech excellence. Professional courses in software development, data analysis, UI/UX design, forex trading, and graphics design. Join our community and transform your tech skills.">
+<meta name='copyright' content='JE Tech Hub'>
+<meta name="viewport" content="width=device-width, initial-scale=1.0 shrink-to-fit=no">
+<script src="https://kit.fontawesome.com/69d2ba44c8.js" crossorigin="anonymous"></script>
+<!-- Title -->
+<title>JE Tech Hub - Technology Education and Training Center</title>
+
+<!-- Favicon -->
+<link rel="icon" href="images/JE Techhub logo - Copy.png">
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap"
+rel="stylesheet">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<!-- Nice Select CSS -->
+<link rel="stylesheet" href="css/nice-select.css">
+<!-- Font Awesome CSS -->
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<!-- icofont CSS -->
+<link rel="stylesheet" href="css/icofont.css">
+<!-- Slicknav -->
+<link rel="stylesheet" href="css/slicknav.min.css">
+<!-- Owl Carousel CSS -->
+<link rel="stylesheet" href="css/owl-carousel.css">
+<!-- Datepicker CSS -->
+<link rel="stylesheet" href="css/datepicker.css">
+<!-- Animate CSS -->
+<link rel="stylesheet" href="css/animate.min.css">
+<!-- Magnific Popup CSS -->
+<link rel="stylesheet" href="css/magnific-popup.css">
+
+<!-- Medipro CSS -->
+<link rel="stylesheet" href="css/normalize.css">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/custom.css">
+
+<style>
+/* Loading Spinner */
+.loader-wrapper {
+position: fixed;
+width: 100%;
+height: 100%;
+background:darkblue;
+display: flex;
+justify-content: center;
+align-items: center;
+z-index: 9999;
+top: 0;
+left: 0;
+transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.loader {
+width: 70px;
+height: 70px;
+border: 6px solid #f3f3f3;
+border-top: 6px solid darkblue;
+border-radius: 50%;
+animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+0% { transform: rotate(0deg); }
+100% { transform: rotate(360deg); }
+}
+
+.hidden {
+opacity: 0;
+visibility: hidden;
+}
+@media (width >= 768px){
+
+
+/*.about-section {
+margin-top: 100px;
+}*/
+
+
+.aboutBox{
+display:flex;
+align-items:center;
+
+p{
+padding-inline:2em;
+width:65%;
+margin-right:-2em;
+z-index:1;
+}
+.aboutImg{
+margin-left:-2em;
+width:45%;
+
+img{width: 100%;aspect-ratio: 16/9;}
+}
+}
+
+}
+.about-content h2 {
+line-height: 32px;
+font-size: 25px;
+}
+.about-content {
+padding-bottom: 0;
+}
+
+
+
+/* Enhanced Hot Deals Section */
+.card {
+border: none;
+border-radius: 8px;
+overflow: hidden;
+box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+transition: all 0.3s ease;
+height: 100%;
+}
+
+.card:hover {
+transform: translateY(-5px);
+box-shadow: 0 15px 25px rgba(0,0,0,0.15);
+}
+
+.card-image {
+height: 200px;
+overflow: hidden;
+position: relative;
+}
+
+.card-image img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+transition: transform 0.5s ease;
+}
+
+.card:hover .card-image img {
+transform: scale(1.05);
+}
+
+.card-content {
+padding: 20px;
+background: #fff;
+}
+
+.card-title {
+color: darkblue;
+margin-bottom: 15px;
+font-weight: 600;
+}
+
+.card-description {
+color: #555;
+margin-bottom: 20px;
+}
+
+.card-button {
+background: darkblue;
+color: #fff;
+border: none;
+padding: 10px 20px;
+border-radius: 5px;
+cursor: pointer;
+transition: all 0.3s ease;
+text-transform: uppercase;
+font-weight: 500;
+font-size: 14px;
+display: inline-block;
+}
+
+.card-button:hover {
+background: orange;
+}
+
+.card-button a {
+color: #fff;
+text-decoration: none;
+}
+
+/* Enhanced Contact Form */
+.appointment .form {
+background: #fff;
+padding: 40px;
+border-radius: 8px;
+box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+.appointment .form input,
+.appointment .form textarea {
+width: 100%;
+padding: 12px 15px;
+border: 1px solid #e6e6e6;
+border-radius: 5px;
+margin-bottom: 20px;
+transition: all 0.3s ease;
+font-size: 14px;
+}
+
+.appointment .form input:focus,
+.appointment .form textarea:focus {
+border-color: darkblue;
+box-shadow: 0 0 10px rgba(26,118,209,0.1);
+}
+
+.appointment .form textarea {
+height: 120px;
+resize: none;
+}
+
+.appointment .form input[type="submit"] {
+background: darkblue;
+color: #fff;
+cursor: pointer;
+text-transform: uppercase;
+font-weight: 500;
+transition: all 0.3s ease;
+border: none;
+width: auto;
+padding: 12px 30px;
+}
+
+.appointment .form input[type="submit"]:hover {
+background: #0d62b8;
+}
+
+.loaderName{
+position:absolute;
+top:40%;
+left: 10%;
+right: 10%;
+font-weight: 500;
+color: var(--orange); 
+line-height:60px;
+}
+
+.flex{display: flex;justify-content:space-between;
+align-items:center;
+
+}
+
+.action-btns{
+display: flex;
+align-items: center;
+justify-content: center;
+padding-right:10px;
+@media (width < 768px) {
+display: none;
+}
+}
+</style>
+
+</head>
+
+<body>
+
+<!--Loading Spinner
+<div class="loader-wrapper">
+<div class="loader"></div>
+</div>-->
+
+<!-- Preloader -->
+<div class="preloader">
+<div class="loader-wrapper">
+<div class="loader"></div>
+</div>
+<h1 class="loaderName">JOE EXPRESS
+<br>
+TECH HUB</h1></div>
+
+
+</div>
+<!-- End Preloader -->
+
+
+
+<main>
+<!-- New Hero Carousel Start -->
+<style>
+
+.carousel {
+position: relative;
+width: 100%;
+height: 100vh;
+overflow: hidden;
+}
+.slides-container {
+display: flex;
+height: 100%;
+transition: transform 0.7s ease-in-out;
+}
+.slide {
+min-width: 100%;
+height: 100%;
+display: flex;
+align-items: center;
+justify-content: center;
+position: relative;
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+}
+.slide-overlay {
+position: absolute;
+inset: 0;
+}
+.slide-content {
+position: relative;
+z-index: 10;
+text-align: center;
+color: white;
+padding: 0 1rem;
+max-width: 64rem;
+margin: 0 auto;
+}
+.slide-content-inner {
+display: flex;
+flex-direction: column;
+gap: 1.5rem;
+padding: 2em 0.5em ;
+margin-bottom: 3rem;
+animation: fadeIn 0.8s ease-out;
+/*background: #0000006e;*/
+border-radius: 1em;
+
+}
+.slide-subtitle {
+font-size: 1.125rem;
+font-weight: 300;
+letter-spacing: 0.05em;
+opacity: 0.9;
+color: whitesmoke;
+text-align: left;
+}
+.slide-title {
+	color: darkblue;
+	text-align: left;
+font-size: 3rem;
+font-weight: bold;
+line-height: 1.1;
+
+}
+.slide-description {
+font-size: 1.125rem;
+line-height: 1.7;
+opacity: 0.9;
+max-width: 32rem;
+margin: 0 auto;
+text-align: left;
+color: whitesmoke;
+}
+.slide-buttons {
+display: flex;
+flex-direction: column;
+gap: 1rem;
+justify-content: center;
+align-items: center;
+padding-top: 1.5rem;
+}
+.btn {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+padding: 0.75rem 2rem;
+font-size: 1rem;
+font-weight: 500;
+border-radius: 0.375rem;
+text-decoration: none;
+transition: all 0.3s ease;
+border: none;
+cursor: pointer;
+min-width: 160px;
+width: 100%;
+}
+.btn-primary {
+background: darkblue;
+color: whitesmoke;
+box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1);
+}
+.btn-primary:hover {
+background: orangered;
+transform: scale(1.05);
+box-shadow: 0 20px 60px -10px rgba(26, 2, 80, 0.959);
+}
+.btn-secondary {
+background:orangered;
+color: white;
+border: 1px solid rgba(255, 255, 255, 0.2);
+backdrop-filter: blur(20px);
+}
+.btn-secondary:hover {
+background:darkblue;
+transform: scale(1.05);
+}
+.nav-button {
+position: absolute;
+top: 50%;
+transform: translateY(-50%);
+z-index: 20;
+background:darkblue;
+backdrop-filter: blur(20px);
+border: 1px solid;
+color: white;
+padding: 0.82rem;
+border-radius: 50%;
+cursor: pointer;
+transition: all 0.3s ease;
+}
+.nav-button:hover {
+background: orangered;
+transform: translateY(-50%) scale(1.1);
+}
+.nav-button:disabled {
+opacity: 0.5;
+cursor: not-allowed;
+}
+.nav-prev {
+left: 2rem;
+}
+.nav-next {
+right: 2rem;
+}
+.indicators {
+position: absolute;
+bottom: 2rem;
+left: 50%;
+transform: translateX(-50%);
+z-index: 20;
+display: flex;
+gap: 0.75rem;
+}
+.indicator {
+width: 0.75rem;
+height: 0.75rem;
+border-radius: 50%;
+border: 1px solid rgba(255, 255, 255, 0.4);
+background: darkblue;
+cursor: pointer;
+transition: all 0.3s ease;
+}
+.indicator.active {
+background: orangered;
+transform: scale(1.25);
+}
+.indicator:hover:not(.active) {
+background:darkblue;
+}
+.progress-bar {
+position: absolute;
+bottom: 0;
+left: 0;
+width: 100%;
+height: 4px;
+background: orangered;
+z-index: 20;
+}
+.progress-fill {
+height: 100%;
+background: darkblue;
+transition: width 3s linear;
+}
+.chevron {
+width: 1.5rem;
+height: 1.5rem;
+stroke: currentColor;
+stroke-width: 2;
+fill: none;
+}
+@keyframes fadeIn {
+0% {
+opacity: 0;
+transform: translateY(20px);
+}
+100% {
+opacity: 1;
+transform: translateY(0);
+}
+}
+@media (min-width: 640px) {
+.slide-content {
+padding: 0 1.5rem;
+}
+.slide-subtitle {
+font-size: 1.25rem;
+}
+.slide-title {
+font-size: 4rem;
+}
+.slide-description {
+font-size: 1.25rem;
+}
+.slide-buttons {
+flex-direction: row;
+}
+.btn {
+width: auto;
+}
+.nav-prev {
+left: 2rem;
+}
+.nav-next {
+right: 2rem;
+}
+.indicators {
+bottom: 2rem;
+}
+}
+@media (min-width: 768px) {
+.slide-title {
+font-size: 5rem;
+}
+}
+@media (min-width: 1024px) {
+.slide-content {
+padding: 0 2rem;
+}
+.slide-title {
+font-size: 6rem;
+}
+}
+</style>
+<div class="carousel">
+<div class="slides-container" id="slidesContainer">
+<!-- Slide 1 -->
+<div class="slide" style="background-image: url('./images/f1ddcbba-dd46-4502-b7f3-89c89d5b432d.jpg?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); background-size: cover;">
+<div class="slide-overlay"></div>
+<div class="slide-content">
+<div class="slide-content-inner">
+<h1 class="slide-title">We Provide <span>Services</span> That You Can
+<span>Trust!</span></h1>
+<p class="slide-description">
+ dedicated to empowering individuals and businesses with
+cutting-edge solutions 
+</p></div>
+
+<div class="slide-buttons">
+<button class="btn btn-primary">Learn More</button>
+<button class="btn btn-secondary">Contact Us</button>
+</div>
+</div>
+</div>
+<!-- Slide 2 -->
+<div class="slide" style="background-image: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')">
+<div class="slide-overlay"></div>
+<div class="slide-content">
+<div class="slide-content-inner">
+
+<h1 class="slide-title">Excellence in Every Detail</h1>
+<p class="slide-description">
+
+Get the <span>skills</span> mentorship, and resources you
+need to thrive<span> in today’s digital world. </span>
+</p></div>
+<div class="slide-buttons">
+<button class="btn btn-primary">Learn More</button>
+<button class="btn btn-secondary">Contact Us</button>
+
+</div>
+</div>
+</div>
+<!-- Slide 3 -->
+<div class="slide" style="background-image: url('https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')">
+<div class="slide-overlay"></div>
+<div class="slide-content">
+<div class="slide-content-inner">
+<h1 class="slide-title">LEARN GROW <span>& </span>EXPLORE ENDLESS 
+<span>OPPURTUNITIES!</span></h1>
+
+<p class="slide-description">
+Join thousands of satisfied clients who have achieved their goals with our expert guidance. 
+</p></div>
+<div class="slide-buttons">
+<button class="btn btn-primary">Learn More</button>
+<button class="btn btn-secondary">Contact Us</button>
+
+</div>
+</div>
+</div>
+</div>
+<!-- Navigation Buttons -->
+<button class="nav-button nav-prev" id="prevBtn" aria-label="Previous slide">
+<svg class="chevron" viewBox="0 0 24 24">
+<polyline points="15,18 9,12 15,6"></polyline>
+</svg>
+</button>
+<button class="nav-button nav-next" id="nextBtn" aria-label="Next slide">
+<svg class="chevron" viewBox="0 0 24 24">
+<polyline points="9,18 15,12 9,6"></polyline>
+</svg>
+</button>
+<!-- Slide Indicators -->
+<div class="indicators" id="indicators">
+<button class="indicator active" data-slide="0" aria-label="Go to slide 1"></button>
+<button class="indicator" data-slide="1" aria-label="Go to slide 2"></button>
+<button class="indicator" data-slide="2" aria-label="Go to slide 3"></button>
+</div>
+<!-- Progress Bar -->
+<div class="progress-bar">
+<div class="progress-fill" id="progressFill"></div>
+</div>
+</div>
+<!-- New Hero Carousel End -->
+
+<script>
+class HeroCarousel {
+constructor() {
+this.currentSlide = 0;
+this.totalSlides = 3;
+this.isAnimating = false;
+this.autoSlideInterval = null;
+this.slidesContainer = document.getElementById('slidesContainer');
+this.prevBtn = document.getElementById('prevBtn');
+this.nextBtn = document.getElementById('nextBtn');
+this.indicators = document.querySelectorAll('.indicator');
+this.progressFill = document.getElementById('progressFill');
+this.init();
+}
+init() {
+this.prevBtn.addEventListener('click', () => this.prevSlide());
+this.nextBtn.addEventListener('click', () => this.nextSlide());
+this.indicators.forEach((indicator, index) => {
+indicator.addEventListener('click', () => this.goToSlide(index));
+});
+this.startAutoSlide();
+this.updateProgressBar();
+}
+nextSlide() {
+if (this.isAnimating) return;
+this.isAnimating = true;
+this.currentSlide = (this.currentSlide + 1) % this.totalSlides;
+this.updateSlide();
+setTimeout(() => {
+this.isAnimating = false;
+}, 600);
+}
+prevSlide() {
+if (this.isAnimating) return;
+this.isAnimating = true;
+this.currentSlide = (this.currentSlide - 1 + this.totalSlides) % this.totalSlides;
+this.updateSlide();
+setTimeout(() => {
+this.isAnimating = false;
+}, 600);
+}
+goToSlide(index) {
+if (this.isAnimating || index === this.currentSlide) return;
+this.isAnimating = true;
+this.currentSlide = index;
+this.updateSlide();
+setTimeout(() => {
+this.isAnimating = false;
+}, 600);
+}
+updateSlide() {
+const translateX = -this.currentSlide * 100;
+this.slidesContainer.style.transform = `translateX(${translateX}%)`;
+this.indicators.forEach((indicator, index) => {
+if (index === this.currentSlide) {
+indicator.classList.add('active');
+} else {
+indicator.classList.remove('active');
+}
+});
+this.updateProgressBar();
+this.restartAutoSlide();
+}
+updateProgressBar() {
+const progress = ((this.currentSlide + 1) / this.totalSlides) * 100;
+this.progressFill.style.width = `${progress}%`;
+}
+startAutoSlide() {
+this.autoSlideInterval = setInterval(() => {
+this.nextSlide();
+}, 3000);
+}
+restartAutoSlide() {
+if (this.autoSlideInterval) {
+clearInterval(this.autoSlideInterval);
+}
+this.startAutoSlide();
+}
+pauseAutoSlide() {
+if (this.autoSlideInterval) {
+clearInterval(this.autoSlideInterval);
+}
+}
+resumeAutoSlide() {
+this.startAutoSlide();
+}
+}
+document.addEventListener('DOMContentLoaded', () => {
+const carousel = new HeroCarousel();
+const carouselElement = document.querySelector('.carousel');
+carouselElement.addEventListener('mouseenter', () => {
+carousel.pauseAutoSlide();
+});
+carouselElement.addEventListener('mouseleave', () => {
+carousel.resumeAutoSlide();
+});
+});
+</script>
+<!-- Header Area -->
+<header class="header" >
+<!-- Header Inner -->
+<div class="header-inner">
+
+<div class="inner">
+<div class="row flex">
+<div class="col-lg-3 col-md-3 col-12">
+<!-- Start Logo -->
+<div class="logo">
+<a href="index.html"><img src="images/JE Techhub logo.png#"></a>
+</div>
+<!-- End Logo -->
+<!-- Mobile Nav -->
+<div class="mobile-nav"></div>
+<!-- End Mobile Nav -->
+</div>
+
+<!-- Main Menu -->
+<div class="main-menu col-sm-12 col-lg-6 col-md-6 ">
+<nav class="navigation">
+<ul class="nav menu">
+<li class="active"><a href="#" class="scroll">Home</a></li>
+<li><a href="about.html" class="scroll">About Us</a></li>
+<li><a href="programs.html" class="scroll">Programs</a></li>
+<!-- <li><a href="courses.html">Courses</a></li>  -->
+<li><a href="contact.html" class="scroll">Contact Us</a></li>
+</ul>
+</nav>
+
+</div>
+<div class="action-btns col-3 ">
+
+<a href="contact.html" class="btn primary">Contact Now</a>
+</div>
+<!--/ End Main Menu -->
+
+
+
+</div>
+<!--/ End Header Inner -->
+</header>
+<!-- End Header Area -->
+
+<!-- Start Schedule Area -->
+<section class="schedule">
+<div class="container">
+<div class="schedule-inner">
+<div class="row">
+<div class="col-lg-4 col-md-6 col-12 ">
+<!-- single-schedule -->
+<div class="single-schedule first">
+<div class="inner">
+<div class="icon">
+<i class="fa fa-cogs" aria-hidden="true"></i></div>
+<div class="single-content">
+<h4>Our Mission</h4>
+<p>to connect education and technology with innovative and practical tutoring that enhances tech skills....</p>
+<a href="about.html#mission">LEARN MORE <i
+class="fa fa-long-arrow-right"></i></a>
+</div>
+</div>
+</div>
+</div>
+<div class="col-lg-4 col-md-6 col-12">
+<!-- single-schedule -->
+<div class="single-schedule middle">
+<div class="inner">
+<div class="icon">
+<i class="icofont-prescription"></i>
+</div>
+<div class="single-content">
+<h4>Our Vision</h4>
+<p> Shaping the future of tech—raising brilliant minds and crafting skilled...</p><span  id="about"></span>
+<a href="about.html#vision">LEARN MORE <i
+class="fa fa-long-arrow-right"></i></a>
+</div>
+
+</div>
+</div>
+</div>
+
+<!-- single-schedule -->
+</section>
+<section>
+<!-- About Section -->
+<div class="col-lg-12 col-md-12 col-12">
+
+<div class="about-section">
+
+<div class="mobileContainerSpacing">
+<h2 class="left-header">About Us</h2>
+
+<div class="aboutBox">
+
+<p class="largerParagraphs lineHeight ">
+<span class="span aboutSec">
+<span class="clip-text">
+
+JE Tech Hub, Officially launched February 2024, marking a new phase of growth and innovation 
+to deliver top-tier tech solutions while
+empowering individuals and businesses with industry-leading
+skills.
+
+
+</span>
+
+
+
+</span>
+</p>
+<span class="aboutImg">
+<img src="images/th.jpeg" alt="">
+</span>
+</div>
+</div>
+
+<div class="horizontal-line"></div>
+
+<p class="largerParagraphs  lineHeight">
+<span class="clip-text">
+Having several training programs ongoing and  approximately 30 graduates...we believe in nurturing creativity, fostering growth, and
+equipping our community with practical skills to thrive in the digital era.
+</span>
+</p>
+<button class="card-button"><a href="getStarted.html">Get Started
+</a>
+</button>
+
+</div>
+
+
+<div class="mobileContainerSpacing offer">
+<h2 class="left-header">What We Offer</h2>
+<span class="whatWeOffer"><i>hands-on training and innovative solutions</i></span>
+<p class="largerParagraphs  lineHeight ">
+<span class="clip-text">
+Operating under the umbrella of <strong>JE Gadgets</strong>, our parent brand, which specializes in gadget sales, repairs, and swaps. 
+We pride ourselves on being a leading tech education center that empowers
+individuals to transform their ideas into impactful, actionable opportunities.
+
+
+</span>
+</p>
+<button class="card-button"><a href="contact.html">Contact Us</a></button>
+<div class="horizontal-line"></div>
+<span  id="programms"></span>
+<p class="largerParagraphs  lineHeight ">
+<span class="clip-text">
+
+Whether you're an entrepreneur looking to scale, a tech enthusiast eager to
+explore new frontiers, or someone seeking to upskill,
+<br>
+we offer the knowledge,
+tools, and mentorship to help you thrive in the ever-evolving digital
+landscape.
+</span><button class="card-button"><a href="getStarted.html">Join Us</a></button>
+
+</p>
+<br>
+
+
+
+
+
+
+</div>
+<h3 class="left-header" >Our Cutting-Edge Programs</h3>
+
+
+
+<p class="largerParagraphs  lineHeight ">We provide practical experience and expert
+guidance across various tech-driven fields with several ongoing training programs empower our you with the skills you
+need to excel.
+</p> 
+<p class="largerParagraphs  lineHeight">Check Out Our advanced IT training, software development courses and more </p>
+<h6 class="card-title">#Training Courses: </h6>
+
+<div class="cards-container col-lg-12">
+
+<div class="card">
+<img src="images/soft.jpg" alt="software-development.jpg"
+class="card-image" />
+<div class="card-content">
+<h3 class="card-title">Software Development</h3>
+<p class="card-description">
+Learn to build responsive and dynamic websites using modern technologies
+like HTML, CSS, JavaScript, and frameworks. Whether you want to create
+personal blogs, business websites, or complex web applications, our
+courses will equip you with the skills to succeed in the tech industry.
+</p>
+
+<button class="card-button"><a href="courses.html">Learn More</a></button>
+</div>
+</div>
+
+
+
+<div class="card">
+<img src="images/graphics1.jpg" alt="Editing And Design"
+class="card-image" />
+<div class="card-content">
+<h3 class="card-title">Video Editing And Graphics Design</h3>
+<p class="card-description">
+Unleash your creativity by mastering both video editing and graphic
+design. Learn to transform raw footage into professional-quality videos
+using industry-standard software like Adobe Premiere Pro and DaVinci
+Resolve. At the same time, develop skills in graphic design with tools
+like Photoshop, Illustrator, and Canva to create eye-catching logos,
+posters, social media content, and marketing materials.
+</p>
+<button class="card-button"><a href="courses.html">Learn More</a></button>
+</div>
+</div>
+
+
+<div class="card">
+<img src="images/analysis.jpg" alt="DataAnalysisImage"
+class="card-image" />
+<div class="card-content">
+<h3 class="card-title">Data Analysis</h3>
+<p class="card-description">
+Turn data into insights and make data-driven decisions. Learn how to use
+tools like Excel, Python, SQL, and Power BI to analyze and visualize
+data, helping businesses and organizations optimize their performance.
+</p>
+<button class="card-button"><a href="courses.html">Learn More</a></button>
+</div>
+</div>
+
+
+<div class="card">
+<img src="images/forex.jpeg" alt="Trading"
+class="card-image" />
+<div class="card-content">
+<h3 class="card-title">Forex Trading</h3>
+<p class="card-description">
+Discover how to trade the global financial markets and make informed
+investment decisions. Learn the fundamentals of forex trading, technical
+and fundamental analysis, risk management, and strategies to become a
+successful trader.
+</p>
+<button class="card-button"><a href="courses.html">Learn More</a></button>
+</div>
+</div>
+
+
+<div class="card">
+<img src="images/Uiux.jpg" alt="UiUX" class="card-image" />
+<div class="card-content">
+<h3 class="card-title">UI/UX Design</h3>
+<p class="card-description">
+Master the art of creating user-friendly and visually appealing
+interfaces. Learn the principles of user experience (UX) and user
+interface (UI) design using tools like Figma and Adobe XD to craft
+intuitive and engaging digital experiences.
+</p>
+<button class="card-button"><a href="courses.html">Learn More</a></button>
+</div>
+</div>
+
+
+<div class="card">
+<img src="images/bd4466d1ccedaaf3403a49a10188f3d6.jpg" alt="GADGETSIMG"
+class="card-image" />
+<div class="card-content">
+<h3 class="card-title">
+Mobile Phones And Other Gadgets Sales & Repairs
+</h3>
+<p class="card-description">
+Top-Quality Gadgets, or reliable repair services? We offer a wide range of mobile devices, accessories and tech essentials at unbeatable prices...
+Whether you need a brand-new, high-performance gadget or expert repairs for your damaged device, We are ready to assist.
+</p>
+<button class="card-button"><a href="contact.html">Contact Us</a></button>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+
+
+<div class="container readyContainer">
+
+<div class="col-12">
+<div >
+<h2 class="card-title ">Ready to Elevate Your Skills? </h2>
+
+<p class="ready lineHeight  largerParagraphs">Whether you're interested
+in web development, graphic design, data analysis, or other innovative
+sectors, our tailored courses equip you with the skills needed to excel in
+today's fast-paced digital landscape. 
+<div class="horizontal-line"></div>
+
+</p>
+<p class="lineHeight    largerParagraphs">
+Our mission goes beyond education—we aim
+to cultivate a creative, entrepreneurial mindset that prepares you for the
+future of technology.</p>
+<p class="ready  lineHeight largerParagraphs">
+Join a community of like-minded learners and industry professionals who are
+passionate about technology and personal growth. Get the skills, mentorship,
+and resources you need to thrive in today's digital world.</p>
+
+<button class="card-button"><a href='getStarted.html'>Get Started</a></button>
+
+
+
+</div>
+</div>
+</div>
+
+
+
+<!-- Pricing Table -->
+<section class="pricing-table section">
+<div class="container">
+
+<div class="col-12">
+<div>
+<h2 class="card-title">We Also Offer reliable delivery services. </h2>
+<p class="largerParagraphs lineHeight">
+Explore the world of logistics and deliveries	
+Learn how to start and operate a successful delivery business, optimize routes, manage orders, and use digital tools to ensure fast and efficient deliveries for e-commerce, food, and courier services.
+</p>
+<p class="largerParagraphs lineHeight ">Whether you are purchasing Or Whatever We Ensure that everything
+arrives at your doorstep or your preferred location</p>
+
+</div>
+</div>
+</section>
+<section class="pricing-table">
+<!-- Single Table -->
+<div class="row">
+<div class="col-12">
+<div class="single-table">
+<!-- Table Head -->
+<div class="table-head">
+<div class="icon">
+<img src="images/Screenshot_20250106-103323_WhatsApp.jpg"
+max-height="250px" max-width="450px" alt="">
+</div>
+</div>
+<!-- Table List -->
+<ul class="table-list">
+<li><i class="icofont icofont-ui-check"></i>Door-To-Door Delivery
+</li>
+<li><i class="icofont icofont-ui-check"></i>Office Delivery</li>
+<li><i class="icofont icofont-ui-check"></i>Food Delivery</li>
+<li><i class="icofont icofont-ui-check"></i>Motor Park Pickup</li>
+<li><i class="icofont icofont-ui-check"></i>Motor Park Dropoff
+</li>
+<li><i class="icofont icofont-ui-check"></i>Mail Pockets</li>
+</ul>
+<div class="table-bottom">
+<a class="btn" href="#">Book Now</a>
+</div>
+<!-- Table Bottom -->
+</div>
+</div>
+</div>
+<!-- End Single Table-->
+</div></section>
+<!--/ End Pricing Table -->
+
+<!-- Start Call to action -->
+<section class="call-action overlay">
+<div class="container">
+<div class="row">
+<div class="col-lg-12 col-md-12 col-12">
+<div class="content">
+<h2>Need More Information? Contact Us Call @ 1234 56789</h2>
+<!-- Social -->
+<ul class="socials">
+<li><a href="https://www.instagram.com/je_techhub?igsh=dGZjc29oNnRsOGF2&utm_source=qr"><i class="icofont-instagram"></i></a></li>
+<li><a href="#"><i class="icofont-google-plus"></i></a></li>
+<li><a href="#"><i class="icofont-twitter"></i></a></li>
+
+</ul>
+<!-- End Social -->
+<div class="button">
+<a href="#contact" class="btn scroll">Contact Now</a>
+
+
+<a href="about.html" class="btn second">Learn More<i
+class="fa fa-long-arrow-right"></i></a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!--/ End Call to action -->
+
+<!-- Blog Area -->
+<section class="blog section" id="blog">
+<div class="container">
+
+<div class="row">
+<div class="col-lg-12">
+<div>
+<h2 class="card-title">What Our Members Say</h2>
+
+<p class="largerParagraphs lineHeight">Our members' experiences are a testament to the quality of training and mentorship we provide at JE Techhub. Hear what they have to say about their journey with us.</p>
+</div>
+</div>
+</div>
+
+<div class="row">
+<div class="col-lg-4 col-md-6 col-12">
+<!-- Single Blog -->
+<div class="single-news">
+<div class="news-body">
+<div class="news-content">
+<div class="news-head">
+<img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Sarah Jones">
+</div>
+<h2>Sarah Jones</h2>
+<p class="text">"JE Techhub transformed my career. The hands-on training and expert instructors helped me gain the skills I needed to land my first job in web development. The community and support I received here were amazing!"</p>
+<div class="date">22 Aug, 2023</div>
+</div>
+</div>
+</div>
+<!-- End Single Blog -->
+</div>
+
+<div class="col-lg-4 col-md-6 col-12">
+<!-- Single Blog -->
+<div class="single-news">
+<div class="news-body">
+<div class="news-content">
+<div class="news-head">
+<img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Michael Smith">
+</div>
+<h2>Michael Smith</h2>
+<p class="text">"I've been through several tech training programs, but none compared to the quality of JE Techhub. The curriculum was up-to-date, and I learned everything I needed to start my own freelance business in digital marketing. Highly recommend!"</p>
+<div class="date">15 Sept, 2023</div>
+</div>
+</div>
+</div>
+<!-- End Single Blog -->
+</div>
+
+<div class="col-lg-4 col-md-6 col-12">
+<!-- Single Blog -->
+<div class="single-news">
+<div class="news-body">
+<div class="news-content">
+<div class="news-head">
+<img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1588&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Emma Watson">
+</div>
+<h2>Emma Watson</h2>
+<p class="text">"Thanks to JE Techhub's software development course, I now have the skills to build my own applications. The instructors were not only experts but also genuinely caring, and the practical training helped me grow fast!"</p>
+<div class="date">5 Jan, 2024</div>
+</div>
+</div>
+</div>
+<!-- End Single Blog -->
+</div>
+</div>
+</div>
+</section>
+<!-- End Blog Area -->
+
+
+<!-- Start Appointment -->
+<section class="appointment" id="contact">
+<div class="container">
+<div class="row">
+<div class="col-lg-12">
+<div class="section-title">
+<h2 class="card-title">We Are Always Ready For You</h2>
+<p>Send Us A Message And We'll Get Back To You</p>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-lg-6 col-md-12 col-12">
+<form class="form" id="contactForm">
+<div class="row">
+<div class="col-lg-6 col-md-6 col-12">
+<div class="form-group">
+<input name="name" type="text" placeholder="Full Name" required>
+</div>
+</div>
+<div class="col-lg-6 col-md-6 col-12">
+<div class="form-group">
+<input name="email" type="email" placeholder="Email Address" required>
+</div>
+</div>
+<div class="col-lg-6 col-md-6 col-12">
+<div class="form-group">
+<input name="phone" type="text" placeholder="Phone Number" required>
+</div>
+</div>
+<div class="col-lg-6 col-md-6 col-12">
+<div class="form-group">
+<input name="subject" type="text" placeholder="Subject" required>
+</div>
+</div>
+<div class="col-lg-12 col-md-12 col-12">
+<div class="form-group">
+<textarea name="message" placeholder="Write Your Message Here....." required></textarea>
+</div>
+</div>
+<div class="col-lg-12 col-md-12 col-12">
+<div class="form-group">
+<input type="submit" value="Submit Message" onclick="sendMsg()">
+</div>
+</div>
+</div>
+</form>
+
+<!--</div>
+<div class="col-lg-6 col-md-12 col-12">
+<div class="appointment-image">
+<img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Contact Us">
+</div>
+</div>
+</div>
+</div>
+</section>
+End Appointment-->
+</main>
+
+<br>
+<br>
+
+<!-- Footer Area -->
+<footer id="footer" class="footer ">
+<!-- Footer Top -->
+<div class="footer-top">
+<div class="container">
+<div class="row">
+<div class="col-lg-3 col-md-6 col-12">
+<div class="single-footer">
+<h2>About Us</h2>
+<p>JE Tech Hub is dedicated to empowering individuals with cutting-edge technology skills through hands-on training and innovative solutions.</p>
+<!-- Social -->
+<ul class="social">
+<li><a href="https://www.instagram.com/je_techhub?igsh=dGZjc29oNnRsOGF2&utm_source=qr"><i class="icofont-instagram"></i></a></li>
+<li><a href="#"><i class="icofont-google-plus"></i></a></li>
+<li><a href="#"><i class="icofont-twitter"></i></a></li>
+</ul>
+<!-- End Social -->
+</div>
+</div>
+<div class="col-lg-3 col-md-6 col-12">
+<div class="single-footer f-link">
+<h2>Quick Links</h2>
+<div class="row">
+<div class="col-lg-6 col-md-6 col-12">
+<ul>
+<li><a href="index.html"><i class="fa fa-caret-right" aria-hidden="true"></i>Home</a></li>
+<li><a href="about.html"><i class="fa fa-caret-right" aria-hidden="true"></i>About Us</a></li>
+<li><a href="courses.html"><i class="fa fa-caret-right" aria-hidden="true"></i>Courses</a></li>
+<li><a href="programs.html"><i class="fa fa-caret-right" aria-hidden="true"></i>Programs</a></li>
+<li><a href="contact.html"><i class="fa fa-caret-right" aria-hidden="true"></i>Contact Us</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="col-lg-3 col-md-6 col-12">
+<div class="single-footer">
+<h2>Our Services</h2>
+<ul>
+<li><a href="programs.html#webDev"><i class="fa fa-caret-right" aria-hidden="true"></i>Software Development</a></li>
+<li><a href="programs.html#dataAnalysis"><i class="fa fa-caret-right" aria-hidden="true"></i>Data Analysis</a></li>
+<li><a href="programs.html#UIUX"><i class="fa fa-caret-right" aria-hidden="true"></i>UI/UX Design</a></li>
+<li><a href="programs.html#trading"><i class="fa fa-caret-right" aria-hidden="true"></i>Forex Trading</a></li>
+<li><a href="programs.html#vidGraphics"><i class="fa fa-caret-right" aria-hidden="true"></i>Graphics & Video</a></li>
+</ul>
+</div>
+</div>
+<div class="col-lg-3 col-md-6 col-12">
+<div class="single-footer">
+<h2>Open Hours</h2>
+<ul class="time-sidual">
+<li class="day">Mondays - Fridays <span>8.00-20.00</span></li>
+<li class="day">Saturdays <span>9.00-18.30</span></li>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!--/ End Footer Top -->
+<!-- Copyright -->
+<div class="copyright">
+<div class="container">
+<div class="row">
+<div class="col-lg-12 col-md-12 col-12">
+<div class="copyright-content">
+<p>© Copyright 2024 | All Rights Reserved by <a href="index.html">JE Tech Hub</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!--/ End Copyright -->
+</footer>
+<!--/ End Footer Area -->
+
+<script>
+
+// Collect form data
+const formData = {
+name: document.querySelector('[name="name"]').value,
+email: document.querySelector('[name="email"]').value,
+phone: document.querySelector('[name="phone"]').value,
+subject: document.querySelector('[name="subject"]').value,
+message: document.querySelector('[name="message"]').value
+};	
+
+
+// Function to handle form submission with improved feedback
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+e.preventDefault(); // Prevents the form from submitting traditionally
+
+
+
+// Convert form data to JSON and log to console (in production, send to server)
+const formDataJSON = JSON.stringify(formData, null, 2); 
+console.log("Form submission data:", formDataJSON);
+
+// Show success message to user
+const submitButton = document.querySelector('[type="submit"]');
+const originalText = submitButton.value;
+submitButton.value = "Message Sent!";
+submitButton.style.backgroundColor = "#28a745";
+
+// Reset the form
+setTimeout(function() {
+document.getElementById('contactForm').reset();
+submitButton.value = originalText;
+submitButton.style.backgroundColor = "darkblue";
+}, 3000);
+});
+
+
+//Push FormData to Json Server
+
+const sendMsg = async () => {
+
+const response = await fetch('http://localhost:4008/profiles', {
+method: 'POST',
+headers: {
+'Content-Type': 'application/json',
+},
+body: JSON.stringify(formData),
+});
+
+if (response.ok) {
+alert('Post added successfully!');
+
+} else {
+alert('Failed to add post.');
+}
+
+}
+</script>
+
+<!-- Main Js -->
+<script src="./jscript.js"></script>
+<!-- jquery Min JS -->
+<script src="js/jquery.min.js"></script>
+<!-- jquery Migrate JS -->
+<script src="js/jquery-migrate-3.0.0.js"></script>
+<!-- jquery Ui JS -->
+<script src="js/jquery-ui.min.js"></script>
+<!-- Easing JS -->
+<script src="js/easing.js"></script>
+<!-- Color JS -->
+<script src="js/colors.js"></script>
+<!-- Popper JS -->
+<script src="js/popper.min.js"></script>
+<!-- Bootstrap Datepicker JS -->
+<script src="js/bootstrap-datepicker.js"></script>
+<!-- Jquery Nav JS -->
+<script src="js/jquery.nav.js"></script>
+<!-- Slicknav JS -->
+<script src="js/slicknav.min.js"></script>
+<!-- ScrollUp JS -->
+<script src="js/jquery.scrollUp.min.js"></script>
+<!-- Niceselect JS -->
+<script src="js/niceselect.js"></script>
+<!-- Tilt Jquery JS -->
+<script src="js/tilt.jquery.min.js"></script>
+<!-- Owl Carousel JS -->
+<script src="js/owl-carousel.js"></script>
+<!-- counterup JS -->
+<script src="js/jquery.counterup.min.js"></script>
+<!-- Steller JS -->
+<script src="js/steller.js"></script>
+<!-- Wow JS -->
+<script src="js/wow.min.js"></script>
+<!-- Magnific Popup JS -->
+<script src="js/jquery.magnific-popup.min.js"></script>
+<!-- Counter Up CDN JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="js/bootstrap.min.js"></script>
+<!-- Main JS -->
+<script type="module" src="js/main.js"></script>
+
+<script src="js/slideshow.js"></script>
+</body>
+
+</html>

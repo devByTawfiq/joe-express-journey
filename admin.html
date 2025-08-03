@@ -1,0 +1,1514 @@
+
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+<!-- Meta Tags -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Title -->
+<title>Admin Dashboard - JOEeXPRESS</title>
+
+<!-- Favicon -->
+<link rel="icon" href="images/JE Techhub logo - Copy.png">
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<!-- Nice Select CSS -->
+<link rel="stylesheet" href="css/nice-select.css">
+<!-- Font Awesome CSS -->
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<!-- icofont CSS -->
+<link rel="stylesheet" href="css/icofont.css">
+<!-- Slicknav -->
+<link rel="stylesheet" href="css/slicknav.min.css">
+<!-- Owl Carousel CSS -->
+<link rel="stylesheet" href="css/owl-carousel.css">
+<!-- Datepicker CSS -->
+<link rel="stylesheet" href="css/datepicker.css">
+<!-- Animate CSS -->
+<link rel="stylesheet" href="css/animate.min.css">
+<!-- Magnific Popup CSS -->
+<link rel="stylesheet" href="css/magnific-popup.css">
+
+<!-- Medipro CSS -->
+<link rel="stylesheet" href="css/normalize.css">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/custom.css">
+
+<!-- Auth Service -->
+<script src="js/authService.js"></script>
+<script src="js/adminService.js"></script>
+
+<style>
+/* Admin-specific styles */
+.admin-container {
+padding: 30px 0;
+}
+
+.admin-card {
+background: white;
+border-radius: 0.75rem;
+padding: 25px;
+margin-bottom: 30px;
+box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+transition: transform 0.3s;
+}
+
+.admin-card:hover {
+transform: translateY(-5px);
+}
+
+.admin-card .card-title {
+color: #1A76D1;
+font-weight: 600;
+margin-bottom: 20px;
+border-bottom: 2px solid #eee;
+padding-bottom: 10px;
+position: relative;
+}
+
+.admin-card .card-title::after {
+content: '';
+position: absolute;
+bottom: -2px;
+left: 0;
+height: 2px;
+width: 50px;
+background: #1A76D1;
+}
+
+.admin-tabs {
+display: flex;
+margin-bottom: 30px;
+border-bottom: 1px solid #dee2e6;
+}
+
+.admin-tab {
+padding: 10px 20px;
+font-weight: 600;
+cursor: pointer;
+border-bottom: 3px solid transparent;
+transition: all 0.3s;
+}
+
+.admin-tab.active {
+color: #1A76D1;
+border-bottom-color: #1A76D1;
+}
+
+.tab-content {
+display: none;
+}
+
+.tab-content.active {
+display: block;
+}
+
+.admin-table {
+width: 100%;
+border-collapse: collapse;
+}
+
+.admin-table th, 
+.admin-table td {
+padding: 12px 15px;
+border-bottom: 1px solid #eee;
+text-align: left;
+}
+
+.admin-table th {
+background-color: #f8f9fa;
+font-weight: 600;
+}
+
+.admin-table tbody tr:hover {
+background-color: #f8f9fa;
+}
+
+.admin-table .action-btn {
+padding: 5px 10px;
+font-size: 13px;
+margin-right: 5px;
+}
+
+.status-active {
+color: #28a745;
+font-weight: 600;
+}
+
+.status-inactive {
+color: #dc3545;
+font-weight: 600;
+}
+
+.search-container {
+margin-bottom: 20px;
+}
+
+.search-input {
+width: 100%;
+padding: 10px 15px;
+border: 1px solid #ddd;
+border-radius: 5px;
+font-size: 14px;
+}
+
+.action-buttons {
+display: flex;
+gap: 5px;
+}
+
+.edit-btn {
+background: #1A76D1;
+color: white;
+}
+
+.delete-btn {
+background: #dc3545;
+color: white;
+}
+
+.add-btn {
+background: #28a745;
+color: white;
+padding: 10px 15px;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+margin-bottom: 20px;
+}
+
+/* Modal styles */
+.admin-modal {
+display: none;
+position: fixed;
+z-index: 9999;
+left: 0;
+top: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+background: white;
+margin: 5% auto;
+padding: 25px;
+border-radius: 8px;
+width: 80%;
+max-width: 600px;
+box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.close-modal {
+float: right;
+font-size: 28px;
+font-weight: bold;
+cursor: pointer;
+}
+
+.form-group {
+margin-bottom: 20px;
+}
+
+.form-group label {
+display: block;
+margin-bottom: 8px;
+font-weight: 500;
+}
+
+.form-control {
+width: 100%;
+/*padding: 10px;*/
+border: 1px solid #ddd;
+border-radius: 5px;
+}
+
+.modal-buttons {
+display: flex;
+justify-content: flex-end;
+gap: 10px;
+margin-top: 20px;
+}
+
+/* Admin dashboard stats */
+.stats-row {
+display: flex;
+flex-wrap: wrap;
+margin-bottom: 30px;
+}
+
+.stat-card {
+flex: 1;
+min-width: 200px;
+margin: 0 10px 20px;
+background: white;
+border-radius: var(--card-border-radius);
+padding: 20px;
+box-shadow: var(--card-shadow);
+text-align: center;
+}
+
+.stat-card i {
+font-size: 2rem;
+color: #1A76D1;
+margin-bottom: 10px;
+}
+
+.stat-value {
+font-size: 1.8rem;
+font-weight: 600;
+}
+
+.stat-label {
+color: #6c757d;
+font-size: 0.9rem;
+}
+
+/* Pagination */
+.pagination {
+display: flex;
+justify-content: center;
+margin-top: 20px;
+}
+
+.page-item {
+margin: 0 5px;
+}
+
+.page-link {
+padding: 8px 12px;
+border: 1px solid #ddd;
+border-radius: 4px;
+color: #1A76D1;
+cursor: pointer;
+}
+
+.page-item.active .page-link {
+background: #1A76D1;
+color: white;
+border-color: #1A76D1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+.admin-tabs {
+flex-wrap: wrap;
+}
+
+.admin-tab {
+flex: 0 0 33.333%;
+}
+
+.stat-card {
+flex: 0 0 100%;
+margin: 0 0 15px;
+}
+}
+</style>
+</head>
+<body>
+
+<!-- Header Area -->
+<header class="header">
+<div class="header-inner bg-dark text-white">
+<div class="container">
+<div class="inner">
+<div class="row">
+<div class="col-lg-3 col-md-3 col-12">
+<!-- Start Logo -->
+<div class="logo">
+<a href="index.html"><img src="images/JE Techhub logo.png" alt="Logo"></a>
+</div>
+<!-- End Logo -->
+<!-- Mobile Nav -->
+<div class="mobile-nav"></div>
+<!-- End Mobile Nav -->
+</div>
+<div class="col-lg-7 col-md-9 col-12">
+<!-- Main Menu -->
+<div class="main-menu">
+<nav class="navigation">
+<ul class="nav menu">
+<li><a href="index.html">Home</a></li>
+<li><a href="index.html#about">About Us</a></li>
+<li><a href="programs.html">Programs</a></li>
+<li><a href="contact.html">Contact Us</a></li>
+</ul>
+</nav>
+</div>
+<!--/ End Main Menu -->
+</div>
+<div class="col-lg-2 col-12">
+<div class="get-quote">
+<a href="#" class="btn" id="logoutButton">Logout</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- End Header Area -->
+
+<!-- Loading Spinner -->
+<div class="loader-wrapper">
+<div class="loader"></div>
+</div>
+
+<!-- Breadcrumbs -->
+<div class="breadcrumbs overlay">
+<div class="container">
+<div class="bread-inner">
+<div class="row">
+<div class="col-12">
+<h2>Admin Dashboard</h2>
+<ul class="bread-list">
+<li><a href="index.html">Home</a></li>
+<li><i class="icofont-simple-right"></i></li>
+<li class="active">Admin</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- End Breadcrumbs -->
+
+<!-- Admin Dashboard Content -->
+<section class="admin-container section">
+<div class="container">
+<!-- Admin Stats -->
+<div class="stats-row">
+<div class="stat-card">
+<i class="fa fa-users"></i>
+<div class="stat-value" id="totalUsers">0</div>
+<div class="stat-label">Total Users</div>
+</div>
+<div class="stat-card">
+<i class="fa fa-envelope"></i>
+<div class="stat-value" id="totalMessages">0</div>
+<div class="stat-label">Contact Messages</div>
+</div>
+<div class="stat-card">
+<i class="fa fa-mobile"></i>
+<div class="stat-value" id="totalGadgets">0</div>
+<div class="stat-label">Gadgets Listed</div>
+</div>
+<div class="stat-card">
+<i class="fa fa-exchange"></i>
+<div class="stat-value" id="pendingTransactions">0</div>
+<div class="stat-label">Pending Transactions</div>
+</div>
+</div>
+
+<!-- Admin Tabs -->
+<div class="admin-tabs">
+<div class="admin-tab active" data-tab="users">User Management</div>
+<div class="admin-tab" data-tab="messages">Messages</div>
+<div class="admin-tab" data-tab="gadgets">Gadgets</div>
+</div>
+
+<!-- Users Tab Content -->
+<div class="tab-content active" id="users-content">
+<div class="admin-card">
+<h3 class="card-title">Manage Users</h3>
+
+<div class="search-container">
+<input type="text" class="search-input" id="userSearchInput" placeholder="Search by name or email...">
+</div>
+
+<button class="add-btn" id="addUserBtn"><i class="fa fa-plus"></i> Add New User</button>
+
+<div class="table-responsive">
+<table class="admin-table">
+<thead>
+<tr>
+<th>Name</th>
+<th>Email</th>
+<th>Role</th>
+<th>Course</th>
+<th>Joined</th>
+<th>Status</th>
+<th>Actions</th>
+</tr>
+</thead>
+<tbody id="userTableBody">
+<tr>
+<td colspan="7">Loading users data...</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div class="pagination" id="usersPagination">
+<!-- Pagination will be inserted here -->
+</div>
+</div>
+</div>
+
+<!-- Messages Tab Content -->
+<div class="tab-content" id="messages-content">
+<div class="admin-card">
+<h3 class="card-title">Contact Messages</h3>
+
+<div class="search-container">
+<input type="text" class="search-input" id="messageSearchInput" placeholder="Search messages...">
+</div>
+
+<div class="table-responsive">
+<table class="admin-table">
+<thead>
+<tr>
+<th>Name</th>
+<th>Email</th>
+<th>Phone</th>
+<th>Message</th>
+<th>Date</th>
+<th>Status</th>
+<th>Actions</th>
+</tr>
+</thead>
+<tbody id="messageTableBody">
+<tr>
+<td colspan="7">Loading messages...</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div class="pagination" id="messagesPagination">
+<!-- Pagination will be inserted here -->
+</div>
+</div>
+</div>
+
+<!-- Gadgets Tab Content -->
+<div class="tab-content" id="gadgets-content">
+<div class="admin-card">
+<h3 class="card-title">Manage Gadgets</h3>
+
+<div class="search-container">
+<input type="text" class="search-input" id="gadgetSearchInput" placeholder="Search gadgets...">
+</div>
+
+<button class="add-btn" id="addGadgetBtn"><i class="fa fa-plus"></i> Add New Gadget</button>
+
+<div class="table-responsive">
+<table class="admin-table">
+<thead>
+<tr>
+<th>Image</th>
+<th>Name</th>
+<th>Category</th>
+<th>Price</th>
+<th>Available</th>
+<th>Featured</th>
+<th>Actions</th>
+</tr>
+</thead>
+<tbody id="gadgetTableBody">
+<tr>
+<td colspan="7">Loading gadgets data...</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div class="pagination" id="gadgetsPagination">
+<!-- Pagination will be inserted here -->
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- User Modal -->
+<div class="admin-modal" id="userModal">
+<div class="modal-content">
+<span class="close-modal" id="closeUserModal">&times;</span>
+<h2 id="userModalTitle">Add New User</h2>
+<form id="userForm">
+<div class="form-group">
+<label for="firstName">First Name</label>
+<input type="text" class="form-control" id="firstName" required>
+</div>
+<div class="form-group">
+<label for="lastName">Last Name</label>
+<input type="text" class="form-control" id="lastName" required>
+</div>
+<div class="form-group">
+<label for="email">Email</label>
+<input type="email" class="form-control" id="email" required>
+</div>
+<div class="form-group">
+<label for="role">Role</label>
+<select class="form-control" id="role" required>
+<option value="student">Student</option>
+<option value="admin">Admin</option>
+<option value="instructor">Instructor</option>
+</select>
+</div>
+<div class="form-group">
+<label for="course">Course</label>
+<select class="form-control" id="course">
+<option value="softwareDev">Software Development</option>
+<option value="dataAnalysis">Data Analysis</option>
+<option value="videoGraphics">Video & Graphics Design</option>
+<option value="forex">Forex Trading</option>
+<option value="gadgets">Gadgets/Sales and Repairs</option>
+<option value="member">Member</option>
+</select>
+</div>
+<div class="form-group">
+<label for="password">Password</label>
+<input type="password" class="form-control" id="password">
+<small class="text-muted">Leave blank to keep unchanged if editing user</small>
+</div>
+<div class="form-group">
+<label for="status">Status</label>
+<select class="form-control" id="status" required>
+<option value="active">Active</option>
+<option value="inactive">Inactive</option>
+</select>
+</div>
+<input type="hidden" id="userId">
+<div class="modal-buttons">
+<button type="button" class="btn btn-secondary" id="cancelUserBtn">Cancel</button>
+<button type="submit" class="btn btn-primary">Save</button>
+</div>
+</form>
+</div>
+</div>
+
+<!-- Message Modal -->
+<div class="admin-modal" id="messageModal">
+<div class="modal-content">
+<span class="close-modal" id="closeMessageModal">&times;</span>
+<h2>Message Details</h2>
+<div class="form-group">
+<label>From</label>
+<p id="messageFrom"></p>
+</div>
+<div class="form-group">
+<label>Email</label>
+<p id="messageEmail"></p>
+</div>
+<div class="form-group">
+<label>Phone</label>
+<p id="messagePhone"></p>
+</div>
+<div class="form-group">
+<label>Date</label>
+<p id="messageDate"></p>
+</div>
+<div class="form-group">
+<label>Message</label>
+<div id="messageContent" style="padding: 10px; background: #f9f9f9; border-radius: 5px;"></div>
+</div>
+<div class="form-group">
+<label for="messageStatus">Status</label>
+<select class="form-control" id="messageStatus">
+<option value="new">New</option>
+<option value="read">Read</option>
+<option value="responded">Responded</option>
+</select>
+</div>
+<input type="hidden" id="messageId">
+<div class="modal-buttons">
+<button type="button" class="btn btn-secondary" id="closeMessageDetailBtn">Close</button>
+<button type="button" class="btn btn-primary" id="updateMessageStatusBtn">Update Status</button>
+</div>
+</div>
+</div>
+
+<!-- Gadget Modal -->
+<div class="admin-modal" id="gadgetModal">
+<div class="modal-content">
+<span class="close-modal" id="closeGadgetModal">&times;</span>
+<h2 id="gadgetModalTitle">Add New Gadget</h2>
+<form id="gadgetForm">
+<div class="form-group">
+<label for="gadgetName">Name</label>
+<input type="text" class="form-control" id="gadgetName" required>
+</div>
+<div class="form-group">
+<label for="gadgetCategory">Category</label>
+<select class="form-control" id="gadgetCategory" required>
+<option value="phone">Phone</option>
+<option value="laptop">Laptop</option>
+<option value="tablet">Tablet</option>
+<option value="accessory">Accessory</option>
+<option value="other">Other</option>
+</select>
+</div>
+<div class="form-group">
+<label for="gadgetPrice">Price (₦)</label>
+<input type="number" class="form-control" id="gadgetPrice" required>
+</div>
+<div class="form-group">
+<label for="gadgetDescription">Description</label>
+<textarea class="form-control" id="gadgetDescription" rows="3" required></textarea>
+</div>
+<div class="form-group">
+<label for="gadgetImage">Image URL</label>
+<input type="text" class="form-control" id="gadgetImage" required>
+</div>
+<div class="form-group">
+<div class="form-check">
+<input type="checkbox" class="form-check-input" id="gadgetAvailable">
+<label class="form-check-label" for="gadgetAvailable">Available for Sale</label>
+</div>
+</div>
+<div class="form-group">
+<div class="form-check">
+<input type="checkbox" class="form-check-input" id="gadgetFeatured">
+<label class="form-check-label" for="gadgetFeatured">Featured Product</label>
+</div>
+</div>
+<input type="hidden" id="gadgetId">
+<div class="modal-buttons">
+<button type="button" class="btn btn-secondary" id="cancelGadgetBtn">Cancel</button>
+<button type="submit" class="btn btn-primary">Save</button>
+</div>
+</form>
+</div>
+</div>
+
+<!-- Footer Area -->
+<footer id="footer" class="footer">
+<!-- Footer Top -->
+<div class="footer-top">
+<div class="container">
+<div class="row">
+<div class="col-lg-3 col-md-6 col-12">
+<div class="single-footer">
+<h2>About Us</h2>
+<p>JE Tech Hub is dedicated to empowering individuals with cutting-edge technology skills through hands-on training and innovative solutions.</p>
+<!-- Social -->
+<ul class="social">
+<li><a href="https://www.instagram.com/je_techhub?igsh=dGZjc29oNnRsOGF2&utm_source=qr"><i class="icofont-instagram"></i></a></li>
+<li><a href="#"><i class="icofont-google-plus"></i></a></li>
+<li><a href="#"><i class="icofont-twitter"></i></a></li>
+</ul>
+<!-- End Social -->
+</div>
+</div>
+<div class="col-lg-3 col-md-6 col-12">
+<div class="single-footer f-link">
+<h2>Quick Links</h2>
+<div class="row">
+<div class="col-lg-6 col-md-6 col-12">
+<ul>
+<li><a href="index.html"><i class="fa fa-caret-right" aria-hidden="true"></i>Home</a></li>
+<li><a href="about.html"><i class="fa fa-caret-right" aria-hidden="true"></i>About Us</a></li>
+<li><a href="courses.html"><i class="fa fa-caret-right" aria-hidden="true"></i>Courses</a></li>
+<li><a href="programs.html"><i class="fa fa-caret-right" aria-hidden="true"></i>Programs</a></li>
+<li><a href="contact.html"><i class="fa fa-caret-right" aria-hidden="true"></i>Contact Us</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="col-lg-3 col-md-6 col-12">
+<div class="single-footer">
+<h2>Our Services</h2>
+<ul>
+<li><a href="programs.html#webDev"><i class="fa fa-caret-right" aria-hidden="true"></i>Software Development</a></li>
+<li><a href="programs.html#dataAnalysis"><i class="fa fa-caret-right" aria-hidden="true"></i>Data Analysis</a></li>
+<li><a href="programs.html#UIUX"><i class="fa fa-caret-right" aria-hidden="true"></i>UI/UX Design</a></li>
+<li><a href="programs.html#trading"><i class="fa fa-caret-right" aria-hidden="true"></i>Forex Trading</a></li>
+<li><a href="programs.html#vidGraphics"><i class="fa fa-caret-right" aria-hidden="true"></i>Graphics & Video</a></li>
+</ul>
+</div>
+</div>
+<div class="col-lg-3 col-md-6 col-12">
+<div class="single-footer">
+<h2>Open Hours</h2>
+<ul class="time-sidual">
+<li class="day">Mondays - Fridays <span>8.00-20.00</span></li>
+<li class="day">Saturdays <span>9.00-18.30</span></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!--/ End Footer Top -->
+<!-- Copyright -->
+<div class="copyright">
+<div class="container">
+<div class="row">
+<div class="col-lg-12 col-md-12 col-12">
+<div class="copyright-content">
+<p>© Copyright 2024 | All Rights Reserved by <a href="index.html">JE Tech Hub</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!--/ End Copyright -->
+</footer>
+<!--/ End Footer Area -->
+
+<!-- Admin JS Service -->
+<script>
+// Create a simple admin service to manage API calls
+const adminService = {
+// Mock data for demo purposes
+mockUsers: [
+{ id: 1, firstName: 'John', lastName: 'Doe', email: 'john@example.com', role: 'student', course: 'softwareDev', registrationDate: '2024-01-15T10:30:00', status: 'active' },
+{ id: 2, firstName: 'Jane', lastName: 'Smith', email: 'jane@example.com', role: 'student', course: 'dataAnalysis', registrationDate: '2024-01-20T14:20:00', status: 'active' },
+{ id: 3, firstName: 'Admin', lastName: 'User', email: 'admin@jetechhub.com', role: 'admin', course: 'member', registrationDate: '2023-12-01T09:00:00', status: 'active' },
+{ id: 4, firstName: 'Mark', lastName: 'Johnson', email: 'mark@example.com', role: 'student', course: 'forex', registrationDate: '2024-02-10T11:15:00', status: 'inactive' },
+{ id: 5, firstName: 'Sarah', lastName: 'Williams', email: 'sarah@example.com', role: 'student', course: 'videoGraphics', registrationDate: '2024-02-15T16:45:00', status: 'active' }
+],
+
+mockMessages: [
+{ id: 1, name: 'Michael Brown', email: 'michael@example.com', phone: '08012345678', message: 'I\'m interested in the Software Development course. Can you provide more details about the curriculum?', date: '2024-04-05T10:30:00', status: 'new' },
+{ id: 2, name: 'Linda Carter', email: 'linda@example.com', phone: '07098765432', message: 'Hello, I\'d like to know if you offer any weekend classes for the Data Analysis course.', date: '2024-04-08T14:45:00', status: 'read' },
+{ id: 3, name: 'Robert Johnson', email: 'robert@example.com', phone: '09087654321', message: 'I\'m having trouble accessing my student account. Can someone help me reset my password?', date: '2024-04-10T09:15:00', status: 'responded' },
+{ id: 4, name: 'Jessica Davis', email: 'jessica@example.com', phone: '08123456789', message: 'Is there a discount for signing up for multiple courses at once?', date: '2024-05-01T16:20:00', status: 'new' },
+{ id: 5, name: 'David Wilson', email: 'david@example.com', phone: '07012345678', message: 'I\'m interested in the Forex Trading course. Do you have any prerequisites for this program?', date: '2024-05-03T11:40:00', status: 'new' }
+],
+
+mockGadgets: [
+{ id: 1, name: 'iPhone 13', category: 'phone', price: 450000, description: 'Apple iPhone 13 with 128GB storage in excellent condition', imageUrl: 'https://images.unsplash.com/photo-1616348436168-de43ad0db179?q=80&w=300', available: true, featured: true },
+{ id: 2, name: 'Samsung Galaxy S21', category: 'phone', price: 380000, description: 'Samsung Galaxy S21 with 256GB storage, barely used', imageUrl: 'https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?q=80&w=300', available: true, featured: false },
+{ id: 3, name: 'MacBook Pro M1', category: 'laptop', price: 750000, description: '2020 MacBook Pro with M1 chip, 8GB RAM, 512GB SSD', imageUrl: 'https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?q=80&w=300', available: true, featured: true },
+{ id: 4, name: 'Dell XPS 15', category: 'laptop', price: 650000, description: 'Dell XPS 15 with 16GB RAM, 1TB SSD, and 4K display', imageUrl: 'https://images.unsplash.com/photo-1593642702749-b7d2a804fbcf?q=80&w=300', available: false, featured: false },
+{ id: 5, name: 'iPad Pro 11"', category: 'tablet', price: 420000, description: 'iPad Pro 11-inch with 256GB storage and Apple Pencil', imageUrl: 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?q=80&w=300', available: true, featured: true }
+],
+
+// Format date for display
+formatDate(dateString) {
+const date = new Date(dateString);
+return date.toLocaleString('en-US', { 
+year: 'numeric', 
+month: 'short', 
+day: 'numeric',
+hour: '2-digit',
+minute: '2-digit'
+});
+},
+
+// Format course name for display
+formatCourseName(courseCode) {
+switch(courseCode) {
+case 'softwareDev': return 'Software Development';
+case 'dataAnalysis': return 'Data Analysis';
+case 'videoGraphics': return 'Video & Graphics';
+case 'forex': return 'Forex Trading';
+case 'gadgets': return 'Gadgets/Sales & Repairs';
+case 'member': return 'Member';
+default: return courseCode;
+}
+},
+
+// Get users
+getUsers() {
+return Promise.resolve(this.mockUsers);
+},
+
+// Get messages
+getMessages() {
+return Promise.resolve(this.mockMessages);
+},
+
+// Get gadgets
+getGadgets() {
+return Promise.resolve(this.mockGadgets);
+},
+
+// Save user
+saveUser(user) {
+if (user.id) {
+// Update existing user
+const index = this.mockUsers.findIndex(u => u.id === user.id);
+if (index !== -1) {
+this.mockUsers[index] = { ...this.mockUsers[index], ...user };
+}
+} else {
+// Add new user
+const newId = this.mockUsers.length ? Math.max(...this.mockUsers.map(u => u.id)) + 1 : 1;
+const newUser = { 
+...user, 
+id: newId,
+registrationDate: new Date().toISOString()
+};
+this.mockUsers.push(newUser);
+}
+return Promise.resolve(true);
+},
+
+// Delete user
+deleteUser(userId) {
+const index = this.mockUsers.findIndex(u => u.id === userId);
+if (index !== -1) {
+this.mockUsers.splice(index, 1);
+}
+return Promise.resolve(true);
+},
+
+// Update message status
+updateMessageStatus(messageId, status) {
+const index = this.mockMessages.findIndex(m => m.id === messageId);
+if (index !== -1) {
+this.mockMessages[index].status = status;
+}
+return Promise.resolve(true);
+},
+
+// Delete message
+deleteMessage(messageId) {
+const index = this.mockMessages.findIndex(m => m.id === messageId);
+if (index !== -1) {
+this.mockMessages.splice(index, 1);
+}
+return Promise.resolve(true);
+},
+
+// Save gadget
+saveGadget(gadget) {
+if (gadget.id) {
+// Update existing gadget
+const index = this.mockGadgets.findIndex(g => g.id === gadget.id);
+if (index !== -1) {
+this.mockGadgets[index] = { ...this.mockGadgets[index], ...gadget };
+}
+} else {
+// Add new gadget
+const newId = this.mockGadgets.length ? Math.max(...this.mockGadgets.map(g => g.id)) + 1 : 1;
+const newGadget = { 
+...gadget, 
+id: newId
+};
+this.mockGadgets.push(newGadget);
+}
+return Promise.resolve(true);
+},
+
+// Delete gadget
+deleteGadget(gadgetId) {
+const index = this.mockGadgets.findIndex(g => g.id === gadgetId);
+if (index !== -1) {
+this.mockGadgets.splice(index, 1);
+}
+return Promise.resolve(true);
+}
+};
+
+// Document Ready
+document.addEventListener('DOMContentLoaded', () => {
+// Check if user is authenticated as admin
+function checkAdminAuth() {
+// This would normally check if the user is authenticated and has admin privileges
+// For now, we'll just assume they are an admin
+return true;
+}
+
+if (!checkAdminAuth()) {
+window.location.href = 'index.html';
+return;
+}
+
+// Load initial data
+loadDashboardData();
+
+// Handle tab switching
+document.querySelectorAll('.admin-tab').forEach(tab => {
+tab.addEventListener('click', function() {
+// Remove active class from all tabs
+document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('active'));
+// Add active class to clicked tab
+this.classList.add('active');
+
+// Hide all tab content
+document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+// Show content for selected tab
+const tabId = this.getAttribute('data-tab');
+document.getElementById(`${tabId}-content`).classList.add('active');
+});
+});
+
+// Handle user modal
+const userModal = document.getElementById('userModal');
+const closeUserModal = document.getElementById('closeUserModal');
+const cancelUserBtn = document.getElementById('cancelUserBtn');
+const addUserBtn = document.getElementById('addUserBtn');
+const userForm = document.getElementById('userForm');
+
+addUserBtn.addEventListener('click', () => {
+document.getElementById('userModalTitle').textContent = 'Add New User';
+document.getElementById('userId').value = '';
+document.getElementById('firstName').value = '';
+document.getElementById('lastName').value = '';
+document.getElementById('email').value = '';
+document.getElementById('role').value = 'student';
+document.getElementById('course').value = 'softwareDev';
+document.getElementById('password').value = '';
+document.getElementById('status').value = 'active';
+userModal.style.display = 'block';
+});
+
+closeUserModal.addEventListener('click', () => {
+userModal.style.display = 'none';
+});
+
+cancelUserBtn.addEventListener('click', () => {
+userModal.style.display = 'none';
+});
+
+userForm.addEventListener('submit', (e) => {
+e.preventDefault();
+const userId = document.getElementById('userId').value;
+const user = {
+id: userId ? parseInt(userId) : null,
+firstName: document.getElementById('firstName').value,
+lastName: document.getElementById('lastName').value,
+email: document.getElementById('email').value,
+role: document.getElementById('role').value,
+course: document.getElementById('course').value,
+status: document.getElementById('status').value
+};
+
+const password = document.getElementById('password').value;
+if (password) {
+user.password = password;
+}
+
+adminService.saveUser(user).then(() => {
+userModal.style.display = 'none';
+loadUserData();
+});
+});
+
+// Handle message modal
+const messageModal = document.getElementById('messageModal');
+const closeMessageModal = document.getElementById('closeMessageModal');
+const closeMessageDetailBtn = document.getElementById('closeMessageDetailBtn');
+const updateMessageStatusBtn = document.getElementById('updateMessageStatusBtn');
+
+closeMessageModal.addEventListener('click', () => {
+messageModal.style.display = 'none';
+});
+
+closeMessageDetailBtn.addEventListener('click', () => {
+messageModal.style.display = 'none';
+});
+
+updateMessageStatusBtn.addEventListener('click', () => {
+const messageId = parseInt(document.getElementById('messageId').value);
+const status = document.getElementById('messageStatus').value;
+
+adminService.updateMessageStatus(messageId, status).then(() => {
+messageModal.style.display = 'none';
+loadMessageData();
+});
+});
+
+// Handle gadget modal
+const gadgetModal = document.getElementById('gadgetModal');
+const closeGadgetModal = document.getElementById('closeGadgetModal');
+const cancelGadgetBtn = document.getElementById('cancelGadgetBtn');
+const addGadgetBtn = document.getElementById('addGadgetBtn');
+const gadgetForm = document.getElementById('gadgetForm');
+
+addGadgetBtn.addEventListener('click', () => {
+document.getElementById('gadgetModalTitle').textContent = 'Add New Gadget';
+document.getElementById('gadgetId').value = '';
+document.getElementById('gadgetName').value = '';
+document.getElementById('gadgetCategory').value = 'phone';
+document.getElementById('gadgetPrice').value = '';
+document.getElementById('gadgetDescription').value = '';
+document.getElementById('gadgetImage').value = '';
+document.getElementById('gadgetAvailable').checked = true;
+document.getElementById('gadgetFeatured').checked = false;
+gadgetModal.style.display = 'block';
+});
+
+closeGadgetModal.addEventListener('click', () => {
+gadgetModal.style.display = 'none';
+});
+
+cancelGadgetBtn.addEventListener('click', () => {
+gadgetModal.style.display = 'none';
+});
+
+gadgetForm.addEventListener('submit', (e) => {
+e.preventDefault();
+const gadgetId = document.getElementById('gadgetId').value;
+const gadget = {
+id: gadgetId ? parseInt(gadgetId) : null,
+name: document.getElementById('gadgetName').value,
+category: document.getElementById('gadgetCategory').value,
+price: parseFloat(document.getElementById('gadgetPrice').value),
+description: document.getElementById('gadgetDescription').value,
+imageUrl: document.getElementById('gadgetImage').value,
+available: document.getElementById('gadgetAvailable').checked,
+featured: document.getElementById('gadgetFeatured').checked
+};
+
+adminService.saveGadget(gadget).then(() => {
+gadgetModal.style.display = 'none';
+loadGadgetData();
+});
+});
+
+// Handle search functionality for users
+document.getElementById('userSearchInput').addEventListener('input', (e) => {
+const searchTerm = e.target.value.toLowerCase();
+filterUsers(searchTerm);
+});
+
+// Handle search functionality for messages
+document.getElementById('messageSearchInput').addEventListener('input', (e) => {
+const searchTerm = e.target.value.toLowerCase();
+filterMessages(searchTerm);
+});
+
+// Handle search functionality for gadgets
+document.getElementById('gadgetSearchInput').addEventListener('input', (e) => {
+const searchTerm = e.target.value.toLowerCase();
+filterGadgets(searchTerm);
+});
+
+// Logout
+document.getElementById('logoutButton').addEventListener('click', function(e) {
+e.preventDefault();
+authService.logout();
+window.location.href = 'index.html';
+});
+});
+
+// Load all dashboard data
+function loadDashboardData() {
+document.querySelector('.loader-wrapper').classList.remove('hidden');
+
+Promise.all([
+adminService.getUsers(),
+adminService.getMessages(),
+adminService.getGadgets()
+]).then(([users, messages, gadgets]) => {
+// Update stats
+document.getElementById('totalUsers').textContent = users.length;
+document.getElementById('totalMessages').textContent = messages.length;
+document.getElementById('totalGadgets').textContent = gadgets.length;
+document.getElementById('pendingTransactions').textContent = Math.floor(Math.random() * 10); // Random for demo
+
+// Load individual data
+renderUserTable(users);
+renderMessageTable(messages);
+renderGadgetTable(gadgets);
+
+document.querySelector('.loader-wrapper').classList.add('hidden');
+}).catch(error => {
+console.error('Error loading dashboard data:', error);
+document.querySelector('.loader-wrapper').classList.add('hidden');
+});
+}
+
+// Load user data
+function loadUserData() {
+adminService.getUsers().then(users => {
+renderUserTable(users);
+});
+}
+
+// Load message data
+function loadMessageData() {
+adminService.getMessages().then(messages => {
+renderMessageTable(messages);
+});
+}
+
+// Load gadget data
+function loadGadgetData() {
+adminService.getGadgets().then(gadgets => {
+renderGadgetTable(gadgets);
+});
+}
+
+// Filter users based on search term
+function filterUsers(searchTerm) {
+adminService.getUsers().then(users => {
+const filteredUsers = users.filter(user => {
+const fullName = `${user.firstName} ${user.lastName}`.toLowerCase();
+return fullName.includes(searchTerm) || user.email.toLowerCase().includes(searchTerm);
+});
+renderUserTable(filteredUsers);
+});
+}
+
+// Filter messages based on search term
+function filterMessages(searchTerm) {
+adminService.getMessages().then(messages => {
+const filteredMessages = messages.filter(message => {
+return message.name.toLowerCase().includes(searchTerm) || 
+message.email.toLowerCase().includes(searchTerm) || 
+message.message.toLowerCase().includes(searchTerm);
+});
+renderMessageTable(filteredMessages);
+});
+}
+
+// Filter gadgets based on search term
+function filterGadgets(searchTerm) {
+adminService.getGadgets().then(gadgets => {
+const filteredGadgets = gadgets.filter(gadget => {
+return gadget.name.toLowerCase().includes(searchTerm) || 
+gadget.description.toLowerCase().includes(searchTerm) || 
+gadget.category.toLowerCase().includes(searchTerm);
+});
+renderGadgetTable(filteredGadgets);
+});
+}
+
+// Render user table
+function renderUserTable(users) {
+const tableBody = document.getElementById('userTableBody');
+tableBody.innerHTML = '';
+
+if (users.length === 0) {
+tableBody.innerHTML = '<tr><td colspan="7">No users found</td></tr>';
+return;
+}
+
+users.forEach(user => {
+const row = document.createElement('tr');
+
+// Name cell
+const nameCell = document.createElement('td');
+nameCell.textContent = `${user.firstName} ${user.lastName}`;
+row.appendChild(nameCell);
+
+// Email cell
+const emailCell = document.createElement('td');
+emailCell.textContent = user.email;
+row.appendChild(emailCell);
+
+// Role cell
+const roleCell = document.createElement('td');
+roleCell.textContent = user.role.charAt(0).toUpperCase() + user.role.slice(1);
+row.appendChild(roleCell);
+
+// Course cell
+const courseCell = document.createElement('td');
+courseCell.textContent = adminService.formatCourseName(user.course);
+row.appendChild(courseCell);
+
+// Joined date cell
+const joinedCell = document.createElement('td');
+joinedCell.textContent = adminService.formatDate(user.registrationDate);
+row.appendChild(joinedCell);
+
+// Status cell
+const statusCell = document.createElement('td');
+statusCell.className = user.status === 'active' ? 'status-active' : 'status-inactive';
+statusCell.textContent = user.status.charAt(0).toUpperCase() + user.status.slice(1);
+row.appendChild(statusCell);
+
+// Actions cell
+const actionsCell = document.createElement('td');
+actionsCell.className = 'action-buttons';
+
+// Edit button
+const editButton = document.createElement('button');
+editButton.className = 'action-btn edit-btn';
+editButton.innerHTML = '<i class="fa fa-pencil"></i>';
+editButton.addEventListener('click', () => editUser(user));
+actionsCell.appendChild(editButton);
+
+// Delete button
+const deleteButton = document.createElement('button');
+deleteButton.className = 'action-btn delete-btn';
+deleteButton.innerHTML = '<i class="fa fa-trash"></i>';
+deleteButton.addEventListener('click', () => deleteUser(user.id));
+actionsCell.appendChild(deleteButton);
+
+row.appendChild(actionsCell);
+
+tableBody.appendChild(row);
+});
+}
+
+// Edit user
+function editUser(user) {
+document.getElementById('userModalTitle').textContent = 'Edit User';
+document.getElementById('userId').value = user.id;
+document.getElementById('firstName').value = user.firstName;
+document.getElementById('lastName').value = user.lastName;
+document.getElementById('email').value = user.email;
+document.getElementById('role').value = user.role;
+document.getElementById('course').value = user.course;
+document.getElementById('password').value = '';
+document.getElementById('status').value = user.status;
+
+document.getElementById('userModal').style.display = 'block';
+}
+
+// Delete user
+function deleteUser(userId) {
+if (confirm('Are you sure you want to delete this user?')) {
+adminService.deleteUser(userId).then(() => {
+loadUserData();
+});
+}
+}
+
+// Render message table
+function renderMessageTable(messages) {
+const tableBody = document.getElementById('messageTableBody');
+tableBody.innerHTML = '';
+
+if (messages.length === 0) {
+tableBody.innerHTML = '<tr><td colspan="7">No messages found</td></tr>';
+return;
+}
+
+messages.forEach(message => {
+const row = document.createElement('tr');
+
+// Name cell
+const nameCell = document.createElement('td');
+nameCell.textContent = message.name;
+row.appendChild(nameCell);
+
+// Email cell
+const emailCell = document.createElement('td');
+emailCell.textContent = message.email;
+row.appendChild(emailCell);
+
+// Phone cell
+const phoneCell = document.createElement('td');
+phoneCell.textContent = message.phone;
+row.appendChild(phoneCell);
+
+// Message cell (truncated)
+const messageCell = document.createElement('td');
+messageCell.textContent = message.message.length > 30 ? message.message.substring(0, 30) + '...' : message.message;
+row.appendChild(messageCell);
+
+// Date cell
+const dateCell = document.createElement('td');
+dateCell.textContent = adminService.formatDate(message.date);
+row.appendChild(dateCell);
+
+// Status cell
+const statusCell = document.createElement('td');
+let statusClass = '';
+let statusText = '';
+
+switch(message.status) {
+case 'new':
+statusClass = 'status-active';
+statusText = 'New';
+break;
+case 'read':
+statusClass = 'status-inactive';
+statusText = 'Read';
+break;
+case 'responded':
+statusClass = '';
+statusText = 'Responded';
+break;
+}
+
+statusCell.className = statusClass;
+statusCell.textContent = statusText;
+row.appendChild(statusCell);
+
+// Actions cell
+const actionsCell = document.createElement('td');
+actionsCell.className = 'action-buttons';
+
+// View button
+const viewButton = document.createElement('button');
+viewButton.className = 'action-btn edit-btn';
+viewButton.innerHTML = '<i class="fa fa-eye"></i>';
+viewButton.addEventListener('click', () => viewMessage(message));
+actionsCell.appendChild(viewButton);
+
+// Delete button
+const deleteButton = document.createElement('button');
+deleteButton.className = 'action-btn delete-btn';
+deleteButton.innerHTML = '<i class="fa fa-trash"></i>';
+deleteButton.addEventListener('click', () => deleteMessage(message.id));
+actionsCell.appendChild(deleteButton);
+
+row.appendChild(actionsCell);
+
+tableBody.appendChild(row);
+});
+}
+
+// View message details
+function viewMessage(message) {
+document.getElementById('messageFrom').textContent = message.name;
+document.getElementById('messageEmail').textContent = message.email;
+document.getElementById('messagePhone').textContent = message.phone;
+document.getElementById('messageDate').textContent = adminService.formatDate(message.date);
+document.getElementById('messageContent').textContent = message.message;
+document.getElementById('messageStatus').value = message.status;
+document.getElementById('messageId').value = message.id;
+
+document.getElementById('messageModal').style.display = 'block';
+}
+
+// Delete message
+function deleteMessage(messageId) {
+if (confirm('Are you sure you want to delete this message?')) {
+adminService.deleteMessage(messageId).then(() => {
+loadMessageData();
+});
+}
+}
+
+// Render gadget table
+function renderGadgetTable(gadgets) {
+const tableBody = document.getElementById('gadgetTableBody');
+tableBody.innerHTML = '';
+
+if (gadgets.length === 0) {
+tableBody.innerHTML = '<tr><td colspan="7">No gadgets found</td></tr>';
+return;
+}
+
+gadgets.forEach(gadget => {
+const row = document.createElement('tr');
+
+// Image cell
+const imageCell = document.createElement('td');
+const image = document.createElement('img');
+image.src = gadget.imageUrl;
+image.alt = gadget.name;
+image.style.width = '60px';
+image.style.height = '60px';
+image.style.objectFit = 'cover';
+image.style.borderRadius = '4px';
+imageCell.appendChild(image);
+row.appendChild(imageCell);
+
+// Name cell
+const nameCell = document.createElement('td');
+nameCell.textContent = gadget.name;
+row.appendChild(nameCell);
+
+// Category cell
+const categoryCell = document.createElement('td');
+categoryCell.textContent = gadget.category.charAt(0).toUpperCase() + gadget.category.slice(1);
+row.appendChild(categoryCell);
+
+// Price cell
+const priceCell = document.createElement('td');
+priceCell.textContent = `₦${gadget.price.toLocaleString()}`;
+row.appendChild(priceCell);
+
+// Available cell
+const availableCell = document.createElement('td');
+availableCell.textContent = gadget.available ? 'Yes' : 'No';
+availableCell.className = gadget.available ? 'status-active' : 'status-inactive';
+row.appendChild(availableCell);
+
+// Featured cell
+const featuredCell = document.createElement('td');
+featuredCell.textContent = gadget.featured ? 'Yes' : 'No';
+row.appendChild(featuredCell);
+
+// Actions cell
+const actionsCell = document.createElement('td');
+actionsCell.className = 'action-buttons';
+
+// Edit button
+const editButton = document.createElement('button');
+editButton.className = 'action-btn edit-btn';
+editButton.innerHTML = '<i class="fa fa-pencil"></i>';
+editButton.addEventListener('click', () => editGadget(gadget));
+actionsCell.appendChild(editButton);
+
+// Delete button
+const deleteButton = document.createElement('button');
+deleteButton.className = 'action-btn delete-btn';
+deleteButton.innerHTML = '<i class="fa fa-trash"></i>';
+deleteButton.addEventListener('click', () => deleteGadget(gadget.id));
+actionsCell.appendChild(deleteButton);
+
+row.appendChild(actionsCell);
+
+tableBody.appendChild(row);
+});
+}
+
+// Edit gadget
+function editGadget(gadget) {
+document.getElementById('gadgetModalTitle').textContent = 'Edit Gadget';
+document.getElementById('gadgetId').value = gadget.id;
+document.getElementById('gadgetName').value = gadget.name;
+document.getElementById('gadgetCategory').value = gadget.category;
+document.getElementById('gadgetPrice').value = gadget.price;
+document.getElementById('gadgetDescription').value = gadget.description;
+document.getElementById('gadgetImage').value = gadget.imageUrl;
+document.getElementById('gadgetAvailable').checked = gadget.available;
+document.getElementById('gadgetFeatured').checked = gadget.featured;
+
+document.getElementById('gadgetModal').style.display = 'block';
+}
+
+// Delete gadget
+function deleteGadget(gadgetId) {
+if (confirm('Are you sure you want to delete this gadget?')) {
+adminService.deleteGadget(gadgetId).then(() => {
+loadGadgetData();
+});
+}
+}
+</script>
+
+<!-- jquery Min JS -->
+<script src="js/jquery.min.js"></script>
+<!-- jquery Migrate JS -->
+<script src="js/jquery-migrate-3.0.0.js"></script>
+<!-- jquery Ui JS -->
+<script src="js/jquery-ui.min.js"></script>
+<!-- Easing JS -->
+<script src="js/easing.js"></script>
+<!-- Color JS -->
+<script src="js/colors.js"></script>
+<!-- Popper JS -->
+<script src="js/popper.min.js"></script>
+<!-- Bootstrap Datepicker JS -->
+<script src="js/bootstrap-datepicker.js"></script>
+<!-- Jquery Nav JS -->
+<script src="js/jquery.nav.js"></script>
+<!-- Slicknav JS -->
+<script src="js/slicknav.min.js"></script>
+<!-- ScrollUp JS -->
+<script src="js/jquery.scrollUp.min.js"></script>
+<!-- Niceselect JS -->
+<script src="js/niceselect.js"></script>
+<!-- Tilt Jquery JS -->
+<script src="js/tilt.jquery.min.js"></script>
+<!-- Owl Carousel JS -->
+<script src="js/owl-carousel.js"></script>
+<!-- counterup JS -->
+<script src="js/jquery.counterup.min.js"></script>
+<!-- Steller JS -->
+<script src="js/steller.js"></script>
+<!-- Wow JS -->
+<script src="js/wow.min.js"></script>
+<!-- Magnific Popup JS -->
+<script src="js/jquery.magnific-popup.min.js"></script>
+<!-- Counter Up CDN JS -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="js/bootstrap.min.js"></script>
+<!-- Main JS -->
+<script src="js/main.js"></script>
+</body>
+</html>
