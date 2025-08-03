@@ -1,1032 +1,392 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>JE-Gadgets</title>
-<link rel="icon" href="images/JE Techhub logo - Copy.png" type="image/x-icon">
-<style>
-/* Reset and Base Styles */
-* {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
-}
-
-body {
-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-line-height: 1.6;
-color: #1a1a1a;
-background-color: whitesmoke;
-}
-
-/* main {
-margin-top: 157px;
-} */
-
-.container {
-max-width: 1200px;
-margin: 0 auto;
-padding: 0 1rem;
-}
-
-
-/* Reset and Base Styles */
-* {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
-}
-
-:root {
-/* Colors */
---primary: darkblue;
-/* --primary: #2563eb; */
---secondary: #f59e0b;
---background: #ffffff;
---muted: #f8fafc;
---text-primary:black;
---text-secondary: black;
---border: #e2e8f0;
---card-bg: #ffffff;
---muted: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
-/* --muted: 0 10px 15px -3px rgba(0, 0, 0, 0.1); */
---footer-bg: #1e3a8a;
---footer-text: #e2e8f0;
-
-/* Typography */
---font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
---font-size-sm: 0.875rem;
---font-size-base: 1rem;
---font-size-lg: 1.125rem;
---font-size-xl: 1.25rem;
---font-size-2xl: 1.5rem;
---font-size-3xl: 1.875rem;
---font-size-4xl: 2.25rem;
-
-/* Spacing */
---spacing-xs: 0.5rem;
---spacing-sm: 0.75rem;
---spacing-md: 1rem;
---spacing-lg: 1.5rem;
---spacing-xl: 2rem;
---spacing-2xl: 3rem;
---spacing-3xl: 4rem;
-
-/* Transitions */
---transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
---transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Header Styles */
-.hero-header {
-background: linear-gradient(135deg, #052fef 80%, orangered 100%);
-height: 100vh;
-color: white;
-padding: 3rem 0;
-text-align: center;
-}
-
-
-.hero-content{
-display: flex;
-flex-direction: column;
-gap: 2rem;
-height: 80%;
-align-items: center;
-justify-content: center;
-margin-top: 35%;
-}
-
-
-.back-link {
-margin-bottom: 2rem;
-text-align: left;
-}
-
-.back-btn {
-display: inline-flex;
-align-items: center;
-gap: 0.5rem;
-color: rgba(255, 255, 255, 0.8);
-text-decoration: none;
-transition: color 0.3s ease;
-}
-
-.back-btn:hover {
-color: white;
-}
-
-.back-arrow {
-font-size: 1.2rem;
-}
-
-.hero-title {
-font-size: 3rem;
-font-weight: bold;
-/* margin-bottom: 1rem; */
-}
-
-.hero-subtitle {
-font-size: 1.5rem;
-margin-bottom: 1.5rem;
-opacity: 0.9;
-}
-
-.hero-description {
-font-size: 1.1rem;
-max-width: 600px;
-margin: 0 auto;
-opacity: 0.8;
-}
-
-
-
-/* Stats Section */
-.stats-section {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-gap: 2rem;
-margin-bottom: 3rem;
-margin-top: 3rem;
-
-}
-
-.stat-card {
-background: linear-gradient(135deg, #2402e6 70%, #f5576c 100%);
-color: white;
-padding: 2rem;
-border-radius: 12px;
-text-align: center;
-box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-transition: transform 0.3s ease;
-align-content: center;
-justify-items: center;
-}
-
-.stat-card:hover {
-transform: translateY(-5px);
-}
-
-.stat-number {
-font-size: 2.5rem;
-font-weight: bold;
-margin-bottom: 0.5rem;
-}
-
-.stat-label {
-font-size: 1rem;
-opacity: 0.9;
-}
-
-/* Gadgets Section */
-.gadgets-section {
-margin-bottom: 4rem;
-}
-
-.gadgets-grid {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-gap: 2rem;
-}
-
-.gadget-card {
-background: white;
-border-radius: 12px;
-box-shadow: 0 4px 15px rgba(20, 2, 183, 0.635);
-overflow: hidden;
-transition: all 0.3s ease;
-}
-
-.gadget-card:hover {
-transform: translateY(-5px);
-box-shadow: 0 8px 25px rgba(33, 4, 227, 0.74);
-}
-
-.gadget-image-container {
-position: relative;
-width: 100%;
-height: 250px;
-overflow: hidden;
-}
-
-.gadget-image {
-width: 100%;
-height: 100%;
-object-fit: cover;
-}
-
-.gadget-badges {
-position: absolute;
-top: 1rem;
-left: 1rem;
-display: flex;
-gap: 0.5rem;
-flex-wrap: wrap;
-}
-
-.badge {
-background: rgba(255, 255, 255, 0.9);
-color: #1a1a1a;
-padding: 0.25rem 0.75rem;
-border-radius: 20px;
-font-size: 0.8rem;
-font-weight: 500;
-display: flex;
-align-items: center;
-gap: 0.25rem;
-}
-
-.badge.condition-new {
-background: #10b981;
-color: white;
-}
-
-.badge.condition-like-new {
-background: #3b82f6;
-color: white;
-}
-
-.badge.condition-good {
-background: #f59e0b;
-color: white;
-}
-
-.badge.condition-fair {
-background: #ef4444;
-color: white;
-}
-
-.stock-badge {
-position: absolute;
-top: 1rem;
-right: 1rem;
-background: #10b981;
-color: white;
-padding: 0.25rem 0.75rem;
-border-radius: 20px;
-font-size: 0.8rem;
-font-weight: 500;
-}
-
-.gadget-content {
-padding: 1.5rem;
-}
-
-.gadget-name {
-font-size: 1.5rem;
-font-weight: bold;
-margin-bottom: 0.5rem;
-color: #1a1a1a;
-}
-
-.gadget-description {
-color: #666;
-margin-bottom: 1rem;
-line-height: 1.5;
-}
-
-.gadget-price {
-font-size: 1.75rem;
-font-weight: bold;
-color: darkblue;
-margin-bottom: 1.5rem;
-}
-
-.gadget-actions {
-display: flex;
-flex-direction: column;
-gap: 1rem;
-}
-
-.action-buttons {
-display: flex;
-gap: 0.75rem;
-}
-
-.btn {
-flex: 1;
-padding: 0.75rem 1rem;
-border: none;
-border-radius: 8px;
-font-weight: 600;
-cursor: pointer;
-transition: all 0.3s ease;
-display: flex;
-align-items: center;
-justify-content: center;
-gap: 0.5rem;
-text-decoration: none;
-font-size: 0.9rem;
-}
-
-.btn-buy {
-background: darkblue;
-color: white;
-}
-
-.btn-buy:hover {
-background: orangered;
-transform: translateY(-2px);
-}
-
-.btn-swap {
-background: linear-gradient(135deg, #3b82f6, #2563eb);
-color: white;
-}
-
-.btn-swap:hover {
-background: linear-gradient(135deg, #2563eb, #1d4ed8);
-transform: translateY(-2px);
-}
-
-.contact-options {
-display: flex;
-gap: 0.5rem;
-}
-
-.contact-btn-small {
-flex: 1;
-padding: 0.5rem;
-background: white;
-border: 2px solid #e5e7eb;
-border-radius: 6px;
-cursor: pointer;
-transition: all 0.3s ease;
-display: flex;
-align-items: center;
-justify-content: center;
-text-decoration: none;
-color: #666;
-}
-
-.contact-btn-small:hover {
-border-color: #3b82f6;
-color: #3b82f6;
-transform: translateY(-2px);
-}
-
-/* Contact Section */
-.contact-section {
-background: linear-gradient(135deg, darkblue 80%, #f5576c86 100%);
-border-radius: 12px;
-padding: 3rem 2rem;
-text-align: center;
-color: white;
-margin-bottom: 2rem;
-}
-
-.contact-title {
-font-size: 2.5rem;
-font-weight: bold;
-margin-bottom: 1rem;
-}
-
-.contact-description {
-font-size: 1.1rem;
-max-width: 600px;
-margin: 0 auto 2rem;
-opacity: 0.9;
-}
-
-.contact-buttons {
-display: flex;
-flex-wrap: wrap;
-justify-content: center;
-gap: 1rem;
-}
-
-.contact-btn {
-padding: 0.75rem 1.5rem;
-border: none;
-border-radius: 8px;
-font-weight: 600;
-cursor: pointer;
-transition: all 0.3s ease;
-display: flex;
-align-items: center;
-gap: 0.5rem;
-text-decoration: none;
-font-size: 1rem;
-}
-
-.contact-btn.primary {
-background: white;
-color: #1a1a1a;
-}
-
-.contact-btn.primary:hover {
-background: #f8f9fa;
-transform: translateY(-2px);
-}
-
-.contact-btn.secondary {
-background: rgba(255, 255, 255, 0.2);
-color: white;
-border: 2px solid rgba(255, 255, 255, 0.3);
-}
-
-.contact-btn.secondary:hover {
-background: rgba(255, 255, 255, 0.3);
-transform: translateY(-2px);
-}
-
-.btn-icon {
-font-size: 1.2rem;
-}
-
-/* Footer */
-.footer {
-background: #1a1a1a;
-color: white;
-padding: 2rem 0;
-text-align: center;
-border-top: 1px solid #333;
-}
-
-.footer-title {
-font-size: 1.5rem;
-font-weight: bold;
-margin-bottom: 0.5rem;
-}
-
-.footer-subtitle {
-color: #ccc;
-margin-bottom: 1rem;
-}
-
-.footer-info {
-display: flex;
-justify-content: center;
-gap: 2rem;
-flex-wrap: wrap;
-font-size: 0.9rem;
-color: #999;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-.hero-title {
-font-size: 2rem;
-}
-
-.hero-subtitle {
-font-size: 1.2rem;
-}
-
-.stats-section {
-grid-template-columns: 1fr;
-gap: 1rem;
-}
-
-.gadgets-grid {
-grid-template-columns: 1fr;
-gap: 1.5rem;
-}
-
-.action-buttons {
-flex-direction: column;
-}
-
-.contact-buttons {
-flex-direction: column;
-align-items: center;
-}
-
-.contact-btn {
-width: 100%;
-max-width: 300px;
-}
-
-.footer-info {
-flex-direction: column;
-gap: 0.5rem;
-}
-
-.container {
-padding: 0 0.75rem;
-}
-}
-
-@media (max-width: 480px) {
-.hero-header {
-padding: 2rem 0;
-}
-
-
-.contact-section {
-padding: 2rem 1rem;
-}
-
-.contact-title {
-font-size: 2rem;
-}
-}
-
-
-
-/* Header */
-/* .header {
-position: fixed;
-top: 0;
-left: 0;
-right: 0;
-background: rgba(255, 255, 255, 0.95);
-backdrop-filter: blur(20px);
-border-bottom: 1px solid var(--border);
-z-index: 1000;
-padding: var(--spacing-sm) 0;
-transition: var(--transition);
-} */
-
-.mainHeader {
-display: grid;
-align-items: center;
-justify-content: center;
-position: sticky;
-top: 0;
-z-index: 5555;
-background: #fff;
-}
-
-@media (width > 768px) {
-.header .container {
-display: flex;
-justify-content: space-between;
-align-items: center;
-}
-}
-
-.nav-brand {
-display: flex;
-align-items: center;
-justify-content: center;
-
-img{scale: .8;}
-}
-
-.nav-menu {
-display: flex;
-gap: var(--spacing-sm);
-flex-wrap: wrap;
-align-items: center;
-justify-content: center;
-}
-
-.nav-link {
-color: darkblue;
-text-decoration: none;
-font-weight: 500;
-transition: var(--transition);
-position: relative;
-padding-inline: var(--spacing-xs);
-border-bottom:3px solid darkblue ;
-border-radius: 5px;}
-
-.nav-link:hover {
-color: var(--primary);
-scale: 1.3;
-border: none;
-}
-
-.nav-link::after {
-content: '';
-position: absolute;
-width: 0;
-height: 2px;
-bottom: -5px;
-left: 50%;
-background-color: var(--primary);
-transition: var(--transition);
-transform: translateX(-50%);
-}
-
-.nav-link:hover::after {
-width: 100%;
-}
-
-.contact-btn {
-background: var(--primary);
-color: white;
-border: none;
-padding: var(--spacing-sm) var(--spacing-lg);
-border-radius: 8px;
-font-weight: 500;
-cursor: pointer;
-transition: var(--transition);
-display: none;
-}
-
-.contact-buttons {
-background: #000;
-}
-
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gadgets Marketplace - JE TechHub</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        .nav-link {
+            color: #333 !important;
+            font-weight: 500;
+            margin: 0 1rem;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #007bff !important;
+        }
+
+        .main-content {
+            margin-top: 80px;
+            padding: 2rem 0;
+        }
+
+        .page-title {
+            text-align: center;
+            color: white;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        .filters-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .gadget-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .gadget-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .gadget-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+
+        .gadget-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .gadget-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #007bff;
+            margin-bottom: 1rem;
+        }
+
+        .gadget-description {
+            color: #666;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .condition-badge {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .condition-excellent {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .condition-good {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
+
+        .condition-fair {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #007bff, #0056b3);
+            border: none;
+            border-radius: 25px;
+            padding: 0.8rem 2rem;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 123, 255, 0.4);
+        }
+
+        .btn-success {
+            background: linear-gradient(45deg, #28a745, #1e7e34);
+            border: none;
+            border-radius: 25px;
+            padding: 0.8rem 2rem;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-success:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(40, 167, 69, 0.4);
+        }
+
+        .add-gadget-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #28a745, #1e7e34);
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s;
+            z-index: 1000;
+        }
+
+        .add-gadget-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-content {
+            border-radius: 15px;
+            border: none;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .form-control {
+            border-radius: 10px;
+            border: 2px solid #e9ecef;
+            padding: 0.8rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        }
+
+        .loading {
+            text-align: center;
+            padding: 3rem;
+            color: white;
+        }
+
+        .auth-required {
+            text-align: center;
+            padding: 3rem;
+            color: white;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .gadget-card {
+                padding: 1rem;
+            }
+        }
+    </style>
 </head>
-
 <body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="logo">
+                    <a href="index.html"><img src="images/JE Techhub logo.png" alt="JE TechHub"></a>
+                </div>
+                <nav class="d-flex align-items-center">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="about.html" class="nav-link">About Us</a>
+                    <a href="programs.html" class="nav-link">Programs</a>
+                    <a href="contact.html" class="nav-link">Contact Us</a>
+                    <div id="authSection" class="ms-3">
+                        <a href="getStarted.html" class="btn btn-primary">Get Started</a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
 
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="container">
+            <h1 class="page-title">Gadgets Marketplace</h1>
+            
+            <!-- Auth Required Message -->
+            <div id="authRequired" class="auth-required d-none">
+                <div class="alert alert-info">
+                    <h4><i class="fas fa-lock"></i> Authentication Required</h4>
+                    <p>Please <a href="getStarted.html" class="alert-link">sign in</a> to access the gadgets marketplace.</p>
+                </div>
+            </div>
 
+            <!-- Filters Section -->
+            <div id="filtersSection" class="filters-section d-none">
+                <div class="row">
+                    <div class="col-md-4">
+                        <select id="categoryFilter" class="form-control">
+                            <option value="">All Categories</option>
+                            <option value="phone">Phones</option>
+                            <option value="laptop">Laptops</option>
+                            <option value="tablet">Tablets</option>
+                            <option value="accessories">Accessories</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <select id="conditionFilter" class="form-control">
+                            <option value="">All Conditions</option>
+                            <option value="excellent">Excellent</option>
+                            <option value="good">Good</option>
+                            <option value="fair">Fair</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <input type="text" id="searchInput" class="form-control" placeholder="Search gadgets...">
+                    </div>
+                </div>
+            </div>
 
+            <!-- Loading State -->
+            <div id="loadingState" class="loading">
+                <div class="spinner-border text-light" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <p class="mt-3">Loading gadgets...</p>
+            </div>
 
-<!-- Main Content -->
-<main class="main-content">
-<!-- Header Section -->
-<header class="hero-header">
-<div class="container">
-<!-- <div class="back-link">
-<a href="#" class="back-btn">
+            <!-- Gadgets Grid -->
+            <div id="gadgetsGrid" class="row d-none">
+                <!-- Gadgets will be inserted here -->
+            </div>
 
-<a href="gadgetsHome.html" class="nav-link"><span class="back-arrow">← Back To Homepage</span>
-</a>
-</div> -->
-<div class="hero-content">
-<h1 class="hero-title">JE Gadgets</h1>
-<p class="hero-subtitle">Buy or Swap Your Gadgets Easily</p>
-<p class="hero-description">
-Discover premium tech gadgets at unbeatable prices. From the latest smartphones to powerful
-laptops,
-we have everything you need to stay connected and productive.
-</p>
+            <!-- Empty State -->
+            <div id="emptyState" class="empty-state d-none">
+                <i class="fas fa-mobile-alt fa-5x mb-3"></i>
+                <h3>No gadgets found</h3>
+                <p>Be the first to add a gadget to the marketplace!</p>
+            </div>
+        </div>
+    </div>
 
-</div>
-</div>
-</header>
-<!-- Header -->
-<header class="mainHeader">
-<div class="nav-brand">
-<img src="images/updatedLogo.jpg" max-width="50%" height="100px" alt="je-tech-hub logo">
-</div>
-<div class="container">
+    <!-- Add Gadget Button -->
+    <button id="addGadgetBtn" class="add-gadget-btn d-none" data-bs-toggle="modal" data-bs-target="#addGadgetModal">
+        <i class="fas fa-plus"></i>
+    </button>
 
-<nav class="nav-menu" id="navMenu">
-<a href="index.html" class="nav-link">JE-Tech-Hub </a>
-<a href="aboutUs.html" class="nav-link">About Us</a>
-<a href="programs.html" class="nav-link">Programs</a>
-<a href="contactUs.html" class="nav-link">Contact Us</a>
-</nav>
-<button class="contact-btn"><a href="getStarted.html">Get Started</a></button>
-<button class="mobile-toggle" id="mobileToggle">
-<span></span>
-<span></span>
-<span></span>
-</button>
-</div>
-</header>
+    <!-- Add Gadget Modal -->
+    <div class="modal fade" id="addGadgetModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add New Gadget</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="addGadgetForm">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Gadget Name</label>
+                                    <input type="text" class="form-control" name="name" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Category</label>
+                                    <select class="form-control" name="category" required>
+                                        <option value="">Select Category</option>
+                                        <option value="phone">Phone</option>
+                                        <option value="laptop">Laptop</option>
+                                        <option value="tablet">Tablet</option>
+                                        <option value="accessories">Accessories</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Price (₦)</label>
+                                    <input type="number" class="form-control" name="price" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Condition</label>
+                                    <select class="form-control" name="condition" required>
+                                        <option value="excellent">Excellent</option>
+                                        <option value="good">Good</option>
+                                        <option value="fair">Fair</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Image URL</label>
+                            <input type="url" class="form-control" name="image_url" placeholder="https://example.com/image.jpg">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Description</label>
+                            <textarea class="form-control" name="description" rows="3" placeholder="Describe your gadget..."></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" form="addGadgetForm" class="btn btn-success">Add Gadget</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<div class="container">
-<!-- Stats Section -->
-<section class="stats-section">
-<div class="stat-card">
-
-<div class="stat-number" id="gadget-count">5+</div>
-<div class="stat-label">Available Gadgets</div>
-</div>
-<div class="stat-card">
-<div class="stat-number">100%</div>
-<div class="stat-label">Genuine Products</div>
-</div>
-<div class="stat-card">
-<div class="stat-number">24/7</div>
-<div class="stat-label">Customer Support</div>
-</div>
-
-<div class="stat-card">
-
-
-<div class="stat-label">FilterBy Category : </div>
-<br>
-<div style="display:flex;flex-wrap:wrap;gap:0.75rem;margin-bottom:1.5rem;">
-
-<button onclick="filterByCategory('all')" class="btn">All</button>
-<button onclick="filterByCategory('iPhone')" class="btn">iPhones</button>
-<button onclick="filterByCategory('Laptop')" class="btn">Laptops</button>
-<button onclick="filterByCategory('Accessories')" class="btn">Accessories</button>
-
-</div>
-
-
-
-</section>
-<input type="text" placeholder="Search gadgets..." oninput="searchGadgets(this.value)"
-style="width:100%;padding:0.75rem;border-radius:8px;border:none;border-bottom:3px solid rgb(44, 3, 247);margin-top:2rem ;margin-bottom: 2rem;
-outline: none; background: rgba(0, 21, 255, 0.037); color: darkblue;">
-<!-- Gadgets Grid -->
-<section class="gadgets-section">
-<div class="gadgets-grid" id="gadgets-container">
-<!-- Gadgets will be dynamically inserted here -->
-</div>
-</section>
-
-<!-- Contact Section -->
-<section class="contact-section">
-<div class="contact-content">
-<h2 class="contact-title">Get in Touch</h2>
-<p class="contact-description">
-Have questions about our gadgets? Want to negotiate a price or discuss a swap?
-We're here to help! Contact us through any of these channels.
-</p>
-<!-- <div class="contact-buttons">
-<button class="contact-btn primary" onclick="handleGeneralWhatsApp()">
-<span class="btn-icon">💬</span>
-WhatsApp Chat
-</button>
-<button class="contact-btn secondary" onclick="handleInstagram()">
-<span class="btn-icon">📷</span>
-Instagram
-</button>
-<button class="contact-btn secondary" onclick="handleGeneralEmail()">
-<span class="btn-icon">📧</span>
-Email Us
-</button>
-<button class="contact-btn secondary" onclick="handlePhone()">
-<span class="btn-icon">📞</span>
-Call Now
-</button>
-</div> -->
-</div>
-</section>
-</div>
-</main>
-
-<!-- Footer -->
-<footer class="footer">
-<div class="container">
-<div class="footer-content">
-<h3 class="footer-title">JE Gadgets</h3>
-<p class="footer-subtitle">Your trusted source for premium tech gadgets</p>
-<div class="footer-info">
-<span>📱 WhatsApp: +2348123456789</span>
-<span>📧 Email: hello@jegadgets.com</span>
-</div>
-</div>
-</div>
-</footer>
-
-<script>
-
-
-// Header Background on Scroll with enhanced effects
-function initHeaderScroll() {
-const header = document.querySelector('.header');
-let lastScrollY = window.scrollY;
-
-window.addEventListener('scroll', () => {
-const currentScrollY = window.scrollY;
-
-if (currentScrollY > 50) {
-header.style.background = 'rgba(255, 255, 255, 0.98)';
-header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-header.style.backdropFilter = 'blur(20px)';
-} else {
-header.style.background = 'rgba(255, 255, 255, 0.95)';
-header.style.boxShadow = 'none';
-header.style.backdropFilter = 'blur(10px)';
-}
-
-// Hide/show header on scroll
-if (currentScrollY > lastScrollY && currentScrollY > 100) {
-header.style.transform = 'translateY(-100%)';
-} else {
-header.style.transform = 'translateY(0)';
-}
-
-lastScrollY = currentScrollY;
-});
-}
-
-const gadgets = [
-{
-id: "1",
-name: "iPhone 15 Pro",
-description: "Latest iPhone with titanium design, 48MP camera, and A17 Pro chip. Excellent condition with original box.",
-price: "₦850,000",
-image: "https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=400&h=300&fit=crop&crop=center",
-category: "iPhone",
-condition: "Like New",
-inStock: true
-},
-{
-id: "2",
-name: "MacBook Pro M3",
-description: "14-inch MacBook Pro with M3 chip, 16GB RAM, 512GB SSD. Perfect for professional work and creative tasks.",
-price: "₦1,200,000",
-image: "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=300&fit=crop&crop=center",
-category: "Laptop",
-condition: "New",
-inStock: true
-},
-{
-id: "3",
-name: "Samsung Galaxy S24 Ultra",
-description: "Premium Android smartphone with S Pen, 200MP camera, and 12GB RAM. Great for productivity and photography.",
-price: "₦780,000",
-image: "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=300&fit=crop&crop=center",
-category: "Android",
-condition: "Like New",
-inStock: true
-},
-{
-id: "4",
-name: "HP EliteBook 840 G9",
-description: "Business laptop with Intel i7 processor, 16GB RAM, 512GB SSD. Ideal for professional use.",
-price: "₦650,000",
-image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=300&fit=crop&crop=center",
-category: "Laptop",
-condition: "Good",
-inStock: true
-},
-{
-id: "5",
-name: "65W USB-C Charger",
-description: "Universal fast charger compatible with laptops, phones, and tablets. Original brand with cable included.",
-price: "₦25,000",
-image: "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400&h=300&fit=crop&crop=center",
-category: "Accessories",
-condition: "New",
-inStock: true
-}
-];
-
-// Contact information
-const contactInfo = {
-whatsapp: "+2348123456789",
-instagram: "https://instagram.com/jegadgets",
-email: "hello@jegadgets.com",
-phone: "+2348123456789"
-};
-
-// Helper function to get category icon
-function getCategoryIcon(category) {
-switch (category.toLowerCase()) {
-case "iphone":
-case "android":
-return "📱";
-case "laptop":
-return "💻";
-case "accessories":
-return "🔌";
-default:
-return "📱";
-}
-}
-
-// Helper function to get condition class
-function getConditionClass(condition) {
-switch (condition) {
-case "New":
-return "condition-new";
-case "Like New":
-return "condition-like-new";
-case "Good":
-return "condition-good";
-case "Fair":
-return "condition-fair";
-default:
-return "";
-}
-}
-
-// Contact action handlers
-function handleWhatsApp(gadgetName, action) {
-const message = `Hi! I'm interested in ${action === "buy" ? "buying" : "swapping"} the ${gadgetName}. Can you provide more details?`;
-const whatsappUrl = `https://wa.me/${contactInfo.whatsapp.replace("+", "")}?text=${encodeURIComponent(message)}`;
-window.open(whatsappUrl, "_blank");
-}
-
-function handleInstagram() {
-window.open(contactInfo.instagram, "_blank");
-}
-
-function handleEmail(gadgetName, action) {
-const subject = `Interested in ${action === "buy" ? "Buying" : "Swapping"} ${gadgetName}`;
-const body = `Hi,\n\nI'm interested in ${action === "buy" ? "buying" : "swapping"} the ${gadgetName}. Could you please provide more details about the item?\n\nThanks!`;
-const mailtoUrl = `mailto:${contactInfo.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-window.open(mailtoUrl);
-}
-
-function handlePhone() {
-window.open(`tel:${contactInfo.phone}`);
-}
-
-function handleInterest(gadgetName) {
-const message = `Hi! I'm interested in the ${gadgetName}. Can you tell me more about it or let me know if swapping is possible?`;
-const whatsappUrl = `https://wa.me/${contactInfo.whatsapp.replace("+", "")}?text=${encodeURIComponent(message)}`;
-window.open(whatsappUrl, "_blank");
-}
-
-
-// General contact handlers
-function handleGeneralWhatsApp() {
-handleWhatsApp("your gadgets", "buy");
-}
-
-function handleGeneralEmail() {
-handleEmail("your gadgets", "buy");
-}
-
-// Function to create a gadget card
-function createGadgetCard(gadget) {
-return `
-<div class="gadget-card">
-<div class="gadget-image-container">
-<img src="${gadget.image}" alt="${gadget.name}" class="gadget-image">
-<div class="gadget-badges">
-<div class="badge">
-<span>${getCategoryIcon(gadget.category)}</span>
-${gadget.category}
-</div>
-<div class="badge ${getConditionClass(gadget.condition)}">
-${gadget.condition}
-</div>
-</div>
-${gadget.inStock ? '<div class="stock-badge">In Stock</div>' : ''}
-</div>
-
-<div class="gadget-content">
-<h3 class="gadget-name">${gadget.name}</h3>
-<p class="gadget-description">${gadget.description}</p>
-<div class="gadget-price">${gadget.price}</div>
-
-<div class="gadget-actions">
-<div class="action-buttons">
-<button class="btn btn-buy" onclick="handleInterest('${gadget.name}')">
-<span>💬</span>
-I'm Interested
-</button>
-</div>
-
-
-</div>
-</div>
-</div>
-`;
-}
-
-// Function to render all gadgets
-function renderGadgets() {
-const container = document.getElementById('gadgets-container');
-const gadgetCards = gadgets.map(gadget => createGadgetCard(gadget)).join('');
-container.innerHTML = gadgetCards;
-
-// Update gadget count in stats
-document.getElementById('gadget-count').textContent = `${gadgets.length}+`;
-}
-
-// Initialize the page when DOM is loaded
-document.addEventListener('DOMContentLoaded', function () {
-renderGadgets();
-
-// Add smooth scrolling for internal links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-anchor.addEventListener('click', function (e) {
-e.preventDefault();
-const target = document.querySelector(this.getAttribute('href'));
-if (target) {
-target.scrollIntoView({
-behavior: 'smooth'
-});
-}
-});
-});
-
-// Add loading animation for images
-const images = document.querySelectorAll('.gadget-image');
-images.forEach(img => {
-img.addEventListener('load', function () {
-this.style.opacity = '1';
-});
-img.style.opacity = '0';
-img.style.transition = 'opacity 0.3s ease';
-});
-});
-
-// Optional: Add search functionality
-function searchGadgets(query) {
-const filteredGadgets = gadgets.filter(gadget =>
-gadget.name.toLowerCase().includes(query.toLowerCase()) ||
-gadget.description.toLowerCase().includes(query.toLowerCase()) ||
-gadget.category.toLowerCase().includes(query.toLowerCase())
-);
-
-const container = document.getElementById('gadgets-container');
-const gadgetCards = filteredGadgets.map(gadget => createGadgetCard(gadget)).join('');
-container.innerHTML = gadgetCards || '<p style="text-align: center; grid-column: 1/-1;">No gadgets found matching your search.</p>';
-}
-
-// Optional: Add filter by category
-function filterByCategory(category) {
-const filteredGadgets = category === 'all'
-? gadgets
-: gadgets.filter(gadget => gadget.category.toLowerCase() === category.toLowerCase());
-
-const container = document.getElementById('gadgets-container');
-const gadgetCards = filteredGadgets.map(gadget => createGadgetCard(gadget)).join('');
-container.innerHTML = gadgetCards;
-}
-
-</script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="src/gadgets.js"></script>
 </body>
-
-<!--  -->
+</html>

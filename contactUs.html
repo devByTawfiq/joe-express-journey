@@ -9,10 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-<link rel="icon" href="images/JE Techhub logo - Copy.png" type="image/x-icon">
 <style>
-
-
 * {
 margin: 0;
 padding: 0;
@@ -26,46 +23,6 @@ color: #333;
 background: #fff;
 }
 
-
-:root {
-    /* Colors */
-    --primary: darkblue;
-    /* --primary: #2563eb; */
-    --secondary: #f59e0b;
-    --background: #ffffff;
-    --muted: #f8fafc;
-    --text-primary:black;
-    --text-secondary: black;
-    --border: #e2e8f0;
-    --card-bg: #ffffff;
-    --muted: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
-    /* --muted: 0 10px 15px -3px rgba(0, 0, 0, 0.1); */
-    --footer-bg: #1e3a8a;
-    --footer-text: #e2e8f0;
-    
-    /* Typography */
-    --font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    --font-size-sm: 0.875rem;
-    --font-size-base: 1rem;
-    --font-size-lg: 1.125rem;
-    --font-size-xl: 1.25rem;
-    --font-size-2xl: 1.5rem;
-    --font-size-3xl: 1.875rem;
-    --font-size-4xl: 2.25rem;
-    
-    /* Spacing */
-    --spacing-xs: 0.5rem;
-    --spacing-sm: 0.75rem;
-    --spacing-md: 1rem;
-    --spacing-lg: 1.5rem;
-    --spacing-xl: 2rem;
-    --spacing-2xl: 3rem;
-    --spacing-3xl: 4rem;
-    
-    /* Transitions */
-    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
-}
 
 /* Hero Section */
 .hero {
@@ -461,61 +418,52 @@ animation: fadeInUp 0.4s ease-out;
 
 <style type="text/css">
 
-
-.header{display: grid;
-     align-items: center;justify-content: center;
-	padding-bottom: var(--spacing-sm);}
-
-/* @media (width > 768px){.header  {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}} */
-
-.nav-brand  {
-  display: flex;
+.header {
+display: flex;
+flex-direction: column; /* stack vertically */
 align-items: center;
-justify-content: center;
-img{scale: .8;}
+padding: 20px 0;
 }
+
+.logo-container {
+display: flex;
+align-items: center;
+margin-bottom: 20px; /* space between logo and nav */
+}
+
+.logo {
+height: 100px;
+margin-right: 10px;
+scale:1.2;
+}
+
+
 .nav-menu {
 display: flex;
-gap: var(--spacing-sm);
-flex-wrap: wrap;
-justify-content: center;
+gap: 25px;
 }
 
-.nav-link {
-color: darkblue;
+.nav-menu a {
 text-decoration: none;
-font-weight: 500;
-transition: var(--transition);
+color: #000;
+font-size: 16px;
 position: relative;
-padding-inline: var(--spacing-md);
-border-bottom:3px solid darkblue ;
-border-radius: 5px;
 }
 
-
-.nav-link:hover {
+.nav-menu a.active {
 color: darkblue;
-scale: 1.2;
-border: none;
-}
-.nav-link::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: -5px;
-    left: 50%;
-    background-color: var(--primary);
-    transition: var(--transition);
-    transform: translateX(-50%);
 }
 
-.nav-link:hover::after {
-    width: 100%;
+.nav-menu a.active::after {
+content: "";
+display: block;
+width: 25px;
+height: 3px;
+background-color: darkblue;
+margin-top: 5px;
+border-radius: 2px;
+margin-left: auto;
+margin-right: auto;
 }
 
 
@@ -580,23 +528,17 @@ grid-template-columns: 1fr 1fr;
 </style>
 
 
-<!-- Header -->
 <header class="header">
-    <div class="nav-brand">
-<img src="images/updatedLogo.jpg" max-width="50%" height="100px" alt="je-tech-hub logo">    </div>
-<div class="container">
-
-<nav class="nav-menu" id="navMenu">
-<a href="index.html" class="nav-link">Home</a>
-<a href="gadgets.html" class="nav-link">JE Gadgets </a>
-<a href="aboutUs.html" class="nav-link">About Us</a>
-<a href="programs.html" class="nav-link">Programs</a>
-<a href="contactUs.html" class="nav-link">Contact Us</a>
-</nav>
-
+<div class="logo-container">
+<img src="images/JE Techhub logo.png" width="100%" height="100%" alt="JEX Logo" class="logo" />
 </div>
+<nav class="nav-menu">
+<a href="index.html" class="nav-item">Home</a>
+<a href="aboutUs.html">About Us</a>
+<a href="programs.html">Programms</a>
+<a href="contactUs.html" class="active">Contact Us</a>
+</nav>
 </header>
-
 
 <!-- Hero Section -->
 <section class="hero">
@@ -765,279 +707,30 @@ Sun: Closed</p>
 </footer>
 
 <script>
-
-
-// Smooth Scrolling for Navigation Links
-function initSmoothScrolling() {
-const links = document.querySelectorAll('a[href^="#"]');
-
-links.forEach(link => {
-link.addEventListener('click', (e) => {
-e.preventDefault();
-
-const targetId = link.getAttribute('href');
-const targetElement = document.querySelector(targetId);
-
-if (targetElement) {
-const headerHeight = document.querySelector('.header').offsetHeight;
-const targetPosition = targetElement.offsetTop - headerHeight;
-
-window.scrollTo({
-top: targetPosition,
-behavior: 'smooth'
-});
-}
-});
-});
-}
-
-// Enhanced Intersection Observer for Animations
-function initScrollAnimations() {
-const observerOptions = {
-threshold: 0.1,
-rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-entries.forEach(entry => {
-if (entry.isIntersecting) {
-const element = entry.target;
-
-// Add different animations based on element type
-if (element.classList.contains('card')) {
-element.classList.add('animate-fadeInScale');
-} else if (element.classList.contains('program-card')) {
-element.classList.add('animate-fadeInUp');
-} else if (element.classList.contains('testimonial-card')) {
-element.classList.add('animate-slideInLeft');
-} else if (element.classList.contains('stat-item')) {
-element.classList.add('animate-bounce');
+// Header scroll effect
+window.addEventListener('scroll', function() {
+const header = document.getElementById('header');
+if (window.scrollY > 100) {
+header.classList.add('scrolled');
 } else {
-element.classList.add('animate-fadeInUp');
-}
-
-// Set opacity and transform
-element.style.opacity = '1';
-element.style.transform = 'translateY(0)';
-
-// Unobserve after animation
-observer.unobserve(element);
+header.classList.remove('scrolled');
 }
 });
-}, observerOptions);
-
-// Observe elements that should animate on scroll
-const animatedElements = document.querySelectorAll(
-'.card, .program-card, .testimonial-card, .stat-item, .service-item, .section-header'
-);
-
-animatedElements.forEach((el, index) => {
-el.style.opacity = '0';
-el.style.transform = 'translateY(30px)';
-el.style.transition = 'opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
-
-// Add staggered delay for elements in the same section
-const delay = (index % 3) * 0.1;
-el.style.transitionDelay = `${delay}s`;
-
-observer.observe(el);
-});
-}
-
-// Header Background on Scroll with enhanced effects
-function initHeaderScroll() {
-const header = document.querySelector('.header');
-let lastScrollY = window.scrollY;
-
-window.addEventListener('scroll', () => {
-const currentScrollY = window.scrollY;
-
-if (currentScrollY > 50) {
-header.style.background = 'rgba(255, 255, 255, 0.98)';
-header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-header.style.backdropFilter = 'blur(20px)';
-} else {
-header.style.background = 'rgba(255, 255, 255, 0.95)';
-header.style.boxShadow = 'none';
-header.style.backdropFilter = 'blur(10px)';
-}
-
-// Hide/show header on scroll
-if (currentScrollY > lastScrollY && currentScrollY > 100) {
-header.style.transform = 'translateY(-100%)';
-} else {
-header.style.transform = 'translateY(0)';
-}
-
-lastScrollY = currentScrollY;
-});
-}
-
-
-
-	// Slideshow functionality for program cards
-let currentSlides = {};
-
-function initializeSlideshows() {
-    const programs = ['software-development', 'data-analysis', 'ui-ux-design', 'forex-trading', 'graphics-video-editing'];
-    
-    programs.forEach(program => {
-        currentSlides[program] = 1;
-    });
-}
-
-function changeSlide(programId, direction) {
-    const slides = document.querySelectorAll(`#${programId} .slide`);
-    const indicators = document.querySelectorAll(`#${programId} .indicator`);
-    
-    // Hide current slide
-    slides[currentSlides[programId] - 1].classList.remove('active');
-    indicators[currentSlides[programId] - 1].classList.remove('active');
-    
-    // Calculate new slide index
-    currentSlides[programId] += direction;
-    
-    if (currentSlides[programId] > slides.length) {
-        currentSlides[programId] = 1;
-    }
-    if (currentSlides[programId] < 1) {
-        currentSlides[programId] = slides.length;
-    }
-    
-    // Show new slide
-    slides[currentSlides[programId] - 1].classList.add('active');
-    indicators[currentSlides[programId] - 1].classList.add('active');
-}
-
-function currentSlide(programId, slideIndex) {
-    const slides = document.querySelectorAll(`#${programId} .slide`);
-    const indicators = document.querySelectorAll(`#${programId} .indicator`);
-    
-    // Hide current slide
-    slides[currentSlides[programId] - 1].classList.remove('active');
-    indicators[currentSlides[programId] - 1].classList.remove('active');
-    
-    // Set new slide
-    currentSlides[programId] = slideIndex;
-    
-    // Show new slide
-    slides[currentSlides[programId] - 1].classList.add('active');
-    indicators[currentSlides[programId] - 1].classList.add('active');
-}
-
-// Auto-advance slides every 5 seconds
-function startAutoSlideshow() {
-    const programs = ['software-development', 'data-analysis', 'ui-ux-design', 'forex-trading', 'graphics-video-editing'];
-    
-    setInterval(() => {
-        programs.forEach(program => {
-            changeSlide(program, 1);
-        });
-    }, 5000);
-}
-
-// Sidebar navigation functionality
-function initializeSidebarNavigation() {
-    const sidebarLinks = document.querySelectorAll('.sidebar-link');
-    
-    // Intersection Observer for active section tracking
-    const observerOptions = {
-        threshold: 0.3,
-        rootMargin: '-100px 0px -100px 0px'
-    };
-    
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const activeId = entry.target.id;
-                
-                // Update sidebar active state
-                sidebarLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('data-program') === activeId) {
-                        link.classList.add('active');
-                    }
-                });
-            }
-        });
-    }, observerOptions);
-    
-    // Observe all program sections
-    const programSections = document.querySelectorAll('.program-card');
-    programSections.forEach(section => observer.observe(section));
-    
-    // Smooth scroll for sidebar links
-    sidebarLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href').substring(1);
-            const targetElement = document.getElementById(targetId);
-            
-            if (targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
-    });
-}
-
-// Initialize everything when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
-    initializeSlideshows();
-    startAutoSlideshow();
-    initializeSidebarNavigation();
-    initSmoothScrolling();
-initScrollAnimations();
-initHeaderScroll();
-initParallaxEffect();
-initCounterAnimation();
-initLoadingAnimations();
-
-});
-
 
 // Mobile menu toggle
-document.addEventListener('DOMContentLoaded', function() {
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const mobileNav = document.getElementById('mobileNav');
-    
-    if (mobileMenuBtn && mobileNav) {
-        mobileMenuBtn.addEventListener('click', function() {
-            mobileMenuBtn.classList.toggle('active');
-            mobileNav.classList.toggle('show');
-        });
-    }
-    
-    // Close mobile menu when clicking on nav links
-    const mobileNavLinks = document.querySelectorAll('.nav-link-mobile');
-    mobileNavLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            if (mobileMenuBtn && mobileNav) {
-                mobileMenuBtn.classList.remove('active');
-                mobileNav.classList.remove('show');
-            }
-        });
-    });
-});
+const mobileToggle = document.getElementById('mobile-toggle');
+const navMenu = document.getElementById('nav-menu');
 
-// Smooth scrolling function
-function scrollToSection(sectionId) {
-    const element = document.getElementById(sectionId);
-    if (element) {
-        element.scrollIntoView({ 
-            behavior: 'smooth',
-            block: 'start'
-        });
-    }
+mobileToggle.addEventListener('click', function() {
+navMenu.classList.toggle('active');
+const icon = mobileToggle.querySelector('i');
+if (navMenu.classList.contains('active')) {
+icon.classList.remove('fa-bars');
+icon.classList.add('fa-times');
+} else {
+icon.classList.remove('fa-times');
+icon.classList.add('fa-bars');
 }
-
-
-// Observe all animated elements
-document.addEventListener('DOMContentLoaded', function() {
-    const animatedElements = document.querySelectorAll('.animate-fade-in, .animate-slide-in');
-    animatedElements.forEach(el => observer.observe(el));
 });
 
 // Contact form submission
@@ -1139,29 +832,5 @@ document.body.style.opacity = '0';
 document.body.style.animation = 'fadeInUp 0.8s ease-out forwards';
 });
 </script>
-
-
-
-<!-- jQuery -->
-<script src="js/jquery.min.js"></script>
-<script src="js/jquery-migrate-3.0.0.js"></script>
-<script src="js/jquery-ui.min.js"></script>
-<script src="js/easing.js"></script>
-<script src="js/colors.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap-datepicker.js"></script>
-<script src="js/jquery.nav.js"></script>
-<script src="js/slicknav.min.js"></script>
-<script src="js/jquery.scrollUp.min.js"></script>
-<script src="js/niceselect.js"></script>
-<script src="js/tilt.jquery.min.js"></script>
-<script src="js/owl-carousel.js"></script>
-<script src="js/jquery.counterup.min.js"></script>
-<script src="js/steller.js"></script>
-<script src="js/wow.min.js"></script>
-<script src="js/jquery.magnific-popup.min.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/main.js"></script>
 </body>
 </html>

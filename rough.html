@@ -1,11 +1,1829 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
-	<link rel="stylesheet" href="style.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>JE Tech Hub - Empowering Tech Excellence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+--primary: darkblue;
+--primary-foreground: hsl(210, 40%, 98%);
+--primary-orange: hsl(25, 95%, 53%);
+--primary-orange-foreground: hsl(0, 0%, 100%);
+--primary-glow: hsl(221, 74%, 45%);
+--primary-dark: hsl(221, 83%, 40%);
+--background: hsl(0, 0%, 100%);
+--foreground: darkblue;
+--card: hsl(0, 0%, 100%);
+--card-foreground: hsl(222.2, 84%, 4.9%);
+--card-hover: hsl(0, 35%, 29%);
+--secondary: hsl(210, 40%, 96.1%);
+--secondary-foreground: darkblue
+--muted: hsl(210, 40%, 96.1%);
+--muted-foreground: hsl(215.4, 16.3%, 46.9%);
+--border: hsl(214.3, 31.8%, 91.4%);
+--input: hsl(214.3, 31.8%, 91.4%);
+--radius: 0.5rem;
+--shadow-elegant: 0 10px 30px -10px hsl(221, 83%, 53%, 0.3);
+--shadow-glow: 0 0 40px hsl(221, 83%, 70%, 0.4);
+--transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+--transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+line-height: 1.6;
+color: var(--foreground);
+background-color: var(--background);
+scroll-behavior: smooth;
+}
+
+.container {
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 1rem;
+}
+
+/* HEADER STYLES */
+.header {
+position: fixed;
+top: 0;
+left: 0;
+right: 0;
+background: rgba(255, 255, 255, 0.95);
+backdrop-filter: blur(10px);
+border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+z-index: 1000;
+transition: var(--transition-smooth);
+}
+
+.header.scrolled {
+background: rgba(255, 255, 255, 0.98);
+box-shadow: var(--shadow-elegant);
+}
+
+.header-content {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 1rem 0;
+}
+
+.logo {
+font-size: 1.5rem;
+font-weight: 700;
+color: var(--primary);
+text-decoration: none;
+display: flex;
+align-items: center;
+gap: 0.5rem;
+transition: var(--transition-smooth);
+}
+
+.logo:hover {
+color: var(--primary-orange);
+transform: scale(1.05);
+}
+
+.logo::before {
+content: '⚡';
+font-size: 1.2rem;
+animation: pulse 2s infinite;
+}
+
+.nav-menu {
+display: flex;
+list-style: none;
+gap: 2rem;
+align-items: center;
+}
+
+.nav-menu a {
+text-decoration: none;
+color: var(--foreground);
+font-weight: 500;
+position: relative;
+transition: var(--transition-smooth);
+padding: 0.5rem 1rem;
+border-radius: var(--radius);
+}
+
+.nav-menu a::after {
+content: '';
+position: absolute;
+bottom: -2px;
+left: 50%;
+width: 0;
+height: 2px;
+background: linear-gradient(135deg, var(--primary), var(--primary-orange));
+transition: var(--transition-smooth);
+transform: translateX(-50%);
+}
+
+.nav-menu a:hover::after {
+width: 80%;
+}
+
+.nav-menu a:hover {
+color: var(--primary);
+background: rgba(var(--primary), 0.1);
+}
+
+.nav-cta {
+background: linear-gradient(135deg, var(--primary), var(--primary-glow));
+color: var(--primary-foreground);
+padding: 0.75rem 1.5rem;
+border-radius: var(--radius);
+text-decoration: none;
+font-weight: 600;
+transition: var(--transition-bounce);
+border: none;
+cursor: pointer;
+box-shadow: var(--shadow-elegant);
+}
+
+.nav-cta:hover {
+transform: translateY(-2px);
+box-shadow: var(--shadow-glow);
+}
+
+.mobile-menu-btn {
+display: none;
+background: none;
+border: none;
+cursor: pointer;
+padding: 0.5rem;
+color: var(--foreground);
+font-size: 1.5rem;
+transition: var(--transition-smooth);
+}
+
+.mobile-menu-btn:hover {
+color: var(--primary);
+transform: scale(1.1);
+}
+
+.mobile-menu {
+position: fixed;
+top: 0;
+right: -100%;
+height: 100vh;
+width: 300px;
+background: rgba(255, 255, 255, 0.98);
+backdrop-filter: blur(20px);
+padding: 2rem;
+transition: var(--transition-smooth);
+z-index: 1001;
+box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-menu.active {
+right: 0;
+}
+
+.mobile-menu-close {
+position: absolute;
+top: 1rem;
+right: 1rem;
+background: none;
+border: none;
+cursor: pointer;
+font-size: 1.5rem;
+color: var(--foreground);
+transition: var(--transition-smooth);
+}
+
+.mobile-menu-close:hover {
+color: var(--primary);
+transform: scale(1.1);
+}
+
+.mobile-nav-menu {
+list-style: none;
+padding: 0;
+margin-top: 3rem;
+}
+
+.mobile-nav-menu li {
+margin-bottom: 1rem;
+}
+
+.mobile-nav-menu a {
+display: block;
+text-decoration: none;
+color: var(--foreground);
+font-weight: 500;
+padding: 1rem;
+border-radius: var(--radius);
+transition: var(--transition-smooth);
+}
+
+.mobile-nav-menu a:hover {
+background: rgba(var(--primary), 0.1);
+color: var(--primary);
+transform: translateX(10px);
+}
+
+/* HERO SECTION */
+.hero-section {
+margin-top: 80px; /* Account for fixed header */
+}
+
+.carousel {
+position: relative;
+overflow: hidden;
+height: 90vh;
+background: linear-gradient(135deg, #000, #1a1a1a);
+}
+
+.slides-container {
+display: flex;
+transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+height: 100%;
+}
+
+.slide {
+min-width: 100%;
+background-size: cover;
+background-position: center;
+display: flex;
+align-items: center;
+justify-content: center;
+position: relative;
+}
+
+.slide-overlay {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: linear-gradient(135deg, rgba(0,0,0,0.8), rgba(0,0,0,0.6));
+opacity: 0.9;
+}
+
+.slide-content {
+position: relative;
+z-index: 2;
+text-align: center;
+padding: 2rem;
+max-width: 800px;
+animation: slideUp 1s ease-out;
+}
+
+.text-box {
+background: rgba(0, 0, 0, 0.3);
+padding: 2.5rem;
+border-radius: 20px;
+backdrop-filter: blur(10px);
+border: 1px solid rgba(255, 255, 255, 0.1);
+transition: var(--transition-smooth);
+}
+
+.text-box:hover {
+background: rgba(0, 0, 0, 0.4);
+transform: translateY(-5px);
+}
+
+.slide h1 {
+font-size: clamp(2rem, 5vw, 3.5rem);
+margin-bottom: 1rem;
+color: white;
+font-weight: 700;
+text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+animation: fadeInUp 1s ease-out 0.2s both;
+}
+
+.slide p {
+font-size: clamp(1rem, 2vw, 1.3rem);
+margin-bottom: 2rem;
+color: rgba(255, 255, 255, 0.9);
+text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+animation: fadeInUp 1s ease-out 0.4s both;
+}
+
+.slide span {
+color: var(--primary-orange);
+font-weight: 600;
+text-shadow: 0 0 20px rgba(255, 149, 0, 0.5);
+}
+
+.slide-buttons {
+display: flex;
+gap: 1rem;
+justify-content: center;
+flex-wrap: wrap;
+animation: fadeInUp 1s ease-out 0.6s both;
+}
+
+.slide-buttons .btn,
+.slide-buttons .btn-secondary {
+padding: 1rem 2rem;
+margin: 0 0.5rem;
+font-weight: 600;
+border: none;
+cursor: pointer;
+/*border-radius: 50px;*/
+transition: var(--transition-bounce);
+position: relative;
+overflow: hidden;
+}
+
+.slide-buttons .btn::before,
+.slide-buttons .btn-secondary::before {
+content: '';
+position: absolute;
+top: 50%;
+left: 50%;
+width: 0;
+height: 0;
+background: rgba(255, 255, 255, 0.3);
+/*border-radius: 50%;*/
+transition: var(--transition-smooth);
+transform: translate(-50%, -50%);
+}
+
+.slide-buttons .btn:hover::before,
+.slide-buttons .btn-secondary:hover::before {
+width: 300px;
+height: 300px;
+}
+
+.btn {
+background: linear-gradient(135deg, var(--primary-orange), #ff8c00);
+color: white;
+box-shadow: 0 10px 30px rgba(255, 149, 0, 0.4);
+}
+
+.btn:hover {
+transform: translateY(-3px);
+box-shadow: 0 15px 40px rgba(255, 149, 0, 0.6);
+}
+
+.btn-secondary {
+background: rgba(255, 255, 255, 0.1);
+color: white;
+border: 2px solid rgba(255, 255, 255, 0.3);
+backdrop-filter: blur(10px);
+}
+
+.btn-secondary:hover {
+background: rgba(255, 255, 255, 0.2);
+transform: translateY(-3px);
+box-shadow: 0 15px 40px rgba(255, 255, 255, 0.2);
+}
+
+.carousel-nav {
+position: absolute;
+top: 50%;
+width: 100%;
+display: flex;
+justify-content: space-between;
+transform: translateY(-50%);
+z-index: 3;
+}
+
+.carousel-nav button {
+background: rgba(255, 255, 255, 0.2);
+border: none;
+font-size: 2rem;
+padding: 1rem 1.5rem;
+cursor: pointer;
+transition: var(--transition-smooth);
+backdrop-filter: blur(10px);
+border-radius: 50%;
+color: white;
+margin: 0 2rem;
+}
+
+.carousel-nav button:hover {
+background: rgba(255, 255, 255, 0.3);
+transform: scale(1.1);
+}
+
+/* SECTION STYLES */
+.section {
+padding: 6rem 0;
+position: relative;
+overflow: hidden;
+}
+
+.section::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background: linear-gradient(135deg, transparent, rgba(var(--primary), 0.02));
+opacity: 0.5;
+z-index: -1;
+}
+
+.section-title {
+font-size: clamp(1.5rem, 3.4vw, 3rem);
+font-weight: 700;
+text-align: left;
+margin-bottom: 1.5rem;
+position: relative;
+background:var(--primary);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+}
+
+.section-subtitle {
+font-size: 1.2rem;
+text-align: center;
+color: var(--muted-foreground);
+margin-bottom: 4rem;
+max-width: 800px;
+margin-left: auto;
+margin-right: auto;
+opacity: 0.9;
+}
+
+/* GRID LAYOUTS */
+.grid {
+display: grid;
+gap: 2rem;
+}
+
+.grid-2 {
+grid-template-columns: repeat(1, 1fr);
+}
+
+.grid-3 {
+grid-template-columns: repeat(1, 1fr);
+}
+
+/* CARD STYLES */
+.card {
+background: rgba(255, 255, 255, 0.8);
+backdrop-filter: blur(10px);
+border-radius: 20px;
+border: 1px solid rgba(255, 255, 255, 0.2);
+padding: 2rem;
+transition: var(--transition-bounce);
+position: relative;
+overflow: hidden;
+}
+
+.card::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+opacity: 0;
+transition: var(--transition-smooth);
+}
+
+.card:hover::before {
+opacity: 1;
+}
+
+.card:hover {
+transform: translateY(-10px);
+box-shadow: var(--shadow-glow);
+border-color: rgba(var(--primary), 0.3);
+}
+
+.card-header {
+margin-bottom: 1.5rem;
+}
+
+.card-title {
+font-size: 1.1rem;
+font-weight: 600;
+margin-bottom: 0.5rem;
+color: var(--primary);
+}
+
+.card-description {
+color: var(--muted-foreground);
+line-height: 1.7;
+opacity: 0.9;
+}
+
+/* PROGRAM CARDS */
+.program-card {
+overflow: hidden;
+position: relative;
+}
+
+.program-image {
+position: relative;
+aspect-ratio: 16/9;
+overflow: hidden;
+margin-bottom: 1.5rem;
+border-radius: 15px;
+}
+
+.program-image img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+transition: var(--transition-smooth);
+}
+
+.program-card:hover .program-image img {
+transform: scale(1.1);
+}
+
+.image-nav {
+position: absolute;
+top: 50%;
+transform: translateY(-50%);
+background: rgba(0, 0, 0, 0.6);
+color: white;
+border: none;
+border-radius: 50%;
+width: 3rem;
+height: 3rem;
+cursor: pointer;
+opacity: 0;
+transition: var(--transition-smooth);
+backdrop-filter: blur(5px);
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.program-image:hover .image-nav {
+opacity: 1;
+}
+
+.image-nav:hover {
+background: rgba(0, 0, 0, 0.8);
+transform: translateY(-50%) scale(1.1);
+}
+
+.image-nav.prev {
+left: 1rem;
+}
+
+.image-nav.next {
+right: 1rem;
+}
+
+.indicator {
+border: none;
+background: rgba(255, 255, 255, 0.5);
+border-radius: 50%;
+cursor: pointer;
+width: 10px;
+height: 10px;
+transition: var(--transition-smooth);
+}
+
+.indicator.active {
+background: var(--primary-orange);
+transform: scale(1.2);
+}
+
+/* BUTTONS */
+.btn-primary {
+background: linear-gradient(135deg, var(--primary), var(--primary-glow));
+color: var(--primary-foreground);
+padding: 1rem 2rem;
+border: none;
+font-weight: 600;
+cursor: pointer;
+transition: var(--transition-bounce);
+text-decoration: none;
+display: inline-block;
+text-align: center;
+box-shadow: var(--shadow-elegant);
+position: relative;
+overflow: hidden;
+}
+
+.btn-primary::before {
+content: '';
+position: absolute;
+top: 50%;
+left: 50%;
+width: 0;
+height: 0;
+background: rgba(255, 255, 255, 0.3);
+border-radius: 50%;
+transition: var(--transition-smooth);
+transform: translate(-50%, -50%);
+}
+
+.btn-primary:hover::before {
+width: 300px;
+height: 300px;
+}
+
+.btn-primary:hover {
+transform: translateY(-3px);
+box-shadow: var(--shadow-glow);
+}
+
+.btn-outline {
+border: 2px solid var(--primary);
+color: var(--primary);
+background: rgba(255, 255, 255, 0.8);
+backdrop-filter: blur(10px);
+padding: 1rem 2rem;
+font-weight: 600;
+cursor: pointer;
+transition: var(--transition-bounce);
+text-decoration: none;
+display: inline-block;
+text-align: center;
+position: relative;
+overflow: hidden;
+}
+
+.btn-outline::before {
+content: '';
+position: absolute;
+top: 0;
+left: -100%;
+width: 100%;
+height: 100%;
+background: linear-gradient(135deg, var(--primary), var(--primary-glow));
+transition: var(--transition-smooth);
+}
+
+.btn-outline:hover::before {
+left: 0;
+}
+
+.btn-outline:hover {
+color: var(--primary-foreground);
+transform: translateY(-3px);
+box-shadow: var(--shadow-elegant);
+}
+
+.btn-outline span {
+position: relative;
+z-index: 1;
+}
+
+.btn-lg {
+padding: 1.2rem 3rem;
+font-size: 1.1rem;
+}
+
+/* FORM STYLES */
+.form-group {
+margin-bottom: 1.5rem;
+}
+
+.form-label {
+display: block;
+margin-bottom: 0.5rem;
+font-weight: 600;
+color: var(--foreground);
+}
+
+.form-input,
+.form-textarea {
+width: 100%;
+padding: 1rem;
+border: 2px solid rgba(var(--primary), 0.2);
+border-radius: 15px;
+background: rgba(255, 255, 255, 0.8);
+backdrop-filter: blur(10px);
+transition: var(--transition-smooth);
+font-family: inherit;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+outline: none;
+border-color: var(--primary);
+box-shadow: 0 0 0 3px rgba(var(--primary), 0.1);
+}
+
+.form-textarea {
+resize: vertical;
+min-height: 120px;
+}
+
+/* FOOTER */
+.footer {
+background: linear-gradient(135deg, #1a1a1a, #000);
+color: var(--primary-foreground);
+padding: 4rem 0 2rem;
+position: relative;
+overflow: hidden;
+}
+
+.footer::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background: linear-gradient(135deg, rgba(var(--primary), 0.1), rgba(var(--primary-orange), 0.1));
+opacity: 0.5;
+}
+
+.footer h3 {
+color: var(--primary-orange);
+margin-bottom: 1rem;
+font-weight: 600;
+}
+
+.footer-grid {
+display: grid;
+gap: 2rem;
+margin-bottom: 3rem;
+position: relative;
+z-index: 1;
+}
+
+.footer-links {
+list-style: none;
+}
+
+.footer-links li {
+margin-bottom: 0.75rem;
+}
+
+.footer-links a {
+color: rgba(255, 255, 255, 0.8);
+text-decoration: none;
+transition: var(--transition-smooth);
+position: relative;
+}
+
+.footer-links a::after {
+content: '';
+position: absolute;
+bottom: -2px;
+left: 0;
+width: 0;
+height: 2px;
+background: var(--primary-orange);
+transition: var(--transition-smooth);
+}
+
+.footer-links a:hover::after {
+width: 100%;
+}
+
+.footer-links a:hover {
+color: var(--primary-orange);
+transform: translateX(5px);
+}
+
+.social-links {
+display: flex;
+gap: 1rem;
+margin-top: 1rem;
+}
+
+.social-links a {
+color: rgba(255, 255, 255, 0.8);
+transition: var(--transition-bounce);
+font-size: 1.5rem;
+}
+
+.social-links a:hover {
+color: var(--primary-orange);
+transform: translateY(-3px) scale(1.2);
+}
+
+.footer-bottom {
+border-top: 1px solid rgba(255, 255, 255, 0.2);
+padding-top: 2rem;
+text-align: center;
+color: rgba(255, 255, 255, 0.8);
+position: relative;
+z-index: 1;
+}
+
+/* ANIMATIONS */
+@keyframes slideUp {
+from {
+opacity: 0;
+transform: translateY(30px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+
+@keyframes fadeInUp {
+from {
+opacity: 0;
+transform: translateY(20px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+
+@keyframes pulse {
+0%, 100% {
+transform: scale(1);
+}
+50% {
+transform: scale(1.1);
+}
+}
+
+@keyframes float {
+0%, 100% {
+transform: translateY(0px);
+}
+50% {
+transform: translateY(-10px);
+}
+}
+
+.animate-on-scroll {
+opacity: 0;
+transform: translateY(30px);
+transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animate-on-scroll.animate {
+opacity: 1;
+transform: translateY(0);
+}
+
+.animate-float {
+animation: float 3s ease-in-out infinite;
+}
+
+/* TOAST STYLES */
+.toast {
+position: fixed;
+bottom: 2rem;
+right: 2rem;
+background: rgba(0, 0, 0, 0.9);
+color: white;
+padding: 1rem 1.5rem;
+border-radius: 15px;
+opacity: 0;
+pointer-events: none;
+transition: var(--transition-bounce);
+z-index: 1000;
+backdrop-filter: blur(10px);
+border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.toast.show {
+opacity: 1;
+pointer-events: auto;
+transform: translateY(0);
+}
+
+.toast.success {
+background: linear-gradient(135deg, #4caf50, #45a049);
+}
+
+.toast.error {
+background: linear-gradient(135deg, #f44336, #d32f2f);
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+.nav-menu {
+display: none;
+}
+
+.mobile-menu-btn {
+display: block;
+}
+
+.slide-buttons {
+flex-direction: column;
+align-items: center;
+}
+
+.slide-buttons .btn,
+.slide-buttons .btn-secondary {
+width: 100%;
+max-width: 300px;
+}
+
+.carousel-nav button {
+padding: 0.5rem 1rem;
+font-size: 1.5rem;
+margin: 0 1rem;
+}
+}
+
+@media (min-width: 768px) {
+.grid-2 {
+grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-3 {
+grid-template-columns: repeat(3, 1fr);
+}
+
+.footer-grid {
+grid-template-columns: repeat(2, 1fr);
+}
+}
+
+@media (min-width: 1024px) {
+.footer-grid {
+grid-template-columns: repeat(4, 1fr);
+}
+}
+
+/* SPECIAL EFFECTS */
+.glassmorphism {
+background: rgba(255, 255, 255, 0.1);
+backdrop-filter: blur(10px);
+border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.gradient-text {
+background: linear-gradient(135deg, var(--primary), var(--primary-orange));
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+}
+
+.opacity-overlay {
+position: relative;
+}
+
+.opacity-overlay::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background: linear-gradient(135deg, rgba(var(--primary), 0.1), rgba(var(--primary-orange), 0.1));
+opacity: 0.3;
+pointer-events: none;
+}
+
+/* SCROLL INDICATOR */
+.scroll-indicator {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 4px;
+background: rgba(var(--primary), 0.2);
+z-index: 1001;
+}
+
+.scroll-progress {
+height: 100%;
+background: linear-gradient(90deg, var(--primary), var(--primary-orange));
+width: 0%;
+transition: width 0.3s ease;
+}
+</style>
 </head>
 <body>
+<!-- Scroll Progress Indicator -->
+<div class="scroll-indicator">
+<div class="scroll-progress" id="scrollProgress"></div>
+</div>
+
+<!-- Header -->
+<header class="header" id="header">
+<div class="container">
+<div class="header-content">
+<a href="#" class="logo">
+JE Tech Hub
+</a>
+
+<nav class="nav-menu">
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#programs">Programs</a>
+<a href="#contact">Contact</a>
+<a href="#contact" class="nav-cta">Get Started</a>
+</nav>
+
+<button class="mobile-menu-btn" id="mobileMenuBtn">
+☰
+</button>
+</div>
+</div>
+</header>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+<button class="mobile-menu-close" id="mobileMenuClose">✕</button>
+<ul class="mobile-nav-menu">
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#programs">Programs</a></li>
+<li><a href="#contact">Contact</a></li>
+<li><a href="#contact" class="nav-cta">Get Started</a></li>
+</ul>
+</div>
+
+<!-- HERO SECTION -->
+<section id="home" class="hero-section">
+<div class="carousel">
+<div class="slides-container" id="slidesContainer">
+
+<!-- Slide 1 -->
+<div class="slide" style="background-image: url('https://www.shutterstock.com/image-photo/young-african-male-programmer-writing-600nw-1233182206.jpg');">
+<div class="slide-overlay"></div>
+<div class="slide-content">
+	<div class="text-box">
+	<h1>We Provide <span>Services</span> That You Can <span>Trust!</span></h1>
+	<p>Dedicated to empowering individuals and businesses with cutting-edge solutions.</p>
+	<div class="slide-buttons">
+		<button class="btn">Learn More</button>
+		<button class="btn-secondary">Contact Us</button>
+	</div>
+	</div>
+</div>
+</div>
+
+<!-- Slide 2 -->
+<div class="slide" style="background-image: url('https://peopleofcolorintech.com/wp-content/uploads/2021/09/lagos-techie-IgUR1iX0mqM-unsplash-1080x635.jpg');">
+<div class="slide-overlay"></div>
+<div class="slide-content">
+	<div class="text-box">
+	<h1>Excellence in Every Detail</h1>
+	<p>Get the <span>skills</span>, mentorship, and resources you need to thrive <span>in today's digital world.</span></p>
+	<div class="slide-buttons">
+		<button class="btn">Learn More</button>
+		<button class="btn-secondary">Contact Us</button>
+	</div>
+	</div>
+</div>
+</div>
+
+<!-- Slide 3 -->
+<div class="slide" style="background-image: url('https://www.brookings.edu/wp-content/uploads/2022/11/shutterstock_2136404171_small.jpg');">
+<div class="slide-overlay"></div>
+<div class="slide-content">
+	<div class="text-box">
+	<h1>LEARN, GROW <span>&</span> EXPLORE ENDLESS <span>OPPORTUNITIES!</span></h1>
+	<p>Join thousands of satisfied clients who have achieved their goals with our expert guidance.</p>
+	<div class="slide-buttons">
+		<button class="btn">Learn More</button>
+		<button class="btn-secondary">Contact Us</button>
+	</div>
+	</div>
+</div>
+</div>
+
+</div>
+
+<!-- Navigation Arrows -->
+<div class="carousel-nav">
+<button class="prev-slide">‹</button>
+<button class="next-slide">›</button>
+</div>
+</div>
+</section>
+
+<!-- Mission & Vision Section -->
+<section class="section opacity-overlay" style="background: linear-gradient(135deg, #f8fafc, #e2e8f0);">
+<div class="container">
+<div class="grid grid-2 animate-on-scroll" style="max-width: 72rem; margin: 0 auto;">
+<div class="card glassmorphism">
+<div class="card-header">
+	<h3 class="card-title gradient-text" style="font-size: 1.5rem;">Our Mission</h3>
+</div>
+<div>
+	<p class="card-description" style="margin-bottom: 1.5rem;">
+	To connect education and technology with innovative and practical tutoring that enhances tech skills, empowering the next generation of digital leaders.
+	</p>
+	<button class="btn-outline" style="background: none; border: none; color: var(--primary); padding: 0;">
+	<span>LEARN MORE →</span>
+	</button>
+</div>
+</div>
+
+<div class="card glassmorphism">
+<div class="card-header">
+	<h3 class="card-title gradient-text" style="font-size: 1.5rem;">Our Vision</h3>
+</div>
+<div>
+	<p class="card-description" style="margin-bottom: 1.5rem;">
+	Shaping the future of tech—raising brilliant minds and crafting skilled professionals who will drive innovation and digital transformation globally.
+	</p>
+	<button class="btn-outline" style="background: none; border: none; color: var(--primary); padding: 0;">
+	<span>LEARN MORE →</span>
+	</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="section">
+<div class="container">
+<div style="max-width: 72rem; margin: 0 auto;">
+<div class="animate-on-scroll" style="text-align: center; margin-bottom: 4rem;">
+<h2 class="section-title">About Us</h2>
+<p class="section-subtitle">
+	JE Tech Hub, officially launched February 2024, marking a new phase of growth and innovation 
+	to deliver top-tier tech solutions while empowering individuals and businesses with industry-leading skills.
+</p>
+</div>
+
+<div class="grid grid-2 animate-on-scroll" style="align-items: center; margin-bottom: 4rem;">
+<div class="animate-float">
+	<img src="https://www.cio.com/wp-content/uploads/2025/04/304911-0-96969100-1744090469-shutterstock_2304727595.jpg?quality=50&strip=all&w=1024" alt="JE Tech Hub Team" style="width: 100%; border-radius: 20px; box-shadow: var(--shadow-glow); opacity: 0.95;">
+</div>
+<div>
+	<p style="color: var(--muted-foreground); margin-bottom: 1.5rem; line-height: 1.6; opacity: 0.9;">
+	Having several training programs ongoing and approximately 30 graduates, we believe in 
+	nurturing creativity, fostering growth, and equipping our community with practical skills 
+	to thrive in the digital era.
+	</p>
+	<a href="#programs" class="btn-primary">Get Started</a>
+</div>
+</div>
+
+<div class="grid grid-2 animate-on-scroll" style="align-items: center;">
+<div>
+	<h3 style="font-size: 1.875rem; font-weight: 700; margin-bottom: 1.5rem;" class="gradient-text">What We Offer</h3>
+	<p style="font-size: 1.125rem; color: var(--muted-foreground); font-style: italic; margin-bottom: 1.5rem; opacity: 0.8;">
+	Hands-on training and innovative solutions
+	</p>
+	<p style="color: var(--muted-foreground); margin-bottom: 1.5rem; line-height: 1.6; opacity: 0.9;">
+	Operating under the umbrella of <strong>JE Gadgets</strong>, our parent brand, which specializes 
+	in gadget sales, repairs, and swaps. We pride ourselves on being a leading tech education center 
+	that empowers individuals to transform their ideas into impactful, actionable opportunities.
+	</p>
+	<a href="#contact" class="btn-outline"><span>Contact Us</span></a>
+</div>
+<div>
+	<p style="color: var(--muted-foreground); margin-bottom: 1.5rem; line-height: 1.6; opacity: 0.9;">
+	Whether you're an entrepreneur looking to scale, a tech enthusiast eager to explore new frontiers, 
+	or someone seeking to upskill, we offer the knowledge, tools, and mentorship to help you thrive 
+	in the ever-evolving digital landscape.
+	</p>
+	<a href="#programs" class="btn-primary">Join Us</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Programs Section -->
+<section id="programs" class="section opacity-overlay" style="background: linear-gradient(135deg, #f1f5f9, #e2e8f0);">
+<div class="container">
+<div style="max-width: 72rem; margin: 0 auto;">
+<div class="animate-on-scroll" style="text-align: center; margin-bottom: 4rem;">
+<h2 class="section-title">Our Cutting-Edge Programs</h2>
+<p class="section-subtitle">
+	We provide practical experience and expert guidance across various tech-driven fields with 
+	several ongoing training programs to empower you with the skills you need to excel.
+</p>
+<p style="color: var(--muted-foreground); opacity: 0.8;">
+	Check out our advanced IT training, software development courses and more
+</p>
+</div>
+
+<div class="animate-on-scroll" style="margin-bottom: 3rem;">
+<h3 class="gradient-text" style="font-size: 1.5rem; font-weight: 700; display: flex; align-items: center;">
+	<span style="color: var(--primary-orange);">#</span>Training Courses:
+</h3>
+</div>
+
+<div class="grid grid-3 animate-on-scroll" style="margin-bottom: 4rem;" id="programs-grid">
+<!-- Programs will be populated by JavaScript -->
+</div>
+
+<div class="card glassmorphism animate-on-scroll" style="text-align: center; padding: 3rem;">
+<h3 class="gradient-text" style="font-size: 1.875rem; font-weight: 700; margin-bottom: 1.5rem;">Ready to Elevate Your Skills?</h3>
+<div style="color: var(--muted-foreground); line-height: 1.6; max-width: 64rem; margin: 0 auto; opacity: 0.9;">
+	<p style="margin-bottom: 1rem;">
+	Whether you're interested in web development, graphic design, data analysis, or other innovative sectors, 
+	our tailored courses equip you with the skills needed to excel in today's fast-paced digital landscape.
+	</p>
+	<p style="margin-bottom: 1rem;">
+	Our mission goes beyond education—we aim to cultivate a creative, entrepreneurial mindset that prepares 
+	you for the future of technology.
+	</p>
+	<p style="margin-bottom: 2rem;">
+	Join a community of like-minded learners and industry professionals who are passionate about technology 
+	and personal growth. Get the skills, mentorship, and resources you need to thrive in today's digital world.
+	</p>
+</div>
+<a href="#contact" class="btn-primary btn-lg">Get Started</a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Delivery Section -->
+<section class="section">
+<div class="container">
+<div style="max-width: 72rem; margin: 0 auto;">
+<div class="animate-on-scroll" style="text-align: center; margin-bottom: 4rem;">
+<h2 class="section-title">Delivery Services</h2>
+<p class="section-subtitle">
+	We also offer reliable delivery services. Explore the world of logistics and deliveries. 
+	Learn how to start and operate a successful delivery business, optimize routes, manage orders, 
+	and use digital tools to ensure fast and efficient deliveries for e-commerce, food, and courier services.
+</p>
+<p style="color: var(--muted-foreground); opacity: 0.8;">
+	Whether you are purchasing or whatever, we ensure that everything arrives at your doorstep or your preferred location.
+</p>
+</div>
+
+<div class="animate-on-scroll" style="margin-bottom: 4rem;">
+<h3 class="gradient-text" style="font-size: 1.5rem; font-weight: 700; margin-bottom: 2rem;">Services Offered:</h3>
+<div class="grid grid-3">
+	<div class="card glassmorphism" style="text-align: center;">
+	<div class="animate-float" style="margin: 0 auto 1rem; padding: 1rem; background: rgba(var(--primary), 0.1); border-radius: 50%; width: fit-content;">
+		<span style="font-size: 2rem;">🚚</span>
+	</div>
+	<h4 class="card-title">Door-To-Door Delivery</h4>
+	<p class="card-description">Convenient delivery right to your doorstep</p>
+	</div>
+	<div class="card glassmorphism" style="text-align: center;">
+	<div class="animate-float" style="margin: 0 auto 1rem; padding: 1rem; background: rgba(var(--primary), 0.1); border-radius: 50%; width: fit-content; animation-delay: 0.2s;">
+		<span style="font-size: 2rem;">🏢</span>
+	</div>
+	<h4 class="card-title">Office Delivery</h4>
+	<p class="card-description">Professional delivery to your workplace</p>
+	</div>
+	<div class="card glassmorphism" style="text-align: center;">
+	<div class="animate-float" style="margin: 0 auto 1rem; padding: 1rem; background: rgba(var(--primary), 0.1); border-radius: 50%; width: fit-content; animation-delay: 0.4s;">
+		<span style="font-size: 2rem;">🍽️</span>
+	</div>
+	<h4 class="card-title">Food Delivery</h4>
+	<p class="card-description">Fresh meals delivered fast and hot</p>
+	</div>
+	<div class="card glassmorphism" style="text-align: center;">
+	<div class="animate-float" style="margin: 0 auto 1rem; padding: 1rem; background: rgba(var(--primary), 0.1); border-radius: 50%; width: fit-content; animation-delay: 0.6s;">
+		<span style="font-size: 2rem;">📍</span>
+	</div>
+	<h4 class="card-title">Motor Park Pickup</h4>
+	<p class="card-description">Easy pickup from designated transport hubs</p>
+	</div>
+	<div class="card glassmorphism" style="text-align: center;">
+	<div class="animate-float" style="margin: 0 auto 1rem; padding: 1rem; background: rgba(var(--primary), 0.1); border-radius: 50%; width: fit-content; animation-delay: 0.8s;">
+		<span style="font-size: 2rem;">📍</span>
+	</div>
+	<h4 class="card-title">Motor Park Dropoff</h4>
+	<p class="card-description">Reliable dropoff at motor park locations</p>
+	</div>
+	<div class="card glassmorphism" style="text-align: center;">
+	<div class="animate-float" style="margin: 0 auto 1rem; padding: 1rem; background: rgba(var(--primary), 0.1); border-radius: 50%; width: fit-content; animation-delay: 1s;">
+		<span style="font-size: 2rem;">📧</span>
+	</div>
+	<h4 class="card-title">Mail Pockets</h4>
+	<p class="card-description">Secure document and mail delivery services</p>
+	</div>
+</div>
+</div>
+
+<div class="animate-on-scroll" style="text-align: center; margin-bottom: 4rem;">
+<button class="btn-primary btn-lg" onclick="showToast('Booking feature coming soon!', 'success')">📩 Book Now</button>
+</div>
+
+<div class="animate-on-scroll" style="text-align: center;">
+<img src="images/delivery-service-DIqfsVCx.jpg" alt="Professional Delivery Service" style="width: 100%; max-width: 32rem; border-radius: 20px; box-shadow: var(--shadow-glow); opacity: 0.95;">
+</div>
+</div>
+</div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="section opacity-overlay" style="background: linear-gradient(135deg, #f8fafc, #e2e8f0);">
+<div class="container">
+<div style="max-width: 72rem; margin: 0 auto;">
+<div class="animate-on-scroll" style="text-align: center; margin-bottom: 4rem;">
+<h2 class="section-title">What Our Members Say</h2>
+<p class="section-subtitle">
+	Our members' experiences are a testament to the quality of training and mentorship we provide at JE Tech Hub. 
+	Hear what they have to say about their journey with us.
+</p>
+</div>
+
+<div class="grid grid-3 animate-on-scroll" style="margin-bottom: 4rem;">
+<div class="card glassmorphism">
+	<div style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 1rem;">
+	<span style="font-size: 1.5rem; color: var(--primary-orange);">"</span>
+	<p style="color: var(--muted-foreground); font-style: italic; line-height: 1.6; opacity: 0.9;">
+		JE Tech Hub transformed my career. The hands-on training and expert instructors helped me gain the skills I needed to land my first job in web development. The community and support I received here were amazing!
+	</p>
+	</div>
+	<div>
+	<h4 style="font-weight: 600; margin-bottom: 0.25rem;">Adunni Olatunde</h4>
+	<p style="font-size: 0.875rem; color: var(--muted-foreground); opacity: 0.7;">📅 22 Aug, 2023</p>
+	</div>
+</div>
+
+<div class="card glassmorphism">
+	<div style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 1rem;">
+	<span style="font-size: 1.5rem; color: var(--primary-orange);">"</span>
+	<p style="color: var(--muted-foreground); font-style: italic; line-height: 1.6; opacity: 0.9;">
+		I've been through several tech training programs, but none compared to the quality of JE Tech Hub. The curriculum was up-to-date, and I learned everything I needed to start my own freelance business in digital marketing. Highly recommend!
+	</p>
+	</div>
+	<div>
+	<h4 style="font-weight: 600; margin-bottom: 0.25rem;">Emeka Okoro</h4>
+	<p style="font-size: 0.875rem; color: var(--muted-foreground); opacity: 0.7;">📅 15 Sept, 2023</p>
+	</div>
+</div>
+
+<div class="card glassmorphism">
+	<div style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 1rem;">
+	<span style="font-size: 1.5rem; color: var(--primary-orange);">"</span>
+	<p style="color: var(--muted-foreground); font-style: italic; line-height: 1.6; opacity: 0.9;">
+		Thanks to JE Tech Hub's software development course, I now have the skills to build my own applications. The instructors were not only experts but also genuinely caring, and the practical training helped me grow fast!
+	</p>
+	</div>
+	<div>
+	<h4 style="font-weight: 600; margin-bottom: 0.25rem;">Fatima Abdullahi</h4>
+	<p style="font-size: 0.875rem; color: var(--muted-foreground); opacity: 0.7;">📅 5 Jan, 2024</p>
+	</div>
+</div>
+</div>
+
+<div class="card glassmorphism animate-on-scroll" style="text-align: center; padding: 3rem;">
+<h3 class="gradient-text" style="font-size: 1.875rem; font-weight: 700; margin-bottom: 1.5rem;">Ready to Join Our Success Stories?</h3>
+<p style="color: var(--muted-foreground); margin-bottom: 2rem; line-height: 1.6; opacity: 0.9;">
+	Start your journey with JE Tech Hub today and become part of our growing community of successful graduates.
+</p>
+<a href="#programs" class="btn-primary btn-lg">Get Started</a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="section">
+<div class="container">
+<div style="max-width: 72rem; margin: 0 auto;">
+<div class="animate-on-scroll" style="text-align: center; margin-bottom: 4rem;">
+<h2 class="section-title">We Are Always Ready For You</h2>
+<h3 style="font-size: 1.5rem; font-weight: 600; color: var(--muted-foreground); opacity: 0.8;">
+	Send Us A Message And We'll Get Back To You
+</h3>
+</div>
+
+<div class="grid grid-2 animate-on-scroll" style="align-items: flex-start;">
+<div class="card glassmorphism">
+	<div class="card-header">
+	<h3 class="card-title gradient-text">Get In Touch</h3>
+	<p class="card-description">
+		Have questions about our programs or services? We're here to help! Fill out the form and our team will respond promptly.
+	</p>
+	</div>
+	<form id="contact-form" onsubmit="handleFormSubmit(event)">
+	<div class="form-group">
+		<label class="form-label" for="fullName">Full Name *</label>
+		<input class="form-input" type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+	</div>
+	<div class="form-group">
+		<label class="form-label" for="email">Email Address *</label>
+		<input class="form-input" type="email" id="email" name="email" placeholder="Enter your email address" required>
+	</div>
+	<div class="form-group">
+		<label class="form-label" for="phone">Phone Number</label>
+		<input class="form-input" type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+	</div>
+	<div class="form-group">
+		<label class="form-label" for="subject">Subject</label>
+		<input class="form-input" type="text" id="subject" name="subject" placeholder="Enter message subject">
+	</div>
+	<div class="form-group">
+		<label class="form-label" for="message">Write Your Message *</label>
+		<textarea class="form-textarea" id="message" name="message" placeholder="Write your message here..." required></textarea>
+	</div>
+	<button type="submit" class="btn-primary" style="width: 100%;">📨 Submit Message</button>
+	</form>
+</div>
+
+<div>
+	<div class="animate-float" style="text-align: center; margin-bottom: 2rem;">
+	<img src="images/contact-support-BqxCtmjx.jpg" alt="Customer Support Representative" style="width: 100%; max-width: 24rem; border-radius: 20px; box-shadow: var(--shadow-glow); opacity: 0.95;">
+	</div>
+	<div class="card glassmorphism">
+	<p style="color: var(--muted-foreground); line-height: 1.6; opacity: 0.9;">
+		Whether you're interested in our training courses, delivery services, or need technical support, 
+		we're committed to providing you with exceptional service and support.
+	</p>
+	</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+<div class="container">
+<div class="footer-grid">
+<div class="animate-on-scroll">
+<h3>JE Tech Hub</h3>
+<p style="color: rgba(255, 255, 255, 0.8); line-height: 1.6; margin-bottom: 1rem; opacity: 0.9;">
+	Empowering individuals and businesses with cutting-edge tech solutions, 
+	training programs, and innovative services since 2024.
+</p>
+<div class="social-links">
+	<a href="#">📘</a>
+	<a href="#">🐦</a>
+	<a href="#">📷</a>
+	<a href="#">💼</a>
+</div>
+</div>
+
+<div class="animate-on-scroll">
+<h3>Quick Links</h3>
+<ul class="footer-links">
+	<li><a href="#home">Home</a></li>
+	<li><a href="#about">About Us</a></li>
+	<li><a href="#programs">Programs</a></li>
+	<li><a href="#contact">Contact</a></li>
+</ul>
+</div>
+
+<div class="animate-on-scroll">
+<h3>Training Programs</h3>
+<ul class="footer-links">
+	<li><a href="#">Software Development</a></li>
+	<li><a href="#">Graphics Design</a></li>
+	<li><a href="#">Data Analysis</a></li>
+	<li><a href="#">UI/UX Design</a></li>
+	<li><a href="#">Forex Trading</a></li>
+</ul>
+</div>
+
+<div class="animate-on-scroll">
+<h3>Contact Info</h3>
+<ul class="footer-links">
+	<li style="display: flex; align-items: flex-start; gap: 0.75rem;">
+	<span>📍</span>
+	<span>Lagos, Nigeria</span>
+	</li>
+	<li style="display: flex; align-items: center; gap: 0.75rem;">
+	<span>📞</span>
+	<span>+234 (0) 123 456 7890</span>
+	</li>
+	<li style="display: flex; align-items: center; gap: 0.75rem;">
+	<span>📧</span>
+	<span>info@jetechhub.com</span>
+	</li>
+	<li style="display: flex; align-items: flex-start; gap: 0.75rem;">
+	<span>🕒</span>
+	<div>
+		<p>Mon - Fri: 9:00 AM - 6:00 PM</p>
+		<p>Sat: 10:00 AM - 4:00 PM</p>
+	</div>
+	</li>
+</ul>
+</div>
+</div>
+
+<div class="footer-bottom">
+<p>© 2024 JE Tech Hub. All rights reserved. | Powered by JE Gadgets</p>
+<p style="margin-top: 0.5rem; color: rgba(255, 255, 255, 0.6);">
+Shaping the future of tech education and innovation
+</p>
+</div>
+</div>
+</footer>
+
+<!-- Toast Container -->
+<div id="toast" class="toast"></div>
+
+<script>
+// Programs Data
+const programs = [
+{
+id: 1,
+title: "Software Development",
+description: "Learn to build responsive and dynamic websites using modern technologies like HTML, CSS, JavaScript, and frameworks. Whether you want to create personal blogs, business websites, or complex web applications, our courses will equip you with the skills to succeed in the tech industry.",
+images: [
+"https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+"https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+],
+buttonText: "Learn More"
+},
+{
+id: 2,
+title: "Video Editing And Graphics Design",
+description: "Unleash your creativity by mastering both video editing and graphic design. Learn to transform raw footage into professional-quality videos using industry-standard software like Adobe Premiere Pro and DaVinci Resolve. At the same time, develop skills in graphic design with tools like Photoshop, Illustrator, and Canva.",
+images: [
+"https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+"https://images.unsplash.com/photo-1626785774625-0b1c2c4eab67?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+],
+buttonText: "Learn More"
+},
+{
+id: 3,
+title: "Data Analysis",
+description: "Turn data into insights and make data-driven decisions. Learn how to use tools like Excel, Python, SQL, and Power BI to analyze and visualize data, helping businesses and organizations optimize their performance.",
+images: [
+"https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+"https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+],
+buttonText: "Learn More"
+},
+{
+id: 4,
+title: "Forex Trading",
+description: "Discover how to trade the global financial markets and make informed investment decisions. Learn the fundamentals of forex trading, technical and fundamental analysis, risk management, and strategies to become a successful trader.",
+images: [
+"https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+"https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+],
+buttonText: "Learn More"
+},
+{
+id: 5,
+title: "UI/UX Design",
+description: "Master the art of creating user-friendly and visually appealing interfaces. Learn the principles of user experience (UX) and user interface (UI) design using tools like Figma and Adobe XD to craft intuitive and engaging digital experiences.",
+images: [
+"https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+"https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+],
+buttonText: "Learn More"
+},
+{
+id: 6,
+title: "Mobile Phones And Other Gadgets Sales & Repairs",
+description: "Top-Quality Gadgets, or reliable repair services? We offer a wide range of mobile devices, accessories and tech essentials at unbeatable prices. Whether you need a brand-new, high-performance gadget or expert repairs for your damaged device, we are ready to assist.",
+images: [
+"https://images.unsplash.com/photo-1512428813834-c702c7702b78?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+"https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+],
+buttonText: "Contact Us"
+}
+];
+
+// Header scroll effect
+window.addEventListener('scroll', () => {
+const header = document.getElementById('header');
+if (window.scrollY > 50) {
+header.classList.add('scrolled');
+} else {
+header.classList.remove('scrolled');
+}
+});
+
+// Scroll progress indicator
+window.addEventListener('scroll', () => {
+const scrollProgress = document.getElementById('scrollProgress');
+const scrollTop = window.pageYOffset;
+const docHeight = document.body.offsetHeight;
+const winHeight = window.innerHeight;
+const scrollPercent = scrollTop / (docHeight - winHeight);
+const scrollPercentRounded = Math.round(scrollPercent * 100);
+scrollProgress.style.width = scrollPercentRounded + '%';
+});
+
+// Mobile menu functionality
+const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+const mobileMenuClose = document.getElementById('mobileMenuClose');
+let mobileMenuOpen = false;
+
+function toggleMobileMenu() {
+mobileMenuOpen = !mobileMenuOpen;
+if (mobileMenuOpen) {
+mobileMenu.classList.add('active');
+mobileMenuBtn.innerHTML = '✕';
+} else {
+mobileMenu.classList.remove('active');
+mobileMenuBtn.innerHTML = '☰';
+}
+}
+
+mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+mobileMenuClose.addEventListener('click', toggleMobileMenu);
+
+// Close mobile menu when clicking on a link
+document.querySelectorAll('.mobile-nav-menu a').forEach(link => {
+link.addEventListener('click', () => {
+if (mobileMenuOpen) {
+toggleMobileMenu();
+}
+});
+});
+
+// Hero carousel functionality
+const slidesContainer = document.getElementById("slidesContainer");
+const slides = document.querySelectorAll(".slide");
+const prevBtn = document.querySelector(".prev-slide");
+const nextBtn = document.querySelector(".next-slide");
+let currentIndex = 0;
+
+function showSlide(index) {
+const width = slides[0].clientWidth;
+slidesContainer.style.transform = `translateX(-${width * index}px)`;
+}
+
+function nextSlide() {
+currentIndex = (currentIndex + 1) % slides.length;
+showSlide(currentIndex);
+}
+
+function prevSlide() {
+currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+showSlide(currentIndex);
+}
+
+prevBtn.addEventListener("click", prevSlide);
+nextBtn.addEventListener("click", nextSlide);
+
+// Auto slide every 6 seconds
+setInterval(nextSlide, 6000);
+
+// Program card functions
+function createProgramCard(program, index) {
+const isContactUs = program.buttonText === "Contact Us";
+const buttonClass = isContactUs ? "btn-outline" : "btn-primary";
+
+return `
+<div class="card program-card glassmorphism animate-on-scroll" style="animation-delay: ${index * 0.1}s;">
+<div class="program-image" id="program-${program.id}">
+	<img src="${program.images[0]}" alt="${program.title} - Image 1" id="program-img-${program.id}">
+	${program.images.length > 1 ? `
+	<button class="image-nav prev" onclick="prevProgramImage(${program.id})">‹</button>
+	<button class="image-nav next" onclick="nextProgramImage(${program.id})">›</button>
+	<div style="position: absolute; bottom: 1rem; left: 50%; transform: translateX(-50%); display: flex; gap: 0.5rem;">
+		${program.images.map((_, imgIndex) => `
+		<button 
+		class="indicator ${imgIndex === 0 ? 'active' : ''}" 
+		onclick="setProgramImage(${program.id}, ${imgIndex})"
+		id="indicator-${program.id}-${imgIndex}">
+		</button>
+		`).join('')}
+	</div>
+	` : ''}
+</div>
+<div class="card-header">
+	<h3 class="card-title gradient-text">${program.title}</h3>
+</div>
+<div>
+	<p class="card-description" style="margin-bottom: 1rem;">${program.description}</p>
+	<button class="btn ${buttonClass}" style="width: 100%;" onclick="handleProgramAction('${program.buttonText}')">
+	${isContactUs ? '<span>' + program.buttonText + '</span>' : program.buttonText}
+	</button>
+</div>
+</div>
+`;
+}
+
+function nextProgramImage(programId) {
+const program = programs.find(p => p.id === programId);
+const currentImg = document.getElementById(`program-img-${programId}`);
+const currentIndex = program.images.findIndex(img => currentImg.src.includes(img.split('/').pop()));
+const nextIndex = (currentIndex + 1) % program.images.length;
+
+currentImg.src = program.images[nextIndex];
+updateProgramIndicators(programId, nextIndex);
+}
+
+function prevProgramImage(programId) {
+const program = programs.find(p => p.id === programId);
+const currentImg = document.getElementById(`program-img-${programId}`);
+const currentIndex = program.images.findIndex(img => currentImg.src.includes(img.split('/').pop()));
+const prevIndex = (currentIndex - 1 + program.images.length) % program.images.length;
+
+currentImg.src = program.images[prevIndex];
+updateProgramIndicators(programId, prevIndex);
+}
+
+function setProgramImage(programId, imageIndex) {
+const program = programs.find(p => p.id === programId);
+const currentImg = document.getElementById(`program-img-${programId}`);
+
+currentImg.src = program.images[imageIndex];
+updateProgramIndicators(programId, imageIndex);
+}
+
+function updateProgramIndicators(programId, activeIndex) {
+const program = programs.find(p => p.id === programId);
+program.images.forEach((_, index) => {
+const indicator = document.getElementById(`indicator-${programId}-${index}`);
+if (indicator) {
+indicator.classList.toggle('active', index === activeIndex);
+}
+});
+}
+
+function handleProgramAction(buttonText) {
+if (buttonText === "Contact Us") {
+document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+} else {
+showToast('Program details coming soon!', 'success');
+}
+}
+
+// Form handling
+function handleFormSubmit(event) {
+event.preventDefault();
+
+const formData = new FormData(event.target);
+const fullName = formData.get('fullName');
+const email = formData.get('email');
+const message = formData.get('message');
+
+if (!fullName || !email || !message) {
+showToast('Please fill in all required fields.', 'error');
+return;
+}
+
+// Simulate form submission
+showToast('Thank you for your message. We\'ll get back to you soon!', 'success');
+
+// Reset form
+event.target.reset();
+}
+
+// Toast notification
+function showToast(message, type = 'success') {
+const toast = document.getElementById('toast');
+toast.textContent = message;
+toast.className = `toast ${type}`;
+
+// Show toast
+setTimeout(() => {
+toast.classList.add('show');
+}, 100);
+
+// Hide toast after 3 seconds
+setTimeout(() => {
+toast.classList.remove('show');
+}, 3100);
+}
+
+// Smooth scrolling for anchor links
+function setupSmoothScrolling() {
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchor.addEventListener('click', function (e) {
+e.preventDefault();
+const target = document.querySelector(this.getAttribute('href'));
+if (target) {
+	target.scrollIntoView({
+	behavior: 'smooth',
+	block: 'start'
+	});
+}
+});
+});
+}
+
+// Scroll animation
+function setupScrollAnimation() {
+const observerOptions = {
+threshold: 0.1,
+rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+	entry.target.classList.add('animate');
+}
+});
+}, observerOptions);
+
+document.querySelectorAll('.animate-on-scroll').forEach(el => {
+observer.observe(el);
+});
+}
+
+// Initialize everything
+document.addEventListener('DOMContentLoaded', function() {
+// Populate programs
+const programsGrid = document.getElementById('programs-grid');
+programsGrid.innerHTML = programs.map((program, index) => createProgramCard(program, index)).join('');
+
+// Setup smooth scrolling
+setupSmoothScrolling();
+
+// Setup scroll animations
+setupScrollAnimation();
+});
+
+// Handle responsive navigation
+window.addEventListener('resize', function() {
+if (window.innerWidth >= 768 && mobileMenuOpen) {
+toggleMobileMenu();
+}
+});
+</script>
 </body>
 </html>

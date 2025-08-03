@@ -288,6 +288,89 @@ export type Database = {
           },
         ]
       }
+      gadget_transactions: {
+        Row: {
+          amount: number | null
+          buyer_id: string | null
+          created_at: string
+          gadget_id: string | null
+          id: string
+          seller_id: string | null
+          status: string | null
+          transaction_type: string
+        }
+        Insert: {
+          amount?: number | null
+          buyer_id?: string | null
+          created_at?: string
+          gadget_id?: string | null
+          id?: string
+          seller_id?: string | null
+          status?: string | null
+          transaction_type: string
+        }
+        Update: {
+          amount?: number | null
+          buyer_id?: string | null
+          created_at?: string
+          gadget_id?: string | null
+          id?: string
+          seller_id?: string | null
+          status?: string | null
+          transaction_type?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "gadget_transactions_gadget_id_fkey"
+            columns: ["gadget_id"]
+            isOneToOne: false
+            referencedRelation: "gadgets"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      gadgets: {
+        Row: {
+          available: boolean | null
+          category: string
+          condition: string | null
+          created_at: string
+          description: string | null
+          id: string
+          image_url: string | null
+          name: string
+          price: number
+          seller_id: string | null
+          updated_at: string
+        }
+        Insert: {
+          available?: boolean | null
+          category: string
+          condition?: string | null
+          created_at?: string
+          description?: string | null
+          id?: string
+          image_url?: string | null
+          name: string
+          price: number
+          seller_id?: string | null
+          updated_at?: string
+        }
+        Update: {
+          available?: boolean | null
+          category?: string
+          condition?: string | null
+          created_at?: string
+          description?: string | null
+          id?: string
+          image_url?: string | null
+          name?: string
+          price?: number
+          seller_id?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
       notifications: {
         Row: {
           created_at: string
