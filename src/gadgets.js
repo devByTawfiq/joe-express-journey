@@ -127,10 +127,7 @@ function renderGadgets() {
                 <div class="d-flex gap-2">
                     ${gadget.seller_id !== currentUser.id ? `
                         <button class="btn btn-primary flex-fill" onclick="buyGadget('${gadget.id}')">
-                            <i class="fas fa-shopping-cart"></i> Buy Now
-                        </button>
-                        <button class="btn btn-success" onclick="swapGadget('${gadget.id}')">
-                            <i class="fas fa-exchange-alt"></i> Swap
+                            <i class="fab fa-whatsapp"></i> Buy via WhatsApp
                         </button>
                     ` : `
                         <button class="btn btn-outline-primary flex-fill" onclick="editGadget('${gadget.id}')">
@@ -219,36 +216,57 @@ function setupAddGadgetForm() {
     });
 }
 
-// Buy gadget function
+// Buy gadget function with WhatsApp redirect
 async function buyGadget(gadgetId) {
-    if (!confirm('Are you sure you want to buy this gadget?')) return;
-
     try {
         const gadget = gadgets.find(g => g.id === gadgetId);
+        if (!gadget) return;
+
+        // Get user profile for buyer details
+        const { data: buyerProfile } = await supabase
+            .from('profiles')
+            .select('full_name, phone')
+            .eq('id', currentUser.id)
+            .single();
+
+        // Get seller profile for contact
+        const { data: sellerProfile } = await supabase
+            .from('profiles')
+            .select('phone')
+            .eq('id', gadget.seller_id)
+            .single();
+
+        // Prepare WhatsApp message
+        const buyerName = buyerProfile?.full_name || currentUser.email;
+        const buyerPhone = buyerProfile?.phone || 'Not provided';
+        const sellerPhone = sellerProfile?.phone || '2348012345678'; // Default fallback
+
+        const message = `Hi! I'm interested in purchasing your ${gadget.name}.
+
+*Gadget Details:*
+- Name: ${gadget.name}
+- Price: ₦${formatPrice(gadget.price)}
+- Condition: ${gadget.condition.charAt(0).toUpperCase() + gadget.condition.slice(1)}
+- Category: ${gadget.category}
+
+*Buyer Details:*
+- Name: ${buyerName}
+- Email: ${currentUser.email}
+- Phone: ${buyerPhone}
+
+Please let me know if it's still available. Thank you!`;
+
+        // Create WhatsApp URL
+        const whatsappUrl = `https://wa.me/${sellerPhone.replace(/\D/g, '')}?text=${encodeURIComponent(message)}`;
         
-        const { data, error } = await supabase
-            .from('gadget_transactions')
-            .insert([{
-                gadget_id: gadgetId,
-                buyer_id: currentUser.id,
-                seller_id: gadget.seller_id,
-                transaction_type: 'buy',
-                amount: gadget.price
-            }]);
+        // Open WhatsApp
+        window.open(whatsappUrl, '_blank');
 
-        if (error) throw error;
-
-        // Mark gadget as unavailable
-        await supabase
-            .from('gadgets')
-            .update({ available: false })
-            .eq('id', gadgetId);
-
-        showNotification('Purchase request sent! The seller will be notified.', 'success');
-        await loadGadgets();
+        showNotification('Redirecting to WhatsApp to contact seller...', 'success');
+        
     } catch (error) {
         console.error('Buy gadget error:', error);
-        showNotification('Error processing purchase. Please try again.', 'error');
+        showNotification('Error processing request. Please try again.', 'error');
     }
 }
 
