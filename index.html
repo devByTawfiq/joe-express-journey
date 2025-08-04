@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="css/feature-notification.css" rel="stylesheet">
 
 
 <style>
@@ -1374,9 +1375,10 @@ text-decoration: none;
 
 <nav class="nav-menu" id="navMenu">
 <a href="index.html" class="nav-link">Home</a>
-<a href="gadgets.html" class="nav-link">JE Gadgets </a>
+<a href="gadgets.html" class="nav-link">JE Gadgets</a>
 <a href="aboutUs.html" class="nav-link">About</a>
 <a href="programs.html" class="nav-link">Programs</a>
+<a href="dashboard.html" class="nav-link">Dashboard</a>
 <a href="contactUs.html" class="nav-link">Contact</a>
 </nav>
 <button class="contact-btn"><a href="getStarted.html">Get Started</a></button>
@@ -2602,6 +2604,33 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+// Feature notification functionality
+function showFeatureNotification() {
+    const notification = document.createElement('div');
+    notification.className = 'feature-notification';
+    notification.innerHTML = `
+        <button class="close-btn" onclick="this.parentElement.remove()">&times;</button>
+        <h4>🎉 New Features Available!</h4>
+        <p>Check out the latest improvements:</p>
+        <ul class="feature-list">
+            <li><strong>About Us:</strong> Click services to apply</li>
+            <li><strong>Gadgets:</strong> Single WhatsApp buy button</li>
+            <li><strong>Dashboard:</strong> Faster loading & better UI</li>
+        </ul>
+    `;
+    
+    document.body.appendChild(notification);
+    
+    // Auto-remove after 10 seconds
+    setTimeout(() => {
+        if (notification.parentElement) {
+            notification.style.opacity = '0';
+            notification.style.transform = 'translateX(100%)';
+            setTimeout(() => notification.remove(), 500);
+        }
+    }, 10000);
+}
 
 </script>
 </body>
