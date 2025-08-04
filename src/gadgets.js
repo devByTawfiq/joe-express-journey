@@ -126,7 +126,7 @@ function renderGadgets() {
                 <p class="gadget-description">${gadget.description || 'No description available'}</p>
                 <div class="d-flex gap-2">
                     ${gadget.seller_id !== currentUser.id ? `
-                        <button class="btn btn-primary flex-fill" onclick="buyGadget('${gadget.id}')">
+                        <button class="btn btn-success flex-fill" onclick="buyGadget('${gadget.id}')">
                             <i class="fab fa-whatsapp"></i> Buy via WhatsApp
                         </button>
                     ` : `

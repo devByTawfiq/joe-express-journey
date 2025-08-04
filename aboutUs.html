@@ -4,7 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>JE Tech Hub - Technology Training & Services</title>
-<meta name="description" content="JE Tech Hub - a modern technology training and service center dedicated to empowering individuals and businesses with cutting-edge solutions.">
+    <meta name="description" content="JE Tech Hub - a modern technology training and service center dedicated to empowering individuals and businesses with cutting-edge solutions.">
+    
+    <!-- Performance optimizations -->
+    <link href="css/performance.css" rel="stylesheet">
+    <script src="https://unpkg.com/@supabase/supabase-js@2" defer></script>
 
 <!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1494,58 +1498,59 @@ Instagram
 </div>
 </footer>
 
+<script src="src/services.js"></script>
 <script>
 // Mobile menu toggle
 document.addEventListener('DOMContentLoaded', function() {
-const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-const mobileNav = document.getElementById('mobileNav');
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileNav = document.getElementById('mobileNav');
 
-if (mobileMenuBtn && mobileNav) {
-mobileMenuBtn.addEventListener('click', function() {
-mobileMenuBtn.classList.toggle('active');
-mobileNav.classList.toggle('show');
-});
-}
+    if (mobileMenuBtn && mobileNav) {
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileMenuBtn.classList.toggle('active');
+            mobileNav.classList.toggle('show');
+        });
+    }
 
-// Close mobile menu when clicking on nav links
-const mobileNavLinks = document.querySelectorAll('.nav-link-mobile');
-mobileNavLinks.forEach(link => {
-link.addEventListener('click', function() {
-mobileMenuBtn.classList.remove('active');
-mobileNav.classList.remove('show');
-});
-});
+    // Close mobile menu when clicking on nav links
+    const mobileNavLinks = document.querySelectorAll('.nav-link-mobile');
+    mobileNavLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            mobileMenuBtn.classList.remove('active');
+            mobileNav.classList.remove('show');
+        });
+    });
 });
 
 // Smooth scrolling function
 function scrollToSection(sectionId) {
-const element = document.getElementById(sectionId);
-if (element) {
-element.scrollIntoView({ 
-behavior: 'smooth',
-block: 'start'
-});
-}
+    const element = document.getElementById(sectionId);
+    if (element) {
+        element.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+        });
+    }
 }
 
 // Intersection Observer for animations
 const observerOptions = {
-threshold: 0.1,
-rootMargin: '0px 0px -50px 0px'
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
 };
 
 const observer = new IntersectionObserver(function(entries) {
-entries.forEach(entry => {
-if (entry.isIntersecting) {
-entry.target.classList.add('visible');
-}
-});
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
 }, observerOptions);
 
 // Observe all animated elements
 document.addEventListener('DOMContentLoaded', function() {
-const animatedElements = document.querySelectorAll('.animate-fade-in, .animate-slide-in');
-animatedElements.forEach(el => observer.observe(el));
+    const animatedElements = document.querySelectorAll('.animate-fade-in, .animate-slide-in');
+    animatedElements.forEach(el => observer.observe(el));
 });
 </script>
 </body>
